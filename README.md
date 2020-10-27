@@ -6,11 +6,11 @@
 ### V2.0.0
 
 **update content**
-1.Added internal logic waterfall and continuous display\n
-2.Added "kochava" and "tenjin" statistics
-3.Change the SDK initialization interface used by Unity. see: JC_unityAdApi.h
-4.Change the log log interface, increase the log level.  see: JCAdCallBackHeader.h
-5.Change JCiOSConfig.plist, add: "KochavaAppID", "TenJinAppID", "ShowSplashFirst", "LogLevel"
+1.Added internal logic waterfall and continuous display  
+2.Added "kochava" and "tenjin" statistics  
+3.Change the SDK initialization interface used by Unity. see: JC_unityAdApi.h  
+4.Change the log log interface, increase the log level.  see: JCAdCallBackHeader.h  
+5.Change JCiOSConfig.plist, add: "KochavaAppID", "TenJinAppID", "ShowSplashFirst", "LogLevel"  
 
 **Project configuration：**
 add Support:
