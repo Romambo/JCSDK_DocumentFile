@@ -6,7 +6,7 @@
 ### V2.0.0
 
 **update content**
-1.Added internal logic waterfall and continuous display
+1.Added internal logic waterfall and continuous display\n
 2.Added "kochava" and "tenjin" statistics
 3.Change the SDK initialization interface used by Unity. see: JC_unityAdApi.h
 4.Change the log log interface, increase the log level.  see: JCAdCallBackHeader.h
