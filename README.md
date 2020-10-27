@@ -15,12 +15,12 @@
  5.Change JCiOSConfig.plist, add: "KochavaAppID", "TenJinAppID", "ShowSplashFirst", "LogLevel"  
 
 **Project configuration：**  
- add Support Library and file:  
-   AppTrackingTransparency.framework  
-   KochavaCore.framework               (Embed & Sign)  
-   KochavaTracker.framework            (Embed & Sign)  
-   KochavaAdNetwork.framework          (Embed & Sign)  
-   libTenjinSDK.a  
-   TenjinSDK.h  
+*add Support Library and file:  
+>AppTrackingTransparency.framework  
+>KochavaCore.framework               (Embed & Sign)  
+>KochavaTracker.framework            (Embed & Sign)  
+>KochavaAdNetwork.framework          (Embed & Sign)  
+>libTenjinSDK.a  
+>TenjinSDK.h  
 
 
