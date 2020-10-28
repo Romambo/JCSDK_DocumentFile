@@ -6,14 +6,14 @@
 <details>
 <summary>1.0.0</summary>
 
-支持开发者工具: Xcode 11
+支持开发者工具: Xcode 11  
 系统版本:iOS 9.0
 </details>
  
 <details>
 <summary>2.0.0</summary>
 
-支持开发者工具: Xcode 12
+支持开发者工具: Xcode 12  
 系统版本:iOS 9.0
 
 **更新内容**  
@@ -59,13 +59,16 @@
 <details>
 <summary>1.0.0</summary>
 
-support development tools: Xcode 11
+support development tools: Xcode 11  
+system version:iOS 9.0
 </details>
  
 <details>
 <summary>2.0.0</summary>
 
 support development tools: Xcode 12  
+system version:iOS 9.0
+
 **update content**  
 >1.Added internal logic waterfall and continuous display  
 >2.Added "kochava" and "tenjin" statistics  
