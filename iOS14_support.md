@@ -24,7 +24,7 @@
 
 ### 如何支持iOS 14 
 <details>
-<summary><font color=green>使用用户权限获取IDFA</font></summary>
+<summary><mark><font color=green>使用用户权限获取IDFA</font></mark></summary>
  
 > 添加系统支持库：  
 AppTrackingTransparency.framework  
