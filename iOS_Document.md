@@ -74,12 +74,12 @@
    V1.0.0 提供  
    [图片1]    
    V2.0.0 新增  
-   | Item      | Value |  
-   | --------- | -----:|  
-   | KochavaAppID  | kochava初始化所需的appid |   
-   | TenJinAppID  | kochava初始化所需的appid |  
-   | ShowSplashFirst  | kochava初始化所需的appid |  
-   | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |  
+   | Item      | Value |
+   | --------- | -----:|
+   | KochavaAppID  | kochava初始化所需的appid |
+   | TenJinAppID  | kochava初始化所需的appid |
+   | ShowSplashFirst  | kochava初始化所需的appid |
+   | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
    
 - SDK相关Api:  
 
