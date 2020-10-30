@@ -1,4 +1,5 @@
 [版本记录]: https://developer.apple.com/documentation/apptrackingtransparency?language=objc  
+[version]: https://developer.apple.com/documentation/apptrackingtransparency?language=objc  
 [iOS14 support]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/iOS14_support.md 
 [JCSDK]: https://github.com/Romambo/JCSDK  
 [DataCollenction_SDK]: https://github.com/Romambo/DataCollection_SDK  
@@ -249,7 +250,7 @@
    1. Support ad types：  
    splash ads、banner ads、rewardVideo ads、inter ads、native ads  
    2. Version record：  
-   see [版本记录]  
+   see [version]  
  
 - **SDK Access configuration:**  
 
