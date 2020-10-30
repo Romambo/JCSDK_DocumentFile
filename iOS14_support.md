@@ -17,14 +17,14 @@
 ## 中文版本
 
 <details>
-<summary><big>中文版本</big></summary>
+<summary>中文版本</summary>
 
-### 概述  
+#### 概述  
 从iOS 14开始，只有在获得用户明确许可的前提下，应用才可以访问用户的IDFA数据并向用户投放定向广告。在应用程序调用[App Tracking Transparency]框架向最终用户提出应用程序跟踪授权请求之前，IDFA将不可用。如果某个应用未提出此请求，则读取到的IDFA将返回全为0的字符串。本指南将介绍iOS 14支持所需的更改。
 
-### 如何支持iOS 14 
+#### 如何支持iOS 14 
 <details>
-<summary><mark><font color=gray size=20>使用用户权限获取IDFA</font></mark></summary>
+<summary><b>使用用户权限获取IDFA</b></summary>
  
 > 添加系统支持库：  
 AppTrackingTransparency.framework  
@@ -100,7 +100,7 @@ AppTrackingTransparency.framework
 ```
 </details>
 <details>
-<summary>使用SKAdNetwork跟踪转化：</summary>
+<summary><b>使用SKAdNetwork跟踪转化：</b></summary>
    
 使用Apple的转化跟踪SKAdNetwork，这意味着即使IDFA不可用，广告平台也可以通过这个获取应用安装归因。请参阅Apple的[SKAdNetwork]文档，以了解更多信息。  
 > 要启用此功能，您需要在info.plist中添加SKAdNetworkItems。目前JCSDK版本兼容的三方广告平台中，支持iOS 14的平台如下。开发者根据集成的情况，可分别添加对应平台的SKAdNetwork标识符,现在支持的平台有：Google Admob、穿山甲（Pangle）、IronSource、UnityAds、ADColony、Mintegral、Sigmob、Maio、Vungle  
