@@ -1,4 +1,4 @@
-  
+[ios_unity_bridge]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/IOS_UnityBridge.zip
 [iOS14 support]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/iOS14_support.md 
 [JCSDK]: https://github.com/Romambo/JCSDK  
 [DataCollenction_SDK]: https://github.com/Romambo/DataCollection_SDK  
@@ -74,7 +74,7 @@
   <details>
    <summary>content</summary>
   
-    以下是导出Xcode所需的配置，但我们提供了桥接文件和配置文件，来自动集成一些配置，请查看参考使用：  
+    以下是导出Xcode所需的配置，但我们提供了桥接文件和配置文件:[ios_unity_bridge]，来自动集成一些配置，请查看参考使用：  
     ![图片1]
   
    1. SDK库和所需支持库：  
@@ -380,7 +380,7 @@
 <details>
 <summary>Detailed documentation</summary>
  
-- **SDK简介：**  
+- **SDK Introduction：**  
   JCSDK is a set of advertising SDK provided by MS. It integrates the advertising SDKs of major advertisers and related data statistics SDKs to facilitate the joint operation and data analysis of in-app advertising between platforms.  
    1. support ads：  
       splash ads、banner ads、rewardVideo ads、inter ads、native ads   
@@ -440,7 +440,7 @@
   <details>
    <summary>content</summary>
   
-    The following are the configurations required to export Xcode, but we provide bridge files and configuration files to automatically integrate some configurations, please check the reference usage:  
+    The following are the configurations required to export Xcode, but we provide bridge files and configuration files to automatically integrate some configurations:[ios_unity_bridge], please check the reference usage:  
     ![图片1]
   
    1. SDK library and required support library：  
@@ -690,48 +690,48 @@
           var fp18 = Marshal.GetFunctionPointerForDelegate(handler18);
           Intersitial_CallBack(fp11, fp12, fp13, fp14, fp15, fp16, fp17, fp18);
 
-      //插屏回调
+      // inter callback
       [MonoPInvokeCallback(typeof(ResultHandler))]
       static void interEndPlayingVideo(string resultString)
       {
-          Debug.Log("插屏回调----->interEndPlayingVideo");
+          Debug.Log("inter callback----->interEndPlayingVideo");
       }
       [MonoPInvokeCallback(typeof(ResultHandler))]
       static void interStartPlayingVideo(string resultString)
       {
-          Debug.Log("插屏回调----->interStartPlayingVideo");
+          Debug.Log("inter callback----->interStartPlayingVideo");
       }
       [MonoPInvokeCallback(typeof(ResultHandler))]
       static void interFailToPlayVideo(string resultString)
       {
-          Debug.Log("插屏回调----->interFailToPlayVideo");
+          Debug.Log("inter callback----->interFailToPlayVideo");
       }
       [MonoPInvokeCallback(typeof(ResultHandler))]
       static void interDidClick(string resultString)
       {
-          Debug.Log("插屏回调----->interDidClick");
+          Debug.Log("inter callback----->interDidClick");
       }
       [MonoPInvokeCallback(typeof(ResultHandler))]
       static void interDidClose(string resultString)
       {
-          Debug.Log("插屏回调----->interDidClose");
+          Debug.Log("inter callback----->interDidClose");
       }
       [MonoPInvokeCallback(typeof(ResultHandler))]
       static void interFailtoShow(string resultString)
       {
-          Debug.Log("插屏回调----->interFailtoShow");
+          Debug.Log("inter callback----->interFailtoShow");
       }
 
       [MonoPInvokeCallback(typeof(ResultHandler))]
       static void interDidShow(string resultString)
       {
-          Debug.Log("插屏回调----->interDidShow");
+          Debug.Log("inter callback----->interDidShow");
       }
 
       [MonoPInvokeCallback(typeof(ResultHandler))]
       static void interFailLoad(string resultString)
       {
-          Debug.Log("插屏回调----->interFailLoad");
+          Debug.Log("inter callback----->interFailLoad");
       }
 
     ```
