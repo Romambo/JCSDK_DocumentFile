@@ -241,9 +241,234 @@
  
  ### English version
  
- <details>
-<summary>Detailed description</summary>
+<details>
+<summary>Detailed documentation</summary>
+ 
+- **SDK Introduction：**  
+ JCSDK is a set of advertising SDK provided by MS. It integrates the advertising SDKs of major advertisers and related data statistics SDKs to facilitate the joint operation and data analysis of in-app advertising between platforms.  
+   1. Support ad types：  
+   splash ads、banner ads、rewardVideo ads、inter ads、native ads  
+   2. Version record：  
+   see [版本记录]  
+ 
+- **SDK Access configuration:**  
 
+   <details>
+   <summary>content</summary>
+
+   1. SDK library and required support library：  
+    [JCSDK]  
+    [DataCollenction_SDK]  
+    [ADThirdParty_SDK]  
+   
+   2. info.pist configuration：
+   ```
+   Support http network configuration
+   <key>NSAppTransportSecurity</key>
+   <dict>
+   <key>NSAllowsArbitraryLoads</key>
+   <true/>
+   </dict>
+
+   Google configuration
+   <key>GADApplicationIdentifier</key>
+   <string>ca-app-pub-9488501426181082/7319780494</string>
+   ```
+   3. build setting configuration：  
+    "bitcode" set "NO"  
+    "other Linker Flags" set "-ObjC"  
+   
+   4. iOS14 support：  
+    see [iOS14 support] document.  
+   
+   5. Import system support library：  
+   
+    Accelerate.framework  
+    AdSupport.framework  
+    AVFoundation.framework  
+    CoreGraphics.framework  
+    CoreLocation.framework  
+    CoreMedia.framework  
+    CoreMotion.framework  
+    CoreTelephony.framework  
+    iAd.framework  
+    MessageUI.framework  
+    SafariServices.framework  
+    Security.framework  
+    SystemConfiguration.framework  
+    UIKit.framework  
+    VideoToolbox.framework  
+    WebKit.framework  
+    AppTrackingTransparency.framework  
+    libbz2.tbd  
+    libc++.tbd  
+    libresolv.9.tbd  
+    libsqlite3.tbd  
+    libxml2.tbd  
+    libz.tbd  
+   
+   6. JCiOSConfig.plist Parameter Description：  
+    V1.0.0 add  
+    
+    | Item      | Value |
+    | --------- | -----:|
+    | appid  | Appid required for JCSDK initialization |
+    | channelid  | ChannelId required for JCSDK initialization |
+    | ReYunAppID  | Appid required for reyun initialization |
+    | ReYunChannelID  | channelId required for reyun initialization |   
+    | UmengAppID  | Appid required for UMeng initialization |
+    | ShuShuAppID  | Appid required for 数数 initialization |
+    | TalkingDataAppID  | Appid required for TalkingData initialization |   
+    
+    V2.0.0 add  
+   
+    | Item      | Value |
+    | --------- | -----:|
+    | KochavaAppID  | Appid required for Kochava initialization |
+    | TenJinAppID  | Appid required for tenjin initialization |
+    | ShowSplashFirst  | Whether to display an open-screen ad when opening the app for the first time，bool type: YES/NO |
+    | LogLevel  | Log level: string type. 1. Close. 2. Open JC log. 3. Open JC+ad log. 4. Open JC+ad+data log |
+   </details>
+   
+- **SDK Api:**
+   <details>
+   <summary>content</summary>
+
+   If there is a conflict between the API in the document and the API in the framework, please refer to the API in the framework.  
+   
+   1. header：
+   #import <JCSDK/JCSDK.h>  
+   
+   2. init SDK：  
+   ```
+   //If appid and channelid are configured in JCiOSConfig.plist, they can be passed empty. 
+   //isOpenInBody: Whether to open the body configuration (old interface parameters). After 2.0.0, YES must be passed in, otherwise there will be no advertising space
+   +(void)jcSDKInitConfigWithAppId:(NSString*)appId channelId:(NSString*)channelId isOpenInBody:(BOOL)isOpenInBody block:(void(^)(BOOL isOk))block;
+   ```
+   
+   3. splash api：    
+   ```
+   //Open the screen, splash be called after the window is loaded
+   [JC_iOSAdApi loadSplashView];
+   ```
+   
+   4. banner api：  
+   ```
+   //Recommendation: First call load to "warm up" the ad space, and judge whether isReady is YES before displaying. Please design the calling scene by yourself. The api is best not to be continuous, so as not to load the data in time
+   [JC_iOSAdApi loadBannerConfig];
+
+   BOOL isReady = [JC_iOSAdApi bannerIsReady]
+   //con Just pass in the current controller
+   [JC_iOSAdApi showBannerViewWithCon:con];
+   ```
+   
+   5. Intersitial api：  
+   ```
+   ///Recommended calling sequence load-isReady-show-isReady-show (The automatic loading of interstitial resources is used inside the SDK, and the load interface only needs to be called once for external use)
+   [JC_iOSAdApi loadIntersitialConfig];
+
+   BOOL isReady = [JC_iOSAdApi intersitialIsReady]
+
+   [JC_iOSAdApi showIntersitialView];
+   ```
+   
+   6. RewardView api：  
+   ```
+   //Recommended calling sequence load-isReady-show-isReady-show (The function of automatically loading incentive video resources is used inside the SDK, and the load interface only needs to be called once for external use)
+   [JC_iOSAdApi loadRewardConfig];
+   BOOL isReady = [JC_iOSAdApi rewardVIsReady]
+   [JC_iOSAdApi showRewardView];
+   ```
+   
+   7. native api：  
+   ```
+   //Native does not have a buffer pool. Call load every time you use it, and then display it after judging isReady. The show method has a return value, which returns the ad view generated according to config 
+   //JCNativeConfig is the configuration class of native display ad slots. Please configure it completely, otherwise it may cause abnormal loading of the view. Please load the returned view to the view that needs to be displayed
+   
+   //size：Please be the same size as the displayed native view to avoid incomplete loading
+   [JC_iOSAdApi loadNativeConfigSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 350)]; 
+
+   BOOL isReady = [JC_iOSAdApi nativeIsReady]
+
+   JCNativeConfig *config = [[JCNativeConfig alloc]init];
+   config.ADFrame = CGRectMake(.0f, 200.0f, CGRectGetWidth(self.view.bounds), 350.0f);
+   config.mediaViewFrame = CGRectMake(0, 120.0f, CGRectGetWidth(self.view.bounds), 350.0f - 120.0f);
+   config.renderingViewClass = [[[CustomView alloc]init] class];
+   config.rootViewController = self;
+   UIView *adview = [JC_iOSAdApi showNativeConfigWithConfig:config];
+   // add adview to superView
+   ```
+   
+   8. ad callbcak api：  
+   ```
+   //The following is an example of using the callback api of the splash advertisement. For other advertisement callbacks, please use it yourself. The key for callback monitoring. Please refer to the "JCAdCallBackHeader.h" class for related status types and callback parameter descriptions. Please select the required callback status and parameters for monitoring and use
+   
+   [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(msAdLoadCallBack:) name:MSSplashADKey object:nil];
+
+   -(void)msAdLoadCallBack:(NSNotification*)noti{
+       NSLog(@"%@",noti.userInfo);
+       NSInteger code = [noti.userInfo[@"status"] integerValue];
+       switch (code) {
+           case MSAd_splashDidShow:
+           {
+               NSLog(@"MSAd_splashDidShow");
+           }
+               break;
+
+           default:
+               break;
+       }
+   }
+   ```
+   
+   9. about GDPR： 
+   ```
+   /// Determine if it is EU territory API
+   /// @param block callback isEU? YES / NO
+   +(void)getLocationIsEU:(void(^)(BOOL isEU))block;
+
+   /// the GDPR interface API
+   /// @param dismissblock close Interface callback
+   /// @param failBlock show Fail callback
+   +(void)jcSDKShowGDPRWithDismissblock:(void(^)(void))dismissblock loadFailblock:(void(^)(NSError *error))failBlock;
+   ```
+   </details>
+
+
+- **Common error handling:**
+ 
+  <details>
+  <summary>content</summary>
+
+  1. If you use KSAdSDK, when you package and upload AppStore, Apple does not support the emulator-related support binary, you can add the following script to delete the emulator-related binary content.  
+  
+    `APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"`  
+    `find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK`  
+    `do`  
+    ` FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)`  
+    ` FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"`  
+    ` echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"`  
+    ` EXTRACTED_ARCHS=()`  
+    ` for ARCH in $ARCHS`  
+    ` do`  
+    `     echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"`  
+    `     lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"`  
+    `     EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")`  
+    ` done`  
+    ` echo "Merging extracted architectures: ${ARCHS}"`  
+    ` lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "${EXTRACTED_ARCHS[@]}"`  
+    ` rm "${EXTRACTED_ARCHS[@]}"`  
+    ` echo "Replacing original executable with thinned version"`  
+    ` rm "$FRAMEWORK_EXECUTABLE_PATH"`  
+    ` mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"`  
+    ` done`  
+  
+  ![图片2]
+
+  </details>
+
+  
+  
 
 </details>
 
