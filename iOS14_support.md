@@ -367,7 +367,20 @@ AppTrackingTransparency.framework
 </array> 
 ```
 </details>
+<details>
+<summary>Maio</summary>
 
+请参阅 [Maio] 文档，以了解更多信息  
+```
+<key>SKAdNetworkItems</key>
+<array>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>V4NXQHLYQP.skadnetwork</string>
+    </dict>
+</array> 
+```
+</details>
 
 </details>
  
