@@ -1,10 +1,10 @@
-[版本记录]: (https://developer.apple.com/documentation/apptrackingtransparency?language=objc)  
-[iOS14 support]: (https://github.com/Romambo/JCSDK_DocumentFile/blob/main/iOS14_support.md) 
-[JCSDK]: (https://github.com/Romambo/JCSDK)  
-[DataCollenction_SDK]: (https://github.com/Romambo/DataCollection_SDK)  
-[ADThirdParty_SDK]: (https://github.com/Romambo/ADThirdParty_SDK)  
-[图片1]: (https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image1.png)
-[图片2]:(https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image2.png)
+[版本记录]: https://developer.apple.com/documentation/apptrackingtransparency?language=objc  
+[iOS14 support]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/iOS14_support.md 
+[JCSDK]: https://github.com/Romambo/JCSDK  
+[DataCollenction_SDK]: https://github.com/Romambo/DataCollection_SDK  
+[ADThirdParty_SDK]: https://github.com/Romambo/ADThirdParty_SDK  
+[图片1]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image1.png
+[图片2]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image2.png
 
 # JCSDK ios support document
 
@@ -41,53 +41,53 @@
    <string>ca-app-pub-9488501426181082/7319780494</string>
    ```
    3. build setting 配置：  
-   bitcode 设置为NO  
-   other Linker Flags 设置 -ObjC  
+    bitcode 设置为NO  
+    other Linker Flags 设置 -ObjC  
    
    4. iOS14 支持：  
-   详情见 [iOS14 support] 说明文档.  
+    详情见 [iOS14 support] 说明文档.  
    
    5. 导入系统支持库：  
-   Accelerate.framework  
-   AdSupport.framework  
-   AVFoundation.framework  
-   CoreGraphics.framework  
-   CoreLocation.framework  
-   CoreMedia.framework  
-   CoreMotion.framework  
-   CoreTelephony.framework  
-   iAd.framework  
-   MessageUI.framework  
-   SafariServices.framework  
-   Security.framework  
-   SystemConfiguration.framework  
-   UIKit.framework  
-   VideoToolbox.framework  
-   WebKit.framework  
-   AppTrackingTransparency.framework  
-   libbz2.tbd  
-   libc++.tbd  
-   libresolv.9.tbd  
-   libsqlite3.tbd  
-   libxml2.tbd  
-   libz.tbd  
+    Accelerate.framework  
+    AdSupport.framework  
+    AVFoundation.framework  
+    CoreGraphics.framework  
+    CoreLocation.framework  
+    CoreMedia.framework  
+    CoreMotion.framework  
+    CoreTelephony.framework  
+    iAd.framework  
+    MessageUI.framework  
+    SafariServices.framework  
+    Security.framework  
+    SystemConfiguration.framework  
+    UIKit.framework  
+    VideoToolbox.framework  
+    WebKit.framework  
+    AppTrackingTransparency.framework  
+    libbz2.tbd  
+    libc++.tbd  
+    libresolv.9.tbd  
+    libsqlite3.tbd  
+    libxml2.tbd  
+    libz.tbd  
    
    6. JCiOSConfig.plist 参数说明：  
-   V1.0.0 提供  
-   [图片1]    
-   V2.0.0 新增  
+    V1.0.0 提供  
+    [图片1]    
+    V2.0.0 新增  
    
-   | Item      | Value |
-   | --------- | -----:|
-   | KochavaAppID  | kochava初始化所需的appid |
-   | TenJinAppID  | tenjin初始化所需的appid |
-   | ShowSplashFirst  | 首次打开应用是否展示开屏广告，bool类型 YES/NO |
-   | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
+    | Item      | Value |
+    | --------- | -----:|
+    | KochavaAppID  | kochava初始化所需的appid |
+    | TenJinAppID  | tenjin初始化所需的appid |
+    | ShowSplashFirst  | 首次打开应用是否展示开屏广告，bool类型 YES/NO |
+    | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
    
    
    
 - SDK相关Api:  
-如果文档内API和framework内API有冲突，请以framework内API为准。  
+   如果文档内API和framework内API有冲突，请以framework内API为准。  
    1. 头文件：
    #import <JCSDK/JCSDK.h>  
    
@@ -171,15 +171,16 @@
    }
    ```
    
-   9. 关于欧盟地区展示GDPR：  
+   9. 关于欧盟地区展示GDPR： 
+   
    ```
    ///欧盟地区需要向用户展示GDPR权限获取说明：
    [JC_iOSAdApi getLocationIsEU:^(BOOL isEU) {//判断是否是欧盟地区
-        if (isEU) {//欧盟地区，展示GDPR权限界面
-            [JC_iOSAdApi jcSDKShowGDPRWithDismissblock:^{
-                
+      if (isEU) {//欧盟地区，展示GDPR权限界面
+        [JC_iOSAdApi jcSDKShowGDPRWithDismissblock:^{ 
+        
             } loadFailblock:^(NSError * _Nonnull error) {
-                
+  
             }];
         }else{
             
