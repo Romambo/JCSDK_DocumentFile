@@ -1,395 +1,95 @@
-[App Tracking Transparency]: https://developer.apple.com/documentation/apptrackingtransparency?language=objc  
-[requestTrackingAuthorizationWithCompletionHandler:]: https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/3547037-requesttrackingauthorization  
-[SKAdNetwork]: https://developer.apple.com/documentation/storekit/skadnetwork  
-[Google]: https://developers.google.com/admob/ios/ios14  
-[穿山甲(Pangle)]: https://ad.oceanengine.com/union/media/union/download  
-[IronSource]: https://developers.ironsrc.com/ironsource-mobile/ios/ironsource-sdk7-update-guide/  
-[UnityAds]: https://unityads.unity3d.com/help/ios/integration-guide-ios  
-[AdColony]: https://github.com/AdColony/AdColony-iOS-SDK/wiki/Project-Setup#step-4-configuring-ad-networks  
-[Mintegral]: http://cdn-adn.rayjump.com/cdn-adn/v2/markdown_v2/index.html?file=sdk-m_sdk-ios&lang=cn  
-[Sigmob]: http://docs.sigmob.cn/#/sdk/SDK%E6%8E%A5%E5%85%A5/ios/?id=ios14%e7%9b%b8%e5%85%b3%e6%94%af%e6%8c%81  
-[Maio]: https://github.com/imobile-maio/maio-iOS-SDK  
-[Vungle]: https://support.vungle.com/hc/zh-cn/articles/360002925791  
+[版本记录]: https://developer.apple.com/documentation/apptrackingtransparency?language=objc  
+[iOS14 support]: 
+[JCSDK]  
+[DataCollenction_SDK]  
+[ADThirdParty_SDK]  
 
-
-# iOS 14 Support
+# JCSDK ios support document
 
 ### 中文版本
 
 <details>
-<summary>详细说明</summary>
-
-#### 概述  
-从iOS 14开始，只有在获得用户明确许可的前提下，应用才可以访问用户的IDFA数据并向用户投放定向广告。在应用程序调用[App Tracking Transparency]框架向最终用户提出应用程序跟踪授权请求之前，IDFA将不可用。如果某个应用未提出此请求，则读取到的IDFA将返回全为0的字符串。本指南将介绍iOS 14支持所需的更改。
-
-* 如何支持iOS 14 
-<details>
-<summary><b>使用用户权限获取IDFA</b></summary>
+<summary>详细文档</summary>
  
-> 添加系统支持库：  
-```
-AppTrackingTransparency.framework
-```
-> 在info.plist文件里添加获取IDFA权限描述：  
-```
-<key>NSUserTrackingUsageDescription</key> 
-<string>This identifier will be used to deliver personalized ads to you.</string>
-```
-![image1](https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios14_image1.png)  
-> 获取App Tracking Transparency权限：  
-想要获取授权，需要使[requestTrackingAuthorizationWithCompletionHandler:],我们建议您在初始化JCSDK之前获取授权，以便如果用户授予允许跟踪权限，JCSDK则可以在广告请求中使用IDFA.  
-```
-引入头文件
-#import <AppTrackingTransparency/AppTrackingTransparency.h>
-```
-如果你是iOS开发者，应参照下面初始化方式
-```
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[ViewController alloc]init];
-    [self.window makeKeyAndVisible];
-    if (@available(iOS 14, *)) {
-        //iOS 14
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-           // 初始化/init JCSDK
-            [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
-                
-            }];
-        }];
-    } else {
-        // 初始化/init JCSDK
-        [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
-            
-        }];
-    }
-```
-如果你是unity开发者，在UnityAppController.mm中实现，应参照下面初始化方式：  
-找到unity入口 ：替换掉startUnity: 并调用JCSDK的初始化方法，待sdk初始化回调后，再启动startUnity:
-```
-//[self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-[self performSelector: @selector(initSDKWithApplication:) withObject: application afterDelay: 0];
-```
-```
--(void)initSDKWithApplication:(UIApplication*)application{
-    if (@available(iOS 14, *)) {
-        //iOS 14 系统IDFA权限弹框
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            
-            //1.0.0初始化接口
-            //[[JC_unityAdApi getInstance]initJCSDKWithLog:YES isFirstShowSplash:NO splashClose:^(BOOL isOk) {
-            //    [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-            //}];
-            //2.0.0初始化接口
-            [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
-                [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-            }];
-            //to do something，like preloading
-        }];
-    } else {
-        
-        //1.0.0初始化接口
-        //[[JC_unityAdApi getInstance]initJCSDKWithLog:YES isFirstShowSplash:NO splashClose:^(BOOL isOk) {
-        //    [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-        //}];
-        //2.0.0初始化接口
-        [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
-            [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-        }];
-    }
-}
-```
-</details>
-<details>
-<summary><b>使用SKAdNetwork跟踪转化：</b></summary>
+- **SDK简介：**  
+ JCSDK是MS公司提供的一套广告类型的SDK，内部集成了各大广告商的广告SDK和相关数据统计SDK，便于平台之间对应用内广告的联合运营和数据分析。  
+   1. 支持广告类型：  
+   开屏广告、banner广告、激励视频广告、插屏广告、native广告  
+   2. 版本记录：  
+   请参阅 [版本记录]  
+ 
+- **SDK接入配置:**  
+
+   1. SDK库和所需支持库：  
+   [JCSDK]  
+   [DataCollenction_SDK]  
+   [ADThirdParty_SDK]  
    
-使用Apple的转化跟踪SKAdNetwork，这意味着即使IDFA不可用，广告平台也可以通过这个获取应用安装归因。请参阅Apple的[SKAdNetwork]文档，以了解更多信息。  
-> 要启用此功能，您需要在info.plist中添加SKAdNetworkItems。目前JCSDK版本兼容的三方广告平台中，支持iOS 14的平台如下。开发者根据集成的情况，可分别添加对应平台的SKAdNetwork标识符,现在支持的平台有：Google Admob、穿山甲（Pangle）、IronSource、UnityAds、ADColony、Mintegral、Sigmob、Maio、Vungle  
-<details>
-<summary>Google Admob</summary>
+   2. info.pist 配置：
+   ```
+   支持http网络配置
+   <key>NSAppTransportSecurity</key>
+   <dict>
+   <key>NSAllowsArbitraryLoads</key>
+   <true/>
+   </dict>
 
-请参阅 [Google] 文档，以了解更多信息  
-```
-在info.plist中添加SKAdNetworkItems
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-      <key>SKAdNetworkIdentifier</key>
-      <string>cstr6suwn9.skadnetwork</string>
-    </dict>
-</array>
-```
-</details>
+   Google相关参数配置
+   <key>GADApplicationIdentifier</key>
+   <string>ca-app-pub-9488501426181082/7319780494</string>
+   ```
+   3. build setting 配置：  
+   bitcode 设置为NO  
+   other Linker Flags 设置 -ObjC  
+   
+   4. iOS14 支持：  
+   详情见 [iOS14 support] 说明文档.  
+   
+   5. 导入系统支持库：  
+   Accelerate.framework  
+   AdSupport.framework  
+   AVFoundation.framework  
+   CoreGraphics.framework  
+   CoreLocation.framework  
+   CoreMedia.framework  
+   CoreMotion.framework  
+   CoreTelephony.framework  
+   iAd.framework  
+   MessageUI.framework  
+   SafariServices.framework  
+   Security.framework  
+   SystemConfiguration.framework  
+   UIKit.framework  
+   VideoToolbox.framework  
+   WebKit.framework  
+   AppTrackingTransparency.framework  
+   libbz2.tbd  
+   libc++.tbd  
+   libresolv.9.tbd  
+   libsqlite3.tbd  
+   libxml2.tbd  
+   libz.tbd  
+   
+   6. JCiOSConfig.plist 参数说明：  
+   V1.0.0 提供  
+   [图片1]    
+   V2.0.0 新增  
+   | First Header  | Second Header |
+   | ------------- | ------------- |
+   | Content Cell  | Content Cell  |
+   | Content Cell  | Content Cell  |
+   
+   | Item      | Value |
+   | --------- | -----:|
+   | KochavaAppID  | kochava初始化所需的appid |
+   | TenJinAppID  | kochava初始化所需的appid |
+   | ShowSplashFirst  | kochava初始化所需的appid |
+   | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
+   
+- SDK相关Api:  
 
-<details>
-<summary>穿山甲（Pangle）</summary>
+- 常见报错处理:  
 
-请参阅 [穿山甲(Pangle)] 文档，以了解更多信息  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>238da6jt44.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>22mmun2rn5.skadnetwork</string>
-    </dict>
-</array>
-```  
-</details>
-
-<details>
-<summary>IronSource</summary>
-
-请参阅 [IronSource] 文档，以了解更多信息  
-```
-<key>SKAdNetworkItems</key>
-<array>   
-    <dict>       
-        <key>SKAdNetworkIdentifier</key>      
-        <string>SU67R6K2V3.skadnetwork</string>   
-    </dict>
-</array>
-```
-</details>
-
-<details>
-<summary>UnityAds</summary>
-
-请参阅 [UnityAds] 文档，以了解更多信息  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>4DZT52R2T5.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>bvpn9ufa9b.skadnetwork</string>
-    </dict>
-</array>
-```
-</details>
-
-<details>
-<summary>AdColony</summary>
-
-请参阅 [AdColony] 文档，以了解更多信息  
-```
-<key>SKAdNetworkItems</key><array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>4PFYVQ9L8R.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>YCLNXRL5PM.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>V72QYCH5UU.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>TL55SBB4FM.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>T38B2KH725.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>PRCB7NJMU6.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>PPXM28T8AP.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>MLMMFZH3R3.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>KLF5C3L5U5.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>HS6BDUKANM.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>C6K4G5QG8M.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>9T245VHMPL.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>9RD848Q2BZ.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>8S468MFL3Y.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>7UG5ZH24HU.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>4FZDC2EVR5.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>4468KM3ULZ.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>3RD42EKR43.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>2U9PT9HC89.skadnetwork</string>
-    </dict></array>
-```
-</details>
-
-<details>
-<summary>Mintegral</summary>
-
-请参阅 [Mintegral] 文档，以了解更多信息  
-```
-<key>SKAdNetworkItems</key><array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>KBD757YWX3.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>wg4vff78zm.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>737z793b9f.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>ydx93a7ass.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>prcb7njmu6.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>7UG5ZH24HU.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>44jx6755aq.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>2U9PT9HC89.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>W9Q455WK68.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>YCLNXRL5PM.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>TL55SBB4FM.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>8s468mfl3y.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>GLQZH8VGBY.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>c6k4g5qg8m.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>mlmmfzh3r3.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>4PFYVQ9L8R.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>av6w8kgt66.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>6xzpu9s2p8.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>hs6bdukanm.skadnetwork</string>
-    </dict></array>
-```
-</details>
-
-<details>
-<summary>Sigmob</summary>
-
-请参阅 [Sigmob] 文档，以了解更多信息  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>58922NB4GD.skadnetwork</string>
-    </dict>
-</array>
-```
-</details>
-
-<details>
-<summary>Maio</summary>
-
-请参阅 [Maio] 文档，以了解更多信息  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>V4NXQHLYQP.skadnetwork</string>
-    </dict>
-</array> 
-```
-</details>
-<details>
-<summary>Vungle</summary>
-
-请参阅 [Vungle] 文档，以了解更多信息  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>GTA9LK7P23.skadnetwork</string>
-    </dict>
-</array>
-```
-</details>
-
- </details>
 
 </details>
  
@@ -400,376 +100,6 @@ AppTrackingTransparency.framework
  <details>
 <summary>Detailed description</summary>
 
-#### summarize  
-Starting from iOS 14, applications can only access the user’s IDFA data and deliver targeted advertisements to the user with the explicit permission of the user. The IDFA will be unavailable until the application calls the [App Tracking Transparency] framework to make an application tracking authorization request to the end user. If an application does not make this request, the read IDFA will return a string of all 0s. This guide will introduce the changes required for iOS 14 support.
 
-* how to support iOS 14 
-<details>
-<summary><b>Use user permissions to obtain IDFA</b></summary>
- 
-> Add system support library：  
-```
-AppTrackingTransparency.framework
-```
-> Add a description of obtaining IDFA permissions in the info.plist files：  
-```
-<key>NSUserTrackingUsageDescription</key> 
-<string>This identifier will be used to deliver personalized ads to you.</string>
-```
-![image1](https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios14_image1.png)  
-> Obtain App Tracking Transparency permissions：  
-To obtain authorization, you need to use [requestTrackingAuthorizationWithCompletionHandler:]. We recommend that you obtain authorization before initializing JCSDK, so that if the user grants permission to track, JCSDK can use IDFA in ad requests.  
-```
-add header
-#import <AppTrackingTransparency/AppTrackingTransparency.h>
-```
-If you are an iOS developer, you should refer to the initialization method below
-```
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[ViewController alloc]init];
-    [self.window makeKeyAndVisible];
-    if (@available(iOS 14, *)) {
-        //iOS 14 
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-           // init JCSDK
-            [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
-                
-            }];
-        }];
-    } else {
-        // init JCSDK
-        [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
-            
-        }];
-    }
-```
-If you are a Unity developer and implement it in UnityAppController.mm, you should refer to the following initialization method:   
-Find the unity entrance, replace "startUnity:" and call the initialization method of JCSDK, after the SDK initialization callback, start "startUnity:"
-```
-//[self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-[self performSelector: @selector(initSDKWithApplication:) withObject: application afterDelay: 0];
-```
-```
--(void)initSDKWithApplication:(UIApplication*)application{
-    if (@available(iOS 14, *)) {
-        //iOS 14 System IDFA permission box
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            
-            //v1.0.0 init Api
-            //[[JC_unityAdApi getInstance]initJCSDKWithLog:YES isFirstShowSplash:NO splashClose:^(BOOL isOk) {
-            //    [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-            //}];
-            //v2.0.0 init Api
-            [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
-                [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-            }];
-            //to do something，like preloading
-        }];
-    } else {
-        
-        //v1.0.0 init Api
-        //[[JC_unityAdApi getInstance]initJCSDKWithLog:YES isFirstShowSplash:NO splashClose:^(BOOL isOk) {
-        //    [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-        //}];
-        //v2.0.0 init Api
-        [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
-            [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-        }];
-    }
-}
-```
-</details>
-<details>
-<summary><b>Use SKAdNetwork to track conversions:</b></summary>
-   
-Using Apple’s conversion tracking SKAdNetwork, this means that even if IDFA is not available, advertising platforms can use this to obtain attribution for app installs.Please refer to Apple's [SKAdNetwork] documentation for more information.  
-> To enable this feature, you need to add SKAdNetworkItems in info.plist.Among the three-party advertising platforms currently compatible with the JCSDK version, the platforms that support iOS 14 are as follows: Google Admob、穿山甲（Pangle）、IronSource、UnityAds、ADColony、Mintegral、Sigmob、Maio、Vungle  
-<details>
-<summary>Google Admob</summary>
-
-see [Google] documentation，To learn more  
-```
-Add SKAdNetworkItems in info.plist
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-      <key>SKAdNetworkIdentifier</key>
-      <string>cstr6suwn9.skadnetwork</string>
-    </dict>
-</array>
-```
-</details>
-
-<details>
-<summary>穿山甲（Pangle）</summary>
-
-see [穿山甲(Pangle)] documentation，To learn more  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>238da6jt44.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>22mmun2rn5.skadnetwork</string>
-    </dict>
-</array>
-```  
-</details>
-
-<details>
-<summary>IronSource</summary>
-
-see [IronSource] documentation，To learn more  
-```
-<key>SKAdNetworkItems</key>
-<array>   
-    <dict>       
-        <key>SKAdNetworkIdentifier</key>      
-        <string>SU67R6K2V3.skadnetwork</string>   
-    </dict>
-</array>
-```
-</details>
-
-<details>
-<summary>UnityAds</summary>
-
-see [UnityAds] documentation，To learn more  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>4DZT52R2T5.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>bvpn9ufa9b.skadnetwork</string>
-    </dict>
-</array>
-```
-</details>
-
-<details>
-<summary>AdColony</summary>
-
-see [AdColony] documentation，To learn more  
-```
-<key>SKAdNetworkItems</key><array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>4PFYVQ9L8R.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>YCLNXRL5PM.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>V72QYCH5UU.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>TL55SBB4FM.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>T38B2KH725.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>PRCB7NJMU6.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>PPXM28T8AP.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>MLMMFZH3R3.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>KLF5C3L5U5.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>HS6BDUKANM.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>C6K4G5QG8M.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>9T245VHMPL.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>9RD848Q2BZ.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>8S468MFL3Y.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>7UG5ZH24HU.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>4FZDC2EVR5.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>4468KM3ULZ.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>3RD42EKR43.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>2U9PT9HC89.skadnetwork</string>
-    </dict></array>
-```
-</details>
-
-<details>
-<summary>Mintegral</summary>
-
-see [Mintegral] documentation，To learn more  
-```
-<key>SKAdNetworkItems</key><array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>KBD757YWX3.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>wg4vff78zm.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>737z793b9f.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>ydx93a7ass.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>prcb7njmu6.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>7UG5ZH24HU.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>44jx6755aq.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>2U9PT9HC89.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>W9Q455WK68.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>YCLNXRL5PM.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>TL55SBB4FM.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>8s468mfl3y.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>GLQZH8VGBY.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>c6k4g5qg8m.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>mlmmfzh3r3.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>4PFYVQ9L8R.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>av6w8kgt66.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>6xzpu9s2p8.skadnetwork</string>
-    </dict>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>hs6bdukanm.skadnetwork</string>
-    </dict></array>
-```
-</details>
-
-<details>
-<summary>Sigmob</summary>
-
-see [Sigmob] documentation，To learn more  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>58922NB4GD.skadnetwork</string>
-    </dict>
-</array>
-```
-</details>
-
-<details>
-<summary>Maio</summary>
-
-see [Maio] documentation，To learn more  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>V4NXQHLYQP.skadnetwork</string>
-    </dict>
-</array> 
-```
-</details>
-<details>
-<summary>Vungle</summary>
-
-see [Vungle] documentation，To learn more  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>GTA9LK7P23.skadnetwork</string>
-    </dict>
-</array>
-```
-</details>
-
- </details>
 </details>
 
