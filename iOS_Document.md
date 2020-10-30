@@ -188,18 +188,14 @@
    
    9. 关于欧盟地区展示GDPR： 
    ```
-   //欧盟地区需要向用户展示GDPR权限获取说明：
-   //[JC_iOSAdApi getLocationIsEU:^(BOOL isEU) {
-   //   if (isEU) {
-   //     [JC_iOSAdApi jcSDKShowGDPRWithDismissblock:^{ 
-   //     
-   //         } loadFailblock:^(NSError * _Nonnull error) {
-   //
-   //         }];
-   //     }else{
-   //         
-   //     }
-   // }];
+   /// Determine if it is EU territory API
+   /// @param block callback isEU? YES / NO
+   +(void)getLocationIsEU:(void(^)(BOOL isEU))block;
+
+   /// the GDPR interface API
+   /// @param dismissblock close Interface callback
+   /// @param failBlock show Fail callback
+   +(void)jcSDKShowGDPRWithDismissblock:(void(^)(void))dismissblock loadFailblock:(void(^)(NSError *error))failBlock;
    ```
    </details>
 
