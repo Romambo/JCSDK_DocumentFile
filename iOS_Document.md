@@ -42,7 +42,7 @@
    bitcode 设置为NO  
    other Linker Flags 设置 -ObjC  
    
-   4. iOS14 支持：
+   4. iOS14 支持：  
    详情见 [iOS14 support] 说明文档.  
    
    5. 导入系统支持库：  
@@ -74,10 +74,12 @@
    V1.0.0 提供  
    [图片1]    
    V2.0.0 新增  
-   | KochavaAppID  | kochava初始化所需的appid | 
-   | TenJinAppID  | kochava初始化所需的appid |
-   | ShowSplashFirst  | kochava初始化所需的appid |
-   | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
+   | Item      | Value |  
+   | --------- | -----:|  
+   | KochavaAppID  | kochava初始化所需的appid |   
+   | TenJinAppID  | kochava初始化所需的appid |  
+   | ShowSplashFirst  | kochava初始化所需的appid |  
+   | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |  
    
 - SDK相关Api:  
 
