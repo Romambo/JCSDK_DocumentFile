@@ -6,7 +6,7 @@
 [图片1]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unity_image1.png
 [图片2]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image2.png
 
-# JCSDK ios support document
+# JCSDK unity support document
 
 ### 中文版本
 
