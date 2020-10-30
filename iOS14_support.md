@@ -27,7 +27,9 @@
 <summary><b>使用用户权限获取IDFA</b></summary>
  
 > 添加系统支持库：  
-AppTrackingTransparency.framework  
+```
+AppTrackingTransparency.framework
+```
 > 在info.plist文件里添加获取IDFA权限描述：  
 ```
 <key>NSUserTrackingUsageDescription</key> 
@@ -406,7 +408,9 @@ Starting from iOS 14, applications can only access the user’s IDFA data and de
 <summary><b>Use user permissions to obtain IDFA</b></summary>
  
 > Add system support library：  
-AppTrackingTransparency.framework  
+```
+AppTrackingTransparency.framework
+```
 > Add a description of obtaining IDFA permissions in the info.plist files：  
 ```
 <key>NSUserTrackingUsageDescription</key> 
