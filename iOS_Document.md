@@ -182,7 +182,20 @@
    ```
    
    9. 关于欧盟地区展示GDPR： 
-   
+   ```
+   //欧盟地区需要向用户展示GDPR权限获取说明：
+   [JC_iOSAdApi getLocationIsEU:^(BOOL isEU) {
+      if (isEU) {
+        [JC_iOSAdApi jcSDKShowGDPRWithDismissblock:^{ 
+        
+            } loadFailblock:^(NSError * _Nonnull error) {
+  
+            }];
+        }else{
+            
+        }
+    }];
+   ```
    
    
 
@@ -190,8 +203,8 @@
   
   1. 如果使用了快手SDK，在打包上传AppStore的时候，苹果不支持模拟器相关支持二进制，可以加入以下脚本，来删除模拟器相关二进制内容。
   
-  ```javascript
-  APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
+  ```
+   APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
 
    # This script loops through the frameworks embedded in the application and
    # removes unused architectures.
@@ -218,7 +231,7 @@
     rm "$FRAMEWORK_EXECUTABLE_PATH"
     mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
 
-  done
+   done
   ```
   
   ![图片2]
