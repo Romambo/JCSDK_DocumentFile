@@ -16,7 +16,7 @@
 - **SDK简介：**  
  JCSDK是MS公司提供的一套广告类型的SDK，内部集成了各大广告商的广告SDK和相关数据统计SDK，便于平台之间对应用内广告的联合运营和数据分析。  
    1. 支持广告类型：  
-   开屏广告、banner广告、激励视频广告、插屏广告、native广告  
+      开屏广告、banner广告、激励视频广告、插屏广告、native广告  
    2. 版本记录：  
    
       <details>
@@ -75,76 +75,76 @@
    <summary>content</summary>
 
    1. SDK库和所需支持库：  
-    [JCSDK]  
-    [DataCollenction_SDK]  
-    [ADThirdParty_SDK]  
+      [JCSDK]  
+      [DataCollenction_SDK]  
+      [ADThirdParty_SDK]  
    
    2. info.pist 配置：
-   ```
-   支持http网络配置
-   <key>NSAppTransportSecurity</key>
-   <dict>
-   <key>NSAllowsArbitraryLoads</key>
-   <true/>
-   </dict>
+       ```
+       支持http网络配置
+       <key>NSAppTransportSecurity</key>
+       <dict>
+       <key>NSAllowsArbitraryLoads</key>
+       <true/>
+       </dict>
 
-   Google相关参数配置
-   <key>GADApplicationIdentifier</key>
-   <string>ca-app-pub-9488501426181082/7319780494</string>
-   ```
+       Google相关参数配置
+       <key>GADApplicationIdentifier</key>
+       <string>ca-app-pub-9488501426181082/7319780494</string>
+       ```
    3. build setting 配置：  
-    bitcode 设置为NO  
-    other Linker Flags 设置 -ObjC  
+      bitcode 设置为NO  
+      other Linker Flags 设置 -ObjC  
    
    4. iOS14 支持：  
-    详情见 [iOS14 support] 说明文档.  
+      详情见 [iOS14 support] 说明文档.  
    
    5. 导入系统支持库：  
-    Accelerate.framework  
-    AdSupport.framework  
-    AVFoundation.framework  
-    CoreGraphics.framework  
-    CoreLocation.framework  
-    CoreMedia.framework  
-    CoreMotion.framework  
-    CoreTelephony.framework  
-    iAd.framework  
-    MessageUI.framework  
-    SafariServices.framework  
-    Security.framework  
-    SystemConfiguration.framework  
-    UIKit.framework  
-    VideoToolbox.framework  
-    WebKit.framework  
-    AppTrackingTransparency.framework  
-    libbz2.tbd  
-    libc++.tbd  
-    libresolv.9.tbd  
-    libsqlite3.tbd  
-    libxml2.tbd  
-    libz.tbd  
+      Accelerate.framework  
+      AdSupport.framework  
+      AVFoundation.framework  
+      CoreGraphics.framework  
+      CoreLocation.framework  
+      CoreMedia.framework  
+      CoreMotion.framework  
+      CoreTelephony.framework  
+      iAd.framework  
+      MessageUI.framework  
+      SafariServices.framework  
+      Security.framework  
+      SystemConfiguration.framework  
+      UIKit.framework  
+      VideoToolbox.framework  
+      WebKit.framework  
+      AppTrackingTransparency.framework  
+      libbz2.tbd  
+      libc++.tbd  
+      libresolv.9.tbd  
+      libsqlite3.tbd  
+      libxml2.tbd  
+      libz.tbd  
    
    6. JCiOSConfig.plist 参数说明：  
-    V1.0.0 提供  
-    
-    | Item      | Value |
-    | --------- | -----:|
-    | appid  | JCSDK初始化所需的appid |
-    | channelid  | JCSDK初始化所需的channelid |
-    | ReYunAppID  | 热云初始化appid |
-    | ReYunChannelID  | 热云初始化channleid |   
-    | UmengAppID  | Umeng初始化appid |
-    | ShuShuAppID  | 数数平台初始化appid |
-    | TalkingDataAppID  | TalkingData平台初始化appid |   
-    
-    V2.0.0 新增  
-   
-    | Item      | Value |
-    | --------- | -----:|
-    | KochavaAppID  | kochava初始化所需的appid |
-    | TenJinAppID  | tenjin初始化所需的appid |
-    | ShowSplashFirst  | 首次打开应用是否展示开屏广告，bool类型 YES/NO |
-    | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
+      V1.0.0 提供  
+
+      | Item      | Value |
+      | --------- | -----:|
+      | appid  | JCSDK初始化所需的appid |
+      | channelid  | JCSDK初始化所需的channelid |
+      | ReYunAppID  | 热云初始化appid |
+      | ReYunChannelID  | 热云初始化channleid |   
+      | UmengAppID  | Umeng初始化appid |
+      | ShuShuAppID  | 数数平台初始化appid |
+      | TalkingDataAppID  | TalkingData平台初始化appid |   
+
+      V2.0.0 新增  
+
+      | Item      | Value |
+      | --------- | -----:|
+      | KochavaAppID  | kochava初始化所需的appid |
+      | TenJinAppID  | tenjin初始化所需的appid |
+      | ShowSplashFirst  | 首次打开应用是否展示开屏广告，bool类型 YES/NO |
+      | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
    </details>
    
 - **SDK相关Api:**
@@ -153,99 +153,99 @@
 
    如果文档内API和framework内API有冲突，请以framework内API为准。
    1. 头文件：
-   #import <JCSDK/JCSDK.h>  
+      #import <JCSDK/JCSDK.h>  
    
    2. 初始化SDK：  
-   ```
-   //appid 和 channelid如果在JCiOSConfig.plist配置 ，可传空。 
-   //isOpenInBody 是否开启体内配置，旧接口参数，2.0.0之后都需传入YES，否则没有广告位
-   +(void)jcSDKInitConfigWithAppId:(NSString*)appId channelId:(NSString*)channelId isOpenInBody:(BOOL)isOpenInBody block:(void(^)(BOOL isOk))block;
-   ```
+       ```
+       //appid 和 channelid如果在JCiOSConfig.plist配置 ，可传空。 
+       //isOpenInBody 是否开启体内配置，旧接口参数，2.0.0之后都需传入YES，否则没有广告位
+       +(void)jcSDKInitConfigWithAppId:(NSString*)appId channelId:(NSString*)channelId isOpenInBody:(BOOL)isOpenInBody block:(void(^)(BOOL isOk))block;
+       ```
    
    3. splash广告api：    
-   ```
-   //开屏请在window加载之后被调用
-   [JC_iOSAdApi loadSplashView];
-   ```
+       ```
+       //开屏请在window加载之后被调用
+       [JC_iOSAdApi loadSplashView];
+       ```
    
    4. banner广告api：  
-   ```
-   //推荐：先调用load进行广告位“预热” ，展示之前判断isReady是否为YES ，请自行设计调用场景，api最好不要连续，以免未及时load到数据
-   [JC_iOSAdApi loadBannerConfig];
+       ```
+       //推荐：先调用load进行广告位“预热” ，展示之前判断isReady是否为YES ，请自行设计调用场景，api最好不要连续，以免未及时load到数据
+       [JC_iOSAdApi loadBannerConfig];
 
-   BOOL isReady = [JC_iOSAdApi bannerIsReady]
-   //con传入当前控制器即可
-   [JC_iOSAdApi showBannerViewWithCon:con];
-   ```
+       BOOL isReady = [JC_iOSAdApi bannerIsReady]
+       //con传入当前控制器即可
+       [JC_iOSAdApi showBannerViewWithCon:con];
+       ```
    
    5. Intersitial 广告 api：  
-   ```
-   ///推荐调用顺序 load - isReady - show - isReady - show（sdk内部采用了自动加载插屏资源功能，外部使用只需要调用一次load接口）
-   [JC_iOSAdApi loadIntersitialConfig];
+       ```
+       ///推荐调用顺序 load - isReady - show - isReady - show（sdk内部采用了自动加载插屏资源功能，外部使用只需要调用一次load接口）
+       [JC_iOSAdApi loadIntersitialConfig];
 
-   BOOL isReady = [JC_iOSAdApi intersitialIsReady]
+       BOOL isReady = [JC_iOSAdApi intersitialIsReady]
 
-   [JC_iOSAdApi showIntersitialView];
-   ```
+       [JC_iOSAdApi showIntersitialView];
+       ```
    
    6. RewardView广告api：  
-   ```
-   //推荐调用顺序 load - isReady - show - isReady - show（sdk内部采用了自动加载激励视频资源功能，外部使用只需要调用一次load接口）
-   [JC_iOSAdApi loadRewardConfig];
-   BOOL isReady = [JC_iOSAdApi rewardVIsReady]
-   [JC_iOSAdApi showRewardView];
-   ```
+       ```
+       //推荐调用顺序 load - isReady - show - isReady - show（sdk内部采用了自动加载激励视频资源功能，外部使用只需要调用一次load接口）
+       [JC_iOSAdApi loadRewardConfig];
+       BOOL isReady = [JC_iOSAdApi rewardVIsReady]
+       [JC_iOSAdApi showRewardView];
+       ```
    
    7. native 广告 api：  
-   ```
-   //native没有缓存池，每次使用调用load ，判断isReady后再展示。show方法有返回值，返回根据config生成的广告view 
-   //JCNativeConfig 是native展示广告位的配置类，请配置完整，否则可能导致加载视图异常，请将返回的view加载到需要显示的视图上
-   
-   [JC_iOSAdApi loadNativeConfigSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 350)]; //size：请和展示的原生view大小相同，避免加载不全
+       ```
+       //native没有缓存池，每次使用调用load ，判断isReady后再展示。show方法有返回值，返回根据config生成的广告view 
+       //JCNativeConfig 是native展示广告位的配置类，请配置完整，否则可能导致加载视图异常，请将返回的view加载到需要显示的视图上
 
-   BOOL isReady = [JC_iOSAdApi nativeIsReady]
+       [JC_iOSAdApi loadNativeConfigSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 350)]; //size：请和展示的原生view大小相同，避免加载不全
 
-   JCNativeConfig *config = [[JCNativeConfig alloc]init];
-   config.ADFrame = CGRectMake(.0f, 200.0f, CGRectGetWidth(self.view.bounds), 350.0f);
-   config.mediaViewFrame = CGRectMake(0, 120.0f, CGRectGetWidth(self.view.bounds), 350.0f - 120.0f);
-   config.renderingViewClass = [[[CustomView alloc]init] class];
-   config.rootViewController = self;
-   UIView *adview = [JC_iOSAdApi showNativeConfigWithConfig:config];
-   // 添加adview到视图上
-   ```
+       BOOL isReady = [JC_iOSAdApi nativeIsReady]
+
+       JCNativeConfig *config = [[JCNativeConfig alloc]init];
+       config.ADFrame = CGRectMake(.0f, 200.0f, CGRectGetWidth(self.view.bounds), 350.0f);
+       config.mediaViewFrame = CGRectMake(0, 120.0f, CGRectGetWidth(self.view.bounds), 350.0f - 120.0f);
+       config.renderingViewClass = [[[CustomView alloc]init] class];
+       config.rootViewController = self;
+       UIView *adview = [JC_iOSAdApi showNativeConfigWithConfig:config];
+       // 添加adview到视图上
+       ```
    
    8. 广告回调 api：  
-   ```
-   //以下是splash广告的回调api使用示例，其他广告回调请自行使用.回调监听的key ，相关状态类型、回调参数说明请查看JCAdCallBackHeader.h类，请选择所需要的回调状态和参数进行监听和使用
-   [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(msAdLoadCallBack:) name:MSSplashADKey object:nil];
+       ```
+       //以下是splash广告的回调api使用示例，其他广告回调请自行使用.回调监听的key ，相关状态类型、回调参数说明请查看JCAdCallBackHeader.h类，请选择所需要的回调状态和参数进行监听和使用
+       [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(msAdLoadCallBack:) name:MSSplashADKey object:nil];
 
-   -(void)msAdLoadCallBack:(NSNotification*)noti{
-       NSLog(@"%@",noti.userInfo);
-       NSInteger code = [noti.userInfo[@"status"] integerValue];
-       switch (code) {
-           case MSAd_splashDidShow:
-           {
-               NSLog(@"MSAd_splashDidShow");
+       -(void)msAdLoadCallBack:(NSNotification*)noti{
+           NSLog(@"%@",noti.userInfo);
+           NSInteger code = [noti.userInfo[@"status"] integerValue];
+           switch (code) {
+               case MSAd_splashDidShow:
+               {
+                   NSLog(@"MSAd_splashDidShow");
+               }
+                   break;
+
+               default:
+                   break;
            }
-               break;
-
-           default:
-               break;
        }
-   }
-   ```
+       ```
    
    9. 关于欧盟地区展示GDPR： 
-   ```
-   /// Determine if it is EU territory API
-   /// @param block callback isEU? YES / NO
-   +(void)getLocationIsEU:(void(^)(BOOL isEU))block;
+       ```
+       /// Determine if it is EU territory API
+       /// @param block callback isEU? YES / NO
+       +(void)getLocationIsEU:(void(^)(BOOL isEU))block;
 
-   /// the GDPR interface API
-   /// @param dismissblock close Interface callback
-   /// @param failBlock show Fail callback
-   +(void)jcSDKShowGDPRWithDismissblock:(void(^)(void))dismissblock loadFailblock:(void(^)(NSError *error))failBlock;
-   ```
+       /// the GDPR interface API
+       /// @param dismissblock close Interface callback
+       /// @param failBlock show Fail callback
+       +(void)jcSDKShowGDPRWithDismissblock:(void(^)(void))dismissblock loadFailblock:(void(^)(NSError *error))failBlock;
+       ```
    </details>
 
 
@@ -296,7 +296,7 @@
 - **SDK Introduction：**  
  JCSDK is a set of advertising SDK provided by MS. It integrates the advertising SDKs of major advertisers and related data statistics SDKs to facilitate the joint operation and data analysis of in-app advertising between platforms.  
    1. Support ad types：  
-   splash ads、banner ads、rewardVideo ads、inter ads、native ads  
+        splash ads、banner ads、rewardVideo ads、inter ads、native ads  
    2. Version record：  
         <details>
         <summary>1.0.0</summary>
@@ -353,77 +353,77 @@
    <summary>content</summary>
 
    1. SDK library and required support library：  
-    [JCSDK]  
-    [DataCollenction_SDK]  
-    [ADThirdParty_SDK]  
+        [JCSDK]  
+        [DataCollenction_SDK]  
+        [ADThirdParty_SDK]  
    
    2. info.pist configuration：
-   ```
-   Support http network configuration
-   <key>NSAppTransportSecurity</key>
-   <dict>
-   <key>NSAllowsArbitraryLoads</key>
-   <true/>
-   </dict>
+       ```
+       Support http network configuration
+       <key>NSAppTransportSecurity</key>
+       <dict>
+       <key>NSAllowsArbitraryLoads</key>
+       <true/>
+       </dict>
 
-   Google configuration
-   <key>GADApplicationIdentifier</key>
-   <string>ca-app-pub-9488501426181082/7319780494</string>
-   ```
+       Google configuration
+       <key>GADApplicationIdentifier</key>
+       <string>ca-app-pub-9488501426181082/7319780494</string>
+       ```
    3. build setting configuration：  
-    "bitcode" set "NO"  
-    "other Linker Flags" set "-ObjC"  
+        "bitcode" set "NO"  
+        "other Linker Flags" set "-ObjC"  
    
    4. iOS14 support：  
-    see [iOS14 support] document.  
+        see [iOS14 support] document.  
    
    5. Import system support library：  
    
-    Accelerate.framework  
-    AdSupport.framework  
-    AVFoundation.framework  
-    CoreGraphics.framework  
-    CoreLocation.framework  
-    CoreMedia.framework  
-    CoreMotion.framework  
-    CoreTelephony.framework  
-    iAd.framework  
-    MessageUI.framework  
-    SafariServices.framework  
-    Security.framework  
-    SystemConfiguration.framework  
-    UIKit.framework  
-    VideoToolbox.framework  
-    WebKit.framework  
-    AppTrackingTransparency.framework  
-    libbz2.tbd  
-    libc++.tbd  
-    libresolv.9.tbd  
-    libsqlite3.tbd  
-    libxml2.tbd  
-    libz.tbd  
+        Accelerate.framework  
+        AdSupport.framework  
+        AVFoundation.framework  
+        CoreGraphics.framework  
+        CoreLocation.framework  
+        CoreMedia.framework  
+        CoreMotion.framework  
+        CoreTelephony.framework  
+        iAd.framework  
+        MessageUI.framework  
+        SafariServices.framework  
+        Security.framework  
+        SystemConfiguration.framework  
+        UIKit.framework  
+        VideoToolbox.framework  
+        WebKit.framework  
+        AppTrackingTransparency.framework  
+        libbz2.tbd  
+        libc++.tbd  
+        libresolv.9.tbd  
+        libsqlite3.tbd  
+        libxml2.tbd  
+        libz.tbd  
    
    6. JCiOSConfig.plist Parameter Description：  
-    V1.0.0 add  
-    
-    | Item      | Value |
-    | --------- | -----:|
-    | appid  | Appid required for JCSDK initialization |
-    | channelid  | ChannelId required for JCSDK initialization |
-    | ReYunAppID  | Appid required for reyun initialization |
-    | ReYunChannelID  | channelId required for reyun initialization |   
-    | UmengAppID  | Appid required for UMeng initialization |
-    | ShuShuAppID  | Appid required for 数数 initialization |
-    | TalkingDataAppID  | Appid required for TalkingData initialization |   
-    
-    V2.0.0 add  
-   
-    | Item      | Value |
-    | --------- | -----:|
-    | KochavaAppID  | Appid required for Kochava initialization |
-    | TenJinAppID  | Appid required for tenjin initialization |
-    | ShowSplashFirst  | Whether to display an open-screen ad when opening the app for the first time，bool type: YES/NO |
-    | LogLevel  | Log level: string type. 1. Close. 2. Open JC log. 3. Open JC+ad log. 4. Open JC+ad+data log |
+        V1.0.0 add  
+
+        | Item      | Value |
+        | --------- | -----:|
+        | appid  | Appid required for JCSDK initialization |
+        | channelid  | ChannelId required for JCSDK initialization |
+        | ReYunAppID  | Appid required for reyun initialization |
+        | ReYunChannelID  | channelId required for reyun initialization |   
+        | UmengAppID  | Appid required for UMeng initialization |
+        | ShuShuAppID  | Appid required for 数数 initialization |
+        | TalkingDataAppID  | Appid required for TalkingData initialization |   
+
+        V2.0.0 add  
+
+        | Item      | Value |
+        | --------- | -----:|
+        | KochavaAppID  | Appid required for Kochava initialization |
+        | TenJinAppID  | Appid required for tenjin initialization |
+        | ShowSplashFirst  | Whether to display an open-screen ad when opening the app for the first time，bool type: YES/NO |
+        | LogLevel  | Log level: string type. 1. Close. 2. Open JC log. 3. Open JC+ad log. 4. Open JC+ad+data log |
    </details>
    
 - **SDK Api:**
@@ -433,101 +433,101 @@
    If there is a conflict between the API in the document and the API in the framework, please refer to the API in the framework.  
    
    1. header：
-   #import <JCSDK/JCSDK.h>  
+        #import <JCSDK/JCSDK.h>  
    
    2. init SDK：  
-   ```
-   //If appid and channelid are configured in JCiOSConfig.plist, they can be passed empty. 
-   //isOpenInBody: Whether to open the body configuration (old interface parameters). After 2.0.0, YES must be passed in, otherwise there will be no advertising space
-   +(void)jcSDKInitConfigWithAppId:(NSString*)appId channelId:(NSString*)channelId isOpenInBody:(BOOL)isOpenInBody block:(void(^)(BOOL isOk))block;
-   ```
+       ```
+       //If appid and channelid are configured in JCiOSConfig.plist, they can be passed empty. 
+       //isOpenInBody: Whether to open the body configuration (old interface parameters). After 2.0.0, YES must be passed in, otherwise there will be no advertising space
+       +(void)jcSDKInitConfigWithAppId:(NSString*)appId channelId:(NSString*)channelId isOpenInBody:(BOOL)isOpenInBody block:(void(^)(BOOL isOk))block;
+       ```
    
    3. splash api：    
-   ```
-   //Open the screen, splash be called after the window is loaded
-   [JC_iOSAdApi loadSplashView];
-   ```
+       ```
+       //Open the screen, splash be called after the window is loaded
+       [JC_iOSAdApi loadSplashView];
+       ```
    
    4. banner api：  
-   ```
-   //Recommendation: First call load to "warm up" the ad space, and judge whether isReady is YES before displaying. Please design the calling scene by yourself. The api is best not to be continuous, so as not to load the data in time
-   [JC_iOSAdApi loadBannerConfig];
+       ```
+       //Recommendation: First call load to "warm up" the ad space, and judge whether isReady is YES before displaying. Please design the calling scene by yourself. The api is best not to be continuous, so as not to load the data in time
+       [JC_iOSAdApi loadBannerConfig];
 
-   BOOL isReady = [JC_iOSAdApi bannerIsReady]
-   //con Just pass in the current controller
-   [JC_iOSAdApi showBannerViewWithCon:con];
-   ```
+       BOOL isReady = [JC_iOSAdApi bannerIsReady]
+       //con Just pass in the current controller
+       [JC_iOSAdApi showBannerViewWithCon:con];
+       ```
    
    5. Intersitial api：  
-   ```
-   ///Recommended calling sequence load-isReady-show-isReady-show (The automatic loading of interstitial resources is used inside the SDK, and the load interface only needs to be called once for external use)
-   [JC_iOSAdApi loadIntersitialConfig];
+       ```
+       ///Recommended calling sequence load-isReady-show-isReady-show (The automatic loading of interstitial resources is used inside the SDK, and the load interface only needs to be called once for external use)
+       [JC_iOSAdApi loadIntersitialConfig];
 
-   BOOL isReady = [JC_iOSAdApi intersitialIsReady]
+       BOOL isReady = [JC_iOSAdApi intersitialIsReady]
 
-   [JC_iOSAdApi showIntersitialView];
-   ```
+       [JC_iOSAdApi showIntersitialView];
+       ```
    
    6. RewardView api：  
-   ```
-   //Recommended calling sequence load-isReady-show-isReady-show (The function of automatically loading incentive video resources is used inside the SDK, and the load interface only needs to be called once for external use)
-   [JC_iOSAdApi loadRewardConfig];
-   BOOL isReady = [JC_iOSAdApi rewardVIsReady]
-   [JC_iOSAdApi showRewardView];
-   ```
+       ```
+       //Recommended calling sequence load-isReady-show-isReady-show (The function of automatically loading incentive video resources is used inside the SDK, and the load interface only needs to be called once for external use)
+       [JC_iOSAdApi loadRewardConfig];
+       BOOL isReady = [JC_iOSAdApi rewardVIsReady]
+       [JC_iOSAdApi showRewardView];
+       ```
    
    7. native api：  
-   ```
-   //Native does not have a buffer pool. Call load every time you use it, and then display it after judging isReady. The show method has a return value, which returns the ad view generated according to config 
-   //JCNativeConfig is the configuration class of native display ad slots. Please configure it completely, otherwise it may cause abnormal loading of the view. Please load the returned view to the view that needs to be displayed
-   
-   //size：Please be the same size as the displayed native view to avoid incomplete loading
-   [JC_iOSAdApi loadNativeConfigSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 350)]; 
+       ```
+       //Native does not have a buffer pool. Call load every time you use it, and then display it after judging isReady. The show method has a return value, which returns the ad view generated according to config 
+       //JCNativeConfig is the configuration class of native display ad slots. Please configure it completely, otherwise it may cause abnormal loading of the view. Please load the returned view to the view that needs to be displayed
 
-   BOOL isReady = [JC_iOSAdApi nativeIsReady]
+       //size：Please be the same size as the displayed native view to avoid incomplete loading
+       [JC_iOSAdApi loadNativeConfigSize:CGSizeMake(CGRectGetWidth(self.view.bounds), 350)]; 
 
-   JCNativeConfig *config = [[JCNativeConfig alloc]init];
-   config.ADFrame = CGRectMake(.0f, 200.0f, CGRectGetWidth(self.view.bounds), 350.0f);
-   config.mediaViewFrame = CGRectMake(0, 120.0f, CGRectGetWidth(self.view.bounds), 350.0f - 120.0f);
-   config.renderingViewClass = [[[CustomView alloc]init] class];
-   config.rootViewController = self;
-   UIView *adview = [JC_iOSAdApi showNativeConfigWithConfig:config];
-   // add adview to superView
-   ```
+       BOOL isReady = [JC_iOSAdApi nativeIsReady]
+
+       JCNativeConfig *config = [[JCNativeConfig alloc]init];
+       config.ADFrame = CGRectMake(.0f, 200.0f, CGRectGetWidth(self.view.bounds), 350.0f);
+       config.mediaViewFrame = CGRectMake(0, 120.0f, CGRectGetWidth(self.view.bounds), 350.0f - 120.0f);
+       config.renderingViewClass = [[[CustomView alloc]init] class];
+       config.rootViewController = self;
+       UIView *adview = [JC_iOSAdApi showNativeConfigWithConfig:config];
+       // add adview to superView
+       ```
    
    8. ad callbcak api：  
-   ```
-   //The following is an example of using the callback api of the splash advertisement. For other advertisement callbacks, please use it yourself. The key for callback monitoring. Please refer to the "JCAdCallBackHeader.h" class for related status types and callback parameter descriptions. Please select the required callback status and parameters for monitoring and use
-   
-   [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(msAdLoadCallBack:) name:MSSplashADKey object:nil];
+       ```
+       //The following is an example of using the callback api of the splash advertisement. For other advertisement callbacks, please use it yourself. The key for callback monitoring. Please refer to the "JCAdCallBackHeader.h" class for related status types and callback parameter descriptions. Please select the required callback status and parameters for monitoring and use
 
-   -(void)msAdLoadCallBack:(NSNotification*)noti{
-       NSLog(@"%@",noti.userInfo);
-       NSInteger code = [noti.userInfo[@"status"] integerValue];
-       switch (code) {
-           case MSAd_splashDidShow:
-           {
-               NSLog(@"MSAd_splashDidShow");
+       [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(msAdLoadCallBack:) name:MSSplashADKey object:nil];
+
+       -(void)msAdLoadCallBack:(NSNotification*)noti{
+           NSLog(@"%@",noti.userInfo);
+           NSInteger code = [noti.userInfo[@"status"] integerValue];
+           switch (code) {
+               case MSAd_splashDidShow:
+               {
+                   NSLog(@"MSAd_splashDidShow");
+               }
+                   break;
+
+               default:
+                   break;
            }
-               break;
-
-           default:
-               break;
        }
-   }
-   ```
+       ```
    
    9. about GDPR： 
-   ```
-   /// Determine if it is EU territory API
-   /// @param block callback isEU? YES / NO
-   +(void)getLocationIsEU:(void(^)(BOOL isEU))block;
+       ```
+       /// Determine if it is EU territory API
+       /// @param block callback isEU? YES / NO
+       +(void)getLocationIsEU:(void(^)(BOOL isEU))block;
 
-   /// the GDPR interface API
-   /// @param dismissblock close Interface callback
-   /// @param failBlock show Fail callback
-   +(void)jcSDKShowGDPRWithDismissblock:(void(^)(void))dismissblock loadFailblock:(void(^)(NSError *error))failBlock;
-   ```
+       /// the GDPR interface API
+       /// @param dismissblock close Interface callback
+       /// @param failBlock show Fail callback
+       +(void)jcSDKShowGDPRWithDismissblock:(void(^)(void))dismissblock loadFailblock:(void(^)(NSError *error))failBlock;
+       ```
    </details>
 
 
