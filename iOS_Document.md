@@ -74,7 +74,7 @@
    
    6. JCiOSConfig.plist 参数说明：  
     V1.0.0 提供  
-    [图片1]    
+    ![图片1]    
     V2.0.0 新增  
    
     | Item      | Value |
@@ -175,8 +175,8 @@
    
    ```
    ///欧盟地区需要向用户展示GDPR权限获取说明：
-   [JC_iOSAdApi getLocationIsEU:^(BOOL isEU) {//判断是否是欧盟地区
-      if (isEU) {//欧盟地区，展示GDPR权限界面
+   [JC_iOSAdApi getLocationIsEU:^(BOOL isEU) {
+      if (isEU) {
         [JC_iOSAdApi jcSDKShowGDPRWithDismissblock:^{ 
         
             } loadFailblock:^(NSError * _Nonnull error) {
@@ -224,7 +224,7 @@
   done
   ```
   
-  [图片2]
+  ![图片2]
 
 
 </details>
