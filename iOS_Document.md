@@ -22,10 +22,13 @@
  
 - **SDK接入配置:**  
 
+   <details>
+   <summary>content</summary>
+
    1. SDK库和所需支持库：  
-   [JCSDK]  
-   [DataCollenction_SDK]  
-   [ADThirdParty_SDK]  
+    [JCSDK]  
+    [DataCollenction_SDK]  
+    [ADThirdParty_SDK]  
    
    2. info.pist 配置：
    ```
@@ -93,11 +96,13 @@
     | TenJinAppID  | tenjin初始化所需的appid |
     | ShowSplashFirst  | 首次打开应用是否展示开屏广告，bool类型 YES/NO |
     | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
+   </details>
    
-   
-   
-- SDK相关Api:  
-   如果文档内API和framework内API有冲突，请以framework内API为准。  
+- **SDK相关Api:**
+   <details>
+   <summary>content</summary>
+
+   如果文档内API和framework内API有冲突，请以framework内API为准。
    1. 头文件：
    #import <JCSDK/JCSDK.h>  
    
@@ -184,30 +189,30 @@
    9. 关于欧盟地区展示GDPR： 
    ```
    //欧盟地区需要向用户展示GDPR权限获取说明：
-   [JC_iOSAdApi getLocationIsEU:^(BOOL isEU) {
-      if (isEU) {
-        [JC_iOSAdApi jcSDKShowGDPRWithDismissblock:^{ 
-        
-            } loadFailblock:^(NSError * _Nonnull error) {
-  
-            }];
-        }else{
-            
-        }
-    }];
+   //[JC_iOSAdApi getLocationIsEU:^(BOOL isEU) {
+   //   if (isEU) {
+   //     [JC_iOSAdApi jcSDKShowGDPRWithDismissblock:^{ 
+   //     
+   //         } loadFailblock:^(NSError * _Nonnull error) {
+   //
+   //         }];
+   //     }else{
+   //         
+   //     }
+   // }];
    ```
-   
-   
+   </details>
 
-- 常见报错处理:  
-  
+
+- **常见报错处理:**
+ 
+  <details>
+  <summary>content</summary>
+
   1. 如果使用了快手SDK，在打包上传AppStore的时候，苹果不支持模拟器相关支持二进制，可以加入以下脚本，来删除模拟器相关二进制内容。
   
   ```
    APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
-
-   # This script loops through the frameworks embedded in the application and
-   # removes unused architectures.
    find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
    do
     FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
@@ -236,6 +241,10 @@
   
   ![图片2]
 
+  </details>
+
+  
+  
 
 </details>
  
