@@ -31,8 +31,71 @@ AppTrackingTransparency.framework
 <key>NSUserTrackingUsageDescription</key> 
 <string>This identifier will be used to deliver personalized ads to you.</string>
 ```
-![image1](https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios14_image3.png)
-
+![image1](https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios14_image1.png)  
+> 获取App Tracking Transparency权限：  
+想要获取授权，需要使[requestTrackingAuthorizationWithCompletionHandler:],我们建议您在初始化JCSDK之前获取授权，以便如果用户授予允许跟踪权限，JCSDK则可以在广告请求中使用IDFA.  
+```
+引入头文件
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+```
+如果你是iOS开发者，应参照下面初始化方式
+```
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[ViewController alloc]init];
+    [self.window makeKeyAndVisible];
+    if (@available(iOS 14, *)) {
+        //iOS 14
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+           // 初始化/init JCSDK
+            [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
+                
+            }];
+        }];
+    } else {
+        // 初始化/init JCSDK
+        [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
+            
+        }];
+    }
+```
+如果你是unity开发者，在UnityAppController.mm中实现，应参照下面初始化方式：
+找到unity入口 ：替换掉startUnity: 并调用JCSDK的初始化方法，待sdk初始化回调后，再启动startUnity:
+```
+//[self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
+[self performSelector: @selector(initSDKWithApplication:) withObject: application afterDelay: 0];
+```
+```
+-(void)initSDKWithApplication:(UIApplication*)application{
+    if (@available(iOS 14, *)) {
+        //iOS 14
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            
+            //1.0.0初始化接口
+            [[JC_unityAdApi getInstance]initJCSDKWithLog:YES isFirstShowSplash:NO splashClose:^(BOOL isOk) {
+                [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
+            }];
+            //2.0.0初始化接口
+            [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
+                [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
+            }];
+            //to do something，like preloading
+        }];
+    } else {
+        
+        //1.0.0初始化接口
+        [[JC_unityAdApi getInstance]initJCSDKWithLog:YES isFirstShowSplash:NO splashClose:^(BOOL isOk) {
+            [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
+        }];
+        //2.0.0初始化接口
+        [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
+            [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
+        }];
+    }
+}
+```
 </details>
  
 
