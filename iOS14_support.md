@@ -100,12 +100,9 @@ AppTrackingTransparency.framework
 使用Apple的转化跟踪SKAdNetwork，这意味着即使IDFA不可用，广告平台也可以通过这个获取应用安装归因。请参阅Apple的[SKAdNetwork]文档，以了解更多信息。  
 > 要启用此功能，您需要在info.plist中添加SKAdNetworkItems。目前JCSDK版本兼容的三方广告平台中，支持iOS 14的平台如下。开发者根据集成的情况，可分别添加对应平台的SKAdNetwork标识符,现在支持的平台有：Google Admob、穿山甲（Pangle）、IronSource、UnityAds、ADColony、Mintegral、Sigmob、Maio、Vungle  
 <details>
-<summary>&#8194Google Admob</summary>
+<summary>&#8194> Google Admob</summary>
 
-请参阅 [Google] 文档，以了解更多信息
-</details>
-&#8194
-> Google Admob 请参阅 [Google] 文档，以了解更多信息
+请参阅 [Google] 文档，以了解更多信息  
 ```
 在info.plist中添加SKAdNetworkItems
 <key>SKAdNetworkItems</key>
@@ -116,7 +113,11 @@ AppTrackingTransparency.framework
     </dict>
 </array>
 ```
-> 穿山甲（Pangle）请参阅 [穿山甲(Pangle)] 文档，以了解更多信息
+</details>
+<details>
+<summary>&#8194> 穿山甲（Pangle）</summary>
+
+请参阅 [穿山甲(Pangle)] 文档，以了解更多信息  
 ```
 <key>SKAdNetworkItems</key>
 <array>
@@ -129,8 +130,13 @@ AppTrackingTransparency.framework
         <string>22mmun2rn5.skadnetwork</string>
     </dict>
 </array>
-```
-> IronSource 请参阅 [IronSource] 文档，以了解更多信息
+```  
+</details>
+
+<details>
+<summary>&#8194> IronSource</summary>
+
+请参阅 [IronSource] 文档，以了解更多信息  
 ```
 <key>SKAdNetworkItems</key>
 <array>   
@@ -140,6 +146,240 @@ AppTrackingTransparency.framework
     </dict>
 </array>
 ```
+</details>
+
+<details>
+<summary>&#8194> UnityAds</summary>
+
+请参阅 [UnityAds] 文档，以了解更多信息  
+```
+<key>SKAdNetworkItems</key>
+<array>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>4DZT52R2T5.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>bvpn9ufa9b.skadnetwork</string>
+    </dict>
+</array>
+```
+</details>
+
+<details>
+<summary>&#8194> AdColony</summary>
+
+请参阅 [AdColony] 文档，以了解更多信息  
+```
+<key>SKAdNetworkItems</key><array>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>4PFYVQ9L8R.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>YCLNXRL5PM.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>V72QYCH5UU.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>TL55SBB4FM.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>T38B2KH725.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>PRCB7NJMU6.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>PPXM28T8AP.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>MLMMFZH3R3.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>KLF5C3L5U5.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>HS6BDUKANM.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>C6K4G5QG8M.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>9T245VHMPL.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>9RD848Q2BZ.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>8S468MFL3Y.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>7UG5ZH24HU.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>4FZDC2EVR5.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>4468KM3ULZ.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>3RD42EKR43.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>2U9PT9HC89.skadnetwork</string>
+    </dict></array>
+```
+</details>
+
+<details>
+<summary>&#8194> Mintegral</summary>
+
+请参阅 [Mintegral] 文档，以了解更多信息  
+```
+<key>SKAdNetworkItems</key><array>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>KBD757YWX3.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>wg4vff78zm.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>737z793b9f.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>ydx93a7ass.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>prcb7njmu6.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>7UG5ZH24HU.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>44jx6755aq.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>2U9PT9HC89.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>W9Q455WK68.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>YCLNXRL5PM.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>TL55SBB4FM.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>8s468mfl3y.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>GLQZH8VGBY.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>c6k4g5qg8m.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>mlmmfzh3r3.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>4PFYVQ9L8R.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>av6w8kgt66.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>6xzpu9s2p8.skadnetwork</string>
+    </dict>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>hs6bdukanm.skadnetwork</string>
+    </dict></array>
+```
+</details>
+
+<details>
+<summary>&#8194> Sigmob</summary>
+
+请参阅 [Sigmob] 文档，以了解更多信息  
+```
+<key>SKAdNetworkItems</key>
+<array>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>58922NB4GD.skadnetwork</string>
+    </dict>
+</array>
+```
+</details>
+
+<details>
+<summary>&#8194> Maio</summary>
+
+请参阅 [Maio] 文档，以了解更多信息  
+```
+<key>SKAdNetworkItems</key>
+<array>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>V4NXQHLYQP.skadnetwork</string>
+    </dict>
+</array> 
+```
+</details>
+
+<summary>&#8194> Vungle</summary>
+
+请参阅 [Vungle] 文档，以了解更多信息  
+```
+<key>SKAdNetworkItems</key>
+<array>
+    <dict>
+        <key>SKAdNetworkIdentifier</key>
+        <string>GTA9LK7P23.skadnetwork</string>
+    </dict>
+</array>
+```
+</details>
 </details>
  
 
