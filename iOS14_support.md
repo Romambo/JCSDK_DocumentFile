@@ -24,7 +24,7 @@
 
 ### 如何支持iOS 14 
 <details>
-<summary><mark><font color=#gray size=20>使用用户权限获取IDFA</font></mark></summary>
+<summary><mark><font color=gray size=20>使用用户权限获取IDFA</font></mark></summary>
  
 > 添加系统支持库：  
 AppTrackingTransparency.framework  
@@ -100,7 +100,7 @@ AppTrackingTransparency.framework
 ```
 </details>
 <details>
-<summary>**使用SKAdNetwork跟踪转化：**</summary>
+<summary>使用SKAdNetwork跟踪转化：</summary>
    
 使用Apple的转化跟踪SKAdNetwork，这意味着即使IDFA不可用，广告平台也可以通过这个获取应用安装归因。请参阅Apple的[SKAdNetwork]文档，以了解更多信息。  
 > 要启用此功能，您需要在info.plist中添加SKAdNetworkItems。目前JCSDK版本兼容的三方广告平台中，支持iOS 14的平台如下。开发者根据集成的情况，可分别添加对应平台的SKAdNetwork标识符,现在支持的平台有：Google Admob、穿山甲（Pangle）、IronSource、UnityAds、ADColony、Mintegral、Sigmob、Maio、Vungle  
