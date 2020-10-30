@@ -38,7 +38,7 @@ AppTrackingTransparency.framework
 引入头文件
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 ```
-+ 如果你是iOS开发者，应参照下面初始化方式
+如果你是iOS开发者，应参照下面初始化方式
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -61,7 +61,7 @@ AppTrackingTransparency.framework
         }];
     }
 ```
-+ 如果你是unity开发者，在UnityAppController.mm中实现，应参照下面初始化方式：  
+如果你是unity开发者，在UnityAppController.mm中实现，应参照下面初始化方式：  
 找到unity入口 ：替换掉startUnity: 并调用JCSDK的初始化方法，待sdk初始化回调后，再启动startUnity:
 ```
 //[self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
@@ -97,7 +97,7 @@ AppTrackingTransparency.framework
 }
 ```
 * 使用SKAdNetwork跟踪转化：  
-+ 使用Apple的转化跟踪SKAdNetwork，这意味着即使IDFA不可用，广告平台也可以通过这个获取应用安装归因。请参阅Apple的[SKAdNetwork]文档，以了解更多信息。  
+使用Apple的转化跟踪SKAdNetwork，这意味着即使IDFA不可用，广告平台也可以通过这个获取应用安装归因。请参阅Apple的[SKAdNetwork]文档，以了解更多信息。  
 > 要启用此功能，您需要在info.plist中添加SKAdNetworkItems。目前JCSDK版本兼容的三方广告平台中，支持iOS 14的平台如下。开发者根据集成的情况，可分别添加对应平台的SKAdNetwork标识符,现在支持的平台有：Google Admob、穿山甲（Pangle）、IronSource、UnityAds、ADColony、Mintegral、Sigmob、Maio、Vungle  
 <details>
 <summary>Google Admob</summary>
@@ -114,6 +114,7 @@ AppTrackingTransparency.framework
 </array>
 ```
 </details>
+
 <details>
 <summary>穿山甲（Pangle）</summary>
 
@@ -381,6 +382,7 @@ AppTrackingTransparency.framework
 </array>
 ```
 </details>
+
 </details>
  
 
