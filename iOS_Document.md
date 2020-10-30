@@ -74,7 +74,17 @@
    
    6. JCiOSConfig.plist 参数说明：  
     V1.0.0 提供  
-    ![图片1]    
+    
+    | Item      | Value |
+    | --------- | -----:|
+    | appid  | JCSDK初始化所需的appid |
+    | channelid  | JCSDK初始化所需的channelid |
+    | ReYunAppID  | 热云初始化appid |
+    | ReYunChannelID  | 热云初始化channleid |   
+    | UmengAppID  | Umeng初始化appid |
+    | ShuShuAppID  | 数数平台初始化appid |
+    | TalkingDataAppID  | TalkingData平台初始化appid |   
+    
     V2.0.0 新增  
    
     | Item      | Value |
@@ -173,20 +183,7 @@
    
    9. 关于欧盟地区展示GDPR： 
    
-   ```
-   ///欧盟地区需要向用户展示GDPR权限获取说明：
-   [JC_iOSAdApi getLocationIsEU:^(BOOL isEU) {
-      if (isEU) {
-        [JC_iOSAdApi jcSDKShowGDPRWithDismissblock:^{ 
-        
-            } loadFailblock:^(NSError * _Nonnull error) {
-  
-            }];
-        }else{
-            
-        }
-    }];
-   ```
+   
    
 
 - 常见报错处理:  
