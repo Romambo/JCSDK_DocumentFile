@@ -1,5 +1,4 @@
-[版本记录]: https://developer.apple.com/documentation/apptrackingtransparency?language=objc  
-[version]: https://developer.apple.com/documentation/apptrackingtransparency?language=objc  
+  
 [iOS14 support]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/iOS14_support.md 
 [JCSDK]: https://github.com/Romambo/JCSDK  
 [DataCollenction_SDK]: https://github.com/Romambo/DataCollection_SDK  
@@ -299,7 +298,54 @@
    1. Support ad types：  
    splash ads、banner ads、rewardVideo ads、inter ads、native ads  
    2. Version record：  
-   see [version]  
+        <details>
+        <summary>1.0.0</summary>
+
+        support development tools: Xcode 11  
+        system version:iOS 9.0
+        </details>
+
+        <details>
+        <summary>2.0.0</summary>
+
+        support development tools: Xcode 12  
+        system version:iOS 9.0
+
+        **update content**  
+        >1.Added internal logic waterfall and continuous display  
+        >2.Added "kochava" and "tenjin" statistics  
+        >3.Change the SDK initialization interface used by Unity. see: JC_unityAdApi.h
+        ```
+        old code
+        //-(void)initJCSDKWithLog:(BOOL)isOpenLog isFirstShowSplash:(BOOL)isShow splashClose:(unityBlock)block;
+        new code
+        -(void)initJCSDKWithUnityShow:(unityBlock)block;
+        ```
+
+        >4.Change the log log interface, increase the log level.  see: JCAdCallBackHeader.h  
+        ```
+        old code
+        //+(void)setOpenPlatformLog:(BOOL)openPlatformLog;
+        new code
+        +(void)setTheLogLevel:(MSLogLevelStatus)logLevel;
+        ```
+
+        >5.Change JCiOSConfig.plist, add:   
+           "KochavaAppID":    kochava initialization parameters   
+           "TenJinAppID":     TenJin initialization parameters   
+           "ShowSplashFirst": Whether to display splash when the app is first opened. 
+           "LogLevel":loglevel 1、closeAll. 2、open JC_log. 3、open JC+AD log. 4、open JC+AD+Data log. Defaults:1  
+
+        **Project configuration：**  
+        * add System library:  
+           > AppTrackingTransparency.framework  
+        * add Third party library and file:
+           > KochavaCore.framework               (Embed & Sign)  
+           > KochavaTracker.framework            (Embed & Sign)  
+           > KochavaAdNetwork.framework          (Embed & Sign)  
+           > libTenjinSDK.a  
+           > TenjinSDK.h 
+        </details> 
  
 - **SDK Access configuration:**  
 
