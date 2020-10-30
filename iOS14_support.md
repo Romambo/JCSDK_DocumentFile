@@ -368,20 +368,6 @@ AppTrackingTransparency.framework
 ```
 </details>
 
-</details>
-<summary>Vungle</summary>
-
-请参阅 [Vungle] 文档，以了解更多信息  
-```
-<key>SKAdNetworkItems</key>
-<array>
-    <dict>
-        <key>SKAdNetworkIdentifier</key>
-        <string>GTA9LK7P23.skadnetwork</string>
-    </dict>
-</array>
-```
-</details>
 
 </details>
  
