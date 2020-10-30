@@ -207,7 +207,7 @@
 
   1. 如果使用了快手SDK，在打包上传AppStore的时候，苹果不支持模拟器相关支持二进制，可以加入以下脚本，来删除模拟器相关二进制内容。
   
-  ```
+  ```html
    APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
    find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
    do
