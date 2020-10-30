@@ -368,17 +368,17 @@ AppTrackingTransparency.framework
 ```
 </details>
 <details>
-<summary>Maio</summary>
+<summary>Vungle</summary>
 
-请参阅 [Maio] 文档，以了解更多信息  
+请参阅 [Vungle] 文档，以了解更多信息  
 ```
 <key>SKAdNetworkItems</key>
 <array>
     <dict>
         <key>SKAdNetworkIdentifier</key>
-        <string>V4NXQHLYQP.skadnetwork</string>
+        <string>GTA9LK7P23.skadnetwork</string>
     </dict>
-</array> 
+</array>
 ```
 </details>
 
