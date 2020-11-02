@@ -91,6 +91,14 @@
        Google相关参数配置
        <key>GADApplicationIdentifier</key>
        <string>ca-app-pub-9488501426181082/7319780494</string>
+       
+       获取地理位置权限
+       <key>NSLocationWhenInUseUsageDescription</key>
+       <string>The app needs to get your location</string>
+       
+       获取IDFA权限，iOS14支持
+       <key>NSUserTrackingUsageDescription</key> 
+       <string>This identifier will be used to deliver personalized ads to you.</string>
        ```
    3. build setting 配置：  
       bitcode 设置为NO  
@@ -369,6 +377,14 @@
        Google configuration
        <key>GADApplicationIdentifier</key>
        <string>ca-app-pub-9488501426181082/7319780494</string>
+       
+       Get location permission configuration
+       <key>NSLocationWhenInUseUsageDescription</key>
+       <string>The app needs to get your location</string>
+       
+       Get IDFA permissions ，iOS14support
+       <key>NSUserTrackingUsageDescription</key> 
+       <string>This identifier will be used to deliver personalized ads to you.</string>
        ```
    3. build setting configuration：  
         "bitcode" set "NO"  
