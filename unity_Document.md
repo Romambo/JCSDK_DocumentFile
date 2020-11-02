@@ -94,6 +94,8 @@
        Google相关参数配置
        <key>GADApplicationIdentifier</key>
        <string>ca-app-pub-9488501426181082/7319780494</string>
+       <key>GADIsAdManagerApp</key>
+       <true/>
        
        获取地理位置权限配置
        <key>NSLocationWhenInUseUsageDescription</key>
@@ -464,6 +466,8 @@
        Google configuration
        <key>GADApplicationIdentifier</key>
        <string>ca-app-pub-9488501426181082/7319780494</string>
+       <key>GADIsAdManagerApp</key>
+       <true/>
        
        Get location permission configuration
        <key>NSLocationWhenInUseUsageDescription</key>
