@@ -84,22 +84,26 @@
    
    2. info.pist 配置：
        ```
-       支持http网络配置
+       支持http网络配置:
        <key>NSAppTransportSecurity</key>
        <dict>
        <key>NSAllowsArbitraryLoads</key>
        <true/>
        </dict>
 
-       Google相关参数配置
+       Google相关参数配置:
        <key>GADApplicationIdentifier</key>
        <string>ca-app-pub-9488501426181082/7319780494</string>
        <key>GADIsAdManagerApp</key>
        <true/>
        
-       获取地理位置权限配置
+       获取地理位置权限配置:
        <key>NSLocationWhenInUseUsageDescription</key>
        <string>The app needs to get your location</string>
+       
+       获取IDFA权限，iOS14支持:
+       <key>NSUserTrackingUsageDescription</key> 
+       <string>This identifier will be used to deliver personalized ads to you.</string>
        ```
    3. build setting 配置：  
       bitcode 设置为NO  
@@ -456,22 +460,26 @@
    
    2. info.pist configuration：
        ```
-       Support http network configuration
+       Support http network configuration:
        <key>NSAppTransportSecurity</key>
        <dict>
        <key>NSAllowsArbitraryLoads</key>
        <true/>
        </dict>
 
-       Google configuration
+       Google configuration:
        <key>GADApplicationIdentifier</key>
        <string>ca-app-pub-9488501426181082/7319780494</string>
        <key>GADIsAdManagerApp</key>
        <true/>
        
-       Get location permission configuration
+       Get location permission configuration:
        <key>NSLocationWhenInUseUsageDescription</key>
        <string>The app needs to get your location</string>
+       
+       Get IDFA permissions ，iOS14support:
+       <key>NSUserTrackingUsageDescription</key> 
+       <string>This identifier will be used to deliver personalized ads to you.</string>
        ```
    3. build setting configuration：  
       bitcode  set: NO  
