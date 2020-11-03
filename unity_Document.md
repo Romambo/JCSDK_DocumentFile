@@ -248,6 +248,13 @@
         /// show rewardVideo Ads
         void showRewardVideo();
        ```
+    6. Umeng 和 talkingData数据上报：  
+       ```
+       /// Send Event UMeng、talkingData
+       /// @param event event
+       /// @param jsonEventInfo key-value converted json string, if there is no content to pass, you can set a null value
+        void sendEvent(char *event,char *jsonEventInfo);
+       ```
    
   </details>
 - **广告接口回调Api和使用：**  
@@ -625,7 +632,13 @@
         /// show rewardVideo Ads
         void showRewardVideo();
        ```
-   
+   6. Umeng And talkingData send Message：  
+       ```
+       /// Send Event UMeng、talkingData
+       /// @param event event
+       /// @param jsonEventInfo key-value converted json string, if there is no content to pass, you can set a null value
+        void sendEvent(char *event,char *jsonEventInfo);
+       ```
   </details>
 - **Advertising interface callback API and use：**  
   <details>
