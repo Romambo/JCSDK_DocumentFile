@@ -258,9 +258,9 @@
        ```
     10. Umeng 和 talkingData 数据上报：（如果你的项目中使用了umeng或者talkingdata，可以删除掉，采用sdk内部提供的umeng数据上报相关接口）  
        ```
+       
        /// jsonStr Please convert the key-value to json.
        +(void)sendEvent:(NSString*)event detailedJsonString:(NSString*)jsonStr;
-   
        ```
    </details>
 
