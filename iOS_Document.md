@@ -258,10 +258,13 @@
        ```
     10. Umeng 和 talkingData 数据上报：（如果你的项目中使用了umeng或者talkingdata，可以删除掉，采用sdk内部提供的umeng数据上报相关接口）  
        ```
-        /// If you are using UMeng and talkingdata in your app, use this reported data api  
+        /// If you are using UMeng and talkingdata in your app, use this reported data api
+        
         /// @param event event  
+        
         /// @param jsonStr Please convert the key-value to json.  
-        +(void)sendEvent:(NSString*)event detailedJsonString:(NSString*)jsonStr;
+        
+        +(void)sendEvent:(NSString*)event detailedJsonString:(NSString*)jsonStr;  
        ```
    </details>
 
@@ -557,10 +560,13 @@
        ```
     10. Umeng And talkingData send Message：(If you use umeng or talkingdata in your project, you can delete it and use the umeng data reporting interface provided by the sdk)  
        ```
-        /// If you are using UMeng and talkingdata in your app, use this reported data api  
+        /// If you are using UMeng and talkingdata in your app, use this reported data api
+        
         /// @param event event  
+        
         /// @param jsonStr Please convert the key-value to json.  
-        +(void)sendEvent:(NSString*)event detailedJsonString:(NSString*)jsonStr;
+        
+        +(void)sendEvent:(NSString*)event detailedJsonString:(NSString*)jsonStr; 
        ```
    </details>
 
