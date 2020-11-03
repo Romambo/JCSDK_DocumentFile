@@ -554,11 +554,10 @@
        +(void)jcSDKShowGDPRWithDismissblock:(void(^)(void))dismissblock loadFailblock:(void(^)(NSError *error))failBlock;
        ```
     10. Umeng And talkingData send Message：(If you use umeng or talkingdata in your project, you can delete it and use the umeng data reporting interface provided by the sdk)  
-       ```
-        /// @param event event  
-        /// @param jsonStr Please convert the key-value to json.  
-        +(void)sendEvent:(NSString*)event detailedJsonString:(NSString*)jsonStr; 
-       ```
+         ```
+         /// jsonStr Please convert the key-value to json.
+         +(void)sendEvent:(NSString*)event detailedJsonString:(NSString*)jsonStr;
+         ```
    </details>
 
 
