@@ -256,6 +256,11 @@
        /// @param failBlock show Fail callback
        +(void)jcSDKShowGDPRWithDismissblock:(void(^)(void))dismissblock loadFailblock:(void(^)(NSError *error))failBlock;
        ```
+    10. Umeng 和 talkingData 数据上报：（如果你的项目中使用了umeng或者talkingdata，可以删除掉，采用sdk内部提供的umeng数据上报相关接口）  
+         ```
+         /// jsonStr Please convert the key-value to json.
+         +(void)sendEvent:(NSString*)event detailedJsonString:(NSString*)jsonStr;
+         ```
    </details>
 
 
@@ -548,6 +553,11 @@
        /// @param failBlock show Fail callback
        +(void)jcSDKShowGDPRWithDismissblock:(void(^)(void))dismissblock loadFailblock:(void(^)(NSError *error))failBlock;
        ```
+    10. Umeng And talkingData send Message：(If you use umeng or talkingdata in your project, you can delete it and use the umeng data reporting interface provided by the sdk)  
+         ```
+         /// jsonStr Please convert the key-value to json.
+         +(void)sendEvent:(NSString*)event detailedJsonString:(NSString*)jsonStr;
+         ```
    </details>
 
 
