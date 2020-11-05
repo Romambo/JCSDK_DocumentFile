@@ -392,17 +392,17 @@
             }
           }
         ``` 
-      9. 导入下载好的库文件  
+     9. 导入下载好的库文件  
          其中某些库是动态库，xcode - target - General - Framework,Librares,and Embedded Content 找到以下库设置(Embed & Sign):  
          > KSAdSDK.framework                   (Embed & Sign)    
          > KochavaCore.framework               (Embed & Sign)  
          > KochavaTracker.framework            (Embed & Sign)  
          > KochavaAdNetwork.framework          (Embed & Sign)
          
-      10. 添加wifi权限  
+     10. 添加wifi权限  
         xcode - target - Signing&Capabilities 左上角 "+" Access WiFi Information  
       
-      11. 添加脚本处理KSAdSDK中的模拟器二进制，否则打包会报错  
+     11. 添加脚本处理KSAdSDK中的模拟器二进制，否则打包会报错  
         xcode - target - Build Phases 左上角 “+” New Run script Phases  
         打开 Run script  
         添加以下脚本：  
