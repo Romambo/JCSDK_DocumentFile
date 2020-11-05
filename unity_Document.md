@@ -353,6 +353,7 @@
              | LogLevel  | Log level: string type. 1. Close. 2. Open JC log. 3. Open JC+ad log. 4. Open JC+ad+data log |
              
         7. Export xcode project  
+        
         8. Find UnityAppController.mm for initial access  
       
            1. Import header file
@@ -361,7 +362,8 @@
             #import <AppTrackingTransparency/AppTrackingTransparency.h>
             ```
          
-           2. Access initialization
+           2. Access initialization  
+           
              find [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];  
              Replace startUnity: -> initSDKWithApplication:  
              [self performSelector: @selector(initSDKWithApplication:) withObject: application afterDelay: 0];  
@@ -388,6 +390,7 @@
                    }
                  ``` 
        9. Import the downloaded library file  
+       
            Some of these libraries are dynamic libraries，xcode - target - General - Framework,Librares,and Embedded Content  
            Find the following library settings :(Embed & Sign):  
            > KSAdSDK.framework                   (Embed & Sign)    
@@ -396,9 +399,11 @@
            > KochavaAdNetwork.framework          (Embed & Sign)
          
        10. Add wifi permission  
+       
            xcode - target - Signing&Capabilities . Upper left corner "+" Access WiFi Information  
       
        11. Add a script to process the emulator binary file in “KSAdSDK”, otherwise the package will report an error  
+       
            xcode - target - Build Phases . Upper left corner “+” New Run script Phases  
            open "Run script"  
            Add the following script:  
@@ -542,9 +547,10 @@
        2. Callback example:  
              Note: Call the registration monitoring method before callback to establish a connection.   
              Interstitial callback example:  
+             
          ```
                [DllImport("__Internal")]
-       static extern void Intersitial_CallBack(IntPtr failLoad, IntPtr didShow, IntPtr failToShow, IntPtr didClose, IntPtr didClick, IntPtr failToPlayVideo, IntPtr startPlayingVideo, IntPtr endPlayingVideo);
+               static extern void Intersitial_CallBack(IntPtr failLoad, IntPtr didShow, IntPtr failToShow, IntPtr didClose, IntPtr didClick, IntPtr failToPlayVideo, IntPtr startPlayingVideo, IntPtr endPlayingVideo);
 
                // 
                var handler11 = new ResultHandler(interFailLoad);
@@ -565,49 +571,49 @@
                var fp18 = Marshal.GetFunctionPointerForDelegate(handler18);
                Intersitial_CallBack(fp11, fp12, fp13, fp14, fp15, fp16, fp17, fp18);
 
-           // inter callback
-           [MonoPInvokeCallback(typeof(ResultHandler))]
-           static void interEndPlayingVideo(string resultString)
-           {
-               Debug.Log("inter callback----->interEndPlayingVideo");
-           }
-           [MonoPInvokeCallback(typeof(ResultHandler))]
-           static void interStartPlayingVideo(string resultString)
-           {
-               Debug.Log("inter callback----->interStartPlayingVideo");
-           }
-           [MonoPInvokeCallback(typeof(ResultHandler))]
-           static void interFailToPlayVideo(string resultString)
-           {
-               Debug.Log("inter callback----->interFailToPlayVideo");
-           }
-           [MonoPInvokeCallback(typeof(ResultHandler))]
-           static void interDidClick(string resultString)
-           {
-               Debug.Log("inter callback----->interDidClick");
-           }
-           [MonoPInvokeCallback(typeof(ResultHandler))]
-           static void interDidClose(string resultString)
-           {
-               Debug.Log("inter callback----->interDidClose");
-           }
-           [MonoPInvokeCallback(typeof(ResultHandler))]
-           static void interFailtoShow(string resultString)
-           {
-               Debug.Log("inter callback----->interFailtoShow");
-           }
+               // inter callback
+               [MonoPInvokeCallback(typeof(ResultHandler))]
+               static void interEndPlayingVideo(string resultString)
+               {
+                   Debug.Log("inter callback----->interEndPlayingVideo");
+               }
+               [MonoPInvokeCallback(typeof(ResultHandler))]
+               static void interStartPlayingVideo(string resultString)
+               {
+                   Debug.Log("inter callback----->interStartPlayingVideo");
+               }
+               [MonoPInvokeCallback(typeof(ResultHandler))]
+               static void interFailToPlayVideo(string resultString)
+               {
+                   Debug.Log("inter callback----->interFailToPlayVideo");
+               }
+               [MonoPInvokeCallback(typeof(ResultHandler))]
+               static void interDidClick(string resultString)
+               {
+                   Debug.Log("inter callback----->interDidClick");
+               }
+               [MonoPInvokeCallback(typeof(ResultHandler))]
+               static void interDidClose(string resultString)
+               {
+                   Debug.Log("inter callback----->interDidClose");
+               }
+               [MonoPInvokeCallback(typeof(ResultHandler))]
+               static void interFailtoShow(string resultString)
+               {
+                   Debug.Log("inter callback----->interFailtoShow");
+               }
 
-           [MonoPInvokeCallback(typeof(ResultHandler))]
-           static void interDidShow(string resultString)
-           {
-               Debug.Log("inter callback----->interDidShow");
-           }
+               [MonoPInvokeCallback(typeof(ResultHandler))]
+               static void interDidShow(string resultString)
+               {
+                   Debug.Log("inter callback----->interDidShow");
+               }
 
-           [MonoPInvokeCallback(typeof(ResultHandler))]
-           static void interFailLoad(string resultString)
-           {
-               Debug.Log("inter callback----->interFailLoad");
-           }
+               [MonoPInvokeCallback(typeof(ResultHandler))]
+               static void interFailLoad(string resultString)
+               {
+                   Debug.Log("inter callback----->interFailLoad");
+               }
 
          ```
 
@@ -1154,9 +1160,10 @@
   2. 回调示例:  
         注：回调前先调用注册监听方法，建立连接. 
         插屏回调示例：
+        
     ```
           [DllImport("__Internal")]
-  static extern void Intersitial_CallBack(IntPtr failLoad, IntPtr didShow, IntPtr failToShow, IntPtr didClose, IntPtr didClick, IntPtr failToPlayVideo, IntPtr startPlayingVideo, IntPtr endPlayingVideo);
+           static extern void Intersitial_CallBack(IntPtr failLoad, IntPtr didShow, IntPtr failToShow, IntPtr didClose, IntPtr didClick, IntPtr failToPlayVideo, IntPtr startPlayingVideo, IntPtr endPlayingVideo);
 
           //注册插屏回调
           var handler11 = new ResultHandler(interFailLoad);
@@ -1177,49 +1184,49 @@
           var fp18 = Marshal.GetFunctionPointerForDelegate(handler18);
           Intersitial_CallBack(fp11, fp12, fp13, fp14, fp15, fp16, fp17, fp18);
 
-      //插屏回调
-      [MonoPInvokeCallback(typeof(ResultHandler))]
-      static void interEndPlayingVideo(string resultString)
-      {
-          Debug.Log("插屏回调----->interEndPlayingVideo");
-      }
-      [MonoPInvokeCallback(typeof(ResultHandler))]
-      static void interStartPlayingVideo(string resultString)
-      {
-          Debug.Log("插屏回调----->interStartPlayingVideo");
-      }
-      [MonoPInvokeCallback(typeof(ResultHandler))]
-      static void interFailToPlayVideo(string resultString)
-      {
-          Debug.Log("插屏回调----->interFailToPlayVideo");
-      }
-      [MonoPInvokeCallback(typeof(ResultHandler))]
-      static void interDidClick(string resultString)
-      {
-          Debug.Log("插屏回调----->interDidClick");
-      }
-      [MonoPInvokeCallback(typeof(ResultHandler))]
-      static void interDidClose(string resultString)
-      {
-          Debug.Log("插屏回调----->interDidClose");
-      }
-      [MonoPInvokeCallback(typeof(ResultHandler))]
-      static void interFailtoShow(string resultString)
-      {
-          Debug.Log("插屏回调----->interFailtoShow");
-      }
+          //插屏回调
+          [MonoPInvokeCallback(typeof(ResultHandler))]
+          static void interEndPlayingVideo(string resultString)
+          {
+              Debug.Log("插屏回调----->interEndPlayingVideo");
+          }
+          [MonoPInvokeCallback(typeof(ResultHandler))]
+          static void interStartPlayingVideo(string resultString)
+          {
+              Debug.Log("插屏回调----->interStartPlayingVideo");
+          }
+          [MonoPInvokeCallback(typeof(ResultHandler))]
+          static void interFailToPlayVideo(string resultString)
+          {
+              Debug.Log("插屏回调----->interFailToPlayVideo");
+          }
+          [MonoPInvokeCallback(typeof(ResultHandler))]
+          static void interDidClick(string resultString)
+          {
+              Debug.Log("插屏回调----->interDidClick");
+          }
+          [MonoPInvokeCallback(typeof(ResultHandler))]
+          static void interDidClose(string resultString)
+          {
+              Debug.Log("插屏回调----->interDidClose");
+          }
+          [MonoPInvokeCallback(typeof(ResultHandler))]
+          static void interFailtoShow(string resultString)
+          {
+              Debug.Log("插屏回调----->interFailtoShow");
+          }
 
-      [MonoPInvokeCallback(typeof(ResultHandler))]
-      static void interDidShow(string resultString)
-      {
-          Debug.Log("插屏回调----->interDidShow");
-      }
+          [MonoPInvokeCallback(typeof(ResultHandler))]
+          static void interDidShow(string resultString)
+          {
+              Debug.Log("插屏回调----->interDidShow");
+          }
 
-      [MonoPInvokeCallback(typeof(ResultHandler))]
-      static void interFailLoad(string resultString)
-      {
-          Debug.Log("插屏回调----->interFailLoad");
-      }
+          [MonoPInvokeCallback(typeof(ResultHandler))]
+          static void interFailLoad(string resultString)
+          {
+              Debug.Log("插屏回调----->interFailLoad");
+          }
 
     ```
     
