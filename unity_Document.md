@@ -67,7 +67,7 @@
          > TenjinSDK.h 
       </details> 
       
-- **SDK接入配置**  
+- **SDK接入配置和操作**  
   
   <details>
    <summary>content</summary>
@@ -392,7 +392,54 @@
             }
           }
         ``` 
-          
+      9. 导入下载好的库文件  
+         其中某些库是动态库，xcode - target - General - Framework,Librares,and Embedded Content 找到以下库设置(Embed & Sign):  
+         > KSAdSDK.framework                   (Embed & Sign)    
+         > KochavaCore.framework               (Embed & Sign)  
+         > KochavaTracker.framework            (Embed & Sign)  
+         > KochavaAdNetwork.framework          (Embed & Sign)
+         
+      10. 添加wifi权限  
+        xcode - target - Signing&Capabilities 左上角 "+" Access WiFi Information  
+      
+      11. 添加脚本处理KSAdSDK中的模拟器二进制，否则打包会报错  
+        xcode - target - Build Phases 左上角 “+” New Run script Phases  
+        打开 Run script  
+        添加以下脚本：  
+        ```
+          APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
+
+          # This script loops through the frameworks embedded in the application and
+          # removes unused architectures.
+          find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
+          do
+              FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
+              FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
+              echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"
+
+              EXTRACTED_ARCHS=()
+
+              for ARCH in $ARCHS
+              do
+                  echo "Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME"
+                  lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"
+                  EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")
+              done
+
+              echo "Merging extracted architectures: ${ARCHS}"
+              lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "${EXTRACTED_ARCHS[@]}"
+              rm "${EXTRACTED_ARCHS[@]}"
+
+              echo "Replacing original executable with thinned version"
+              rm "$FRAMEWORK_EXECUTABLE_PATH"
+              mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
+
+          done
+
+        
+        ```
+              
+              
      </details>  
 - **unity接入Api说明：**  
 
