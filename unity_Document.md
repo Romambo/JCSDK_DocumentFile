@@ -359,56 +359,50 @@
       | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
    </details>
    
-  
+   7. 导出xcode工程  
+   8. 找到UnityAppController.mm进行初始化接入  
+      
+      1. 导入头文件
+         ```
+         #import <JCSDK/JCSDK>
+         #import <AppTrackingTransparency/AppTrackingTransparency.h>
+         ```
+         
+       2. 接入初始化
+          找到[self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];  
+          替换掉startUnity: -> initSDKWithApplication:  
+          [self performSelector: @selector(initSDKWithApplication:) withObject: application afterDelay: 0];  
+          
+          添加以下代码
+           ```
+          -(void)initSDKWithApplication:(UIApplication*)application{
+            if (@available(iOS 14, *)) {
+                //iOS 14 系统IDFA权限弹框
+                [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+
+                    //2.0.0初始化接口
+                    [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
+                        [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
+                    }];
+                }];
+            } else {
+                //2.0.0初始化接口
+                [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
+                    [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
+                }];
+            }
+          }
+        ``` 
+          
+          
 - **unity接入Api说明：**  
 
   <details>
   <summary>content</summary>
 
   如果文档内API和framework内API有冲突，请以framework内API为准。
-   1. 初始化：
-      unity开发者，在UnityAppController.mm中实现，应参照下面初始化方式  ：
-      先引入头文件：
-      ```
-      #import <JCSDK/JCSDK>
-      #import <AppTrackingTransparency/AppTrackingTransparency.h>
-      ```
-      找到unity入口 ：替换掉startUnity: 并调用JCSDK的初始化方法，待sdk初始化回调后，再启动startUnity:
-        ```
-        //[self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-        [self performSelector: @selector(initSDKWithApplication:) withObject: application afterDelay: 0];
-        ```
-        ```
-        -(void)initSDKWithApplication:(UIApplication*)application{
-            if (@available(iOS 14, *)) {
-                //iOS 14 系统IDFA权限弹框
-                [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-
-                    //1.0.0初始化接口
-                    //[[JC_unityAdApi getInstance]initJCSDKWithLog:YES isFirstShowSplash:NO splashClose:^(BOOL isOk) {
-                    //    [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-                    //}];
-                    //2.0.0初始化接口
-                    [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
-                        [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-                    }];
-                    //to do something，like preloading
-                }];
-            } else {
-
-                //1.0.0初始化接口
-                //[[JC_unityAdApi getInstance]initJCSDKWithLog:YES isFirstShowSplash:NO splashClose:^(BOOL isOk) {
-                //    [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-                //}];
-                //2.0.0初始化接口
-                [[JC_unityAdApi getInstance]initJCSDKWithUnityShow:^(BOOL showUnityTime) {
-                    [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];
-                }];
-            }
-        }
-        ```  
    
-   2. 初始化 api：  
+  1. 初始化 api：  
       
        ```
        V1.0.0 初始化接口：
@@ -418,7 +412,7 @@
         -(void)initJCSDKWithUnityShow:(unityBlock)block;
        ```
    
-   3. banner广告api：  
+   2. banner广告api：  
        ```
         /// isReady - banner
         bool isReadyBanner();
@@ -430,7 +424,7 @@
         void removeBannerView();
        ```
    
-   4. Intersitial 广告 api：  
+   3. Intersitial 广告 api：  
        ```
         /// Intersitial Ads isReady
         bool isReadyIntersitial();
@@ -439,7 +433,7 @@
         void showIntersitial();
        ```
    
-   5. RewardView广告api：  
+   4. RewardView广告api：  
        ```
         /// rewardVideo Ads isReady
         bool isReadyRewardVideo();
@@ -447,7 +441,7 @@
         /// show rewardVideo Ads
         void showRewardVideo();
        ```
-    6. Umeng 和 talkingData数据上报：  
+    5. Umeng 和 talkingData数据上报：  
        ```
        /// Send Event UMeng、talkingData
        /// @param event event
