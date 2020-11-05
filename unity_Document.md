@@ -359,18 +359,18 @@
         8. Find UnityAppController.mm for initial access  
       
            1. Import header file
-            ```
-            #import <JCSDK/JCSDK>
-            #import <AppTrackingTransparency/AppTrackingTransparency.h>
-            ```
+               ```
+               #import <JCSDK/JCSDK>
+               #import <AppTrackingTransparency/AppTrackingTransparency.h>
+               ```
          
            2. Access initialization  
            
-             find [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];  
-             Replace startUnity: -> initSDKWithApplication:  
-             [self performSelector: @selector(initSDKWithApplication:) withObject: application afterDelay: 0];  
+               find [self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];  
+               Replace startUnity: -> initSDKWithApplication:  
+               [self performSelector: @selector(initSDKWithApplication:) withObject: application afterDelay: 0];  
           
-             Add the following code  
+               Add the following code  
              
                     ```
                     
