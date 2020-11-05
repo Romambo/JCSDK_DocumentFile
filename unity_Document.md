@@ -5,7 +5,7 @@
 [ADThirdParty_SDK]: https://github.com/Romambo/ADThirdParty_SDK  
 [图片1]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unity_image1.png
 [图片2]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image2.png
-
+[下载链接]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
 # JCSDK unity support document
 
 ### 中文版本
@@ -14,10 +14,8 @@
 <summary>详细文档</summary>
  
 - **SDK简介：**  
- JCSDK是MS公司提供的一套广告类型的SDK，内部集成了各大广告商的广告SDK和相关数据统计SDK，便于平台之间对应用内广告的联合运营和数据分析。  
-   1. 支持广告类型：  
-      开屏广告、banner广告、激励视频广告、插屏广告、native广告  
-   2. 版本记录：  
+
+   1. 版本记录：  
    
       <details>
       <summary>1.0.0</summary>
@@ -69,50 +67,28 @@
          > TenjinSDK.h 
       </details> 
       
-- **SDK接入配置（提供untiy桥接和配置文件）**  
+- **SDK接入配置**  
   
   <details>
    <summary>content</summary>
   
-    以下是导出Xcode所需的配置，但我们提供了桥接文件和配置文件:[ios_unity_bridge]，来自动集成一些配置，请查看参考使用：  
-    ![图片1]
   
-   1. SDK库和所需支持库：  
-      [JCSDK]  
-      [DataCollenction_SDK]  
-      [ADThirdParty_SDK]  
+   1. 下载SDK库和所需支持库：[下载链接]  
    
-   2. info.pist 配置：
-       ```
-       支持http网络配置:
-       <key>NSAppTransportSecurity</key>
-       <dict>
-       <key>NSAllowsArbitraryLoads</key>
-       <true/>
-       </dict>
-
-       Google相关参数配置:
-       <key>GADApplicationIdentifier</key>
-       <string>ca-app-pub-9488501426181082/7319780494</string>
-       <key>GADIsAdManagerApp</key>
-       <true/>
-       
-       获取地理位置权限配置:
-       <key>NSLocationWhenInUseUsageDescription</key>
-       <string>The app needs to get your location</string>
-       
-       获取IDFA权限，iOS14支持:
-       <key>NSUserTrackingUsageDescription</key> 
-       <string>This identifier will be used to deliver personalized ads to you.</string>
-       ```
-   3. build setting 配置：  
+      iOS_UnityBridge : unity api
+      
+      SDKFile:
+        DataCollection_SDK ：  Some libraries about the data statistics platform
+        ADThirdParty_SDK ：    Some libraries about advertising platforms
+        MS_SDK ： 		           About our own JCSDK library
+        
+   2. 接入相关Api，详情见iOS_UnityBridge
+   
+   3. xcode - build setting 配置：  
       bitcode 设置为NO  
-      other Linker Flags 设置 -ObjC  
-   
-   4. iOS14 支持：  
-      详情见 [iOS14 support] 说明文档.  
-   
-   5. 导入系统支持库：  
+      other Linker Flags 设置 -ObjC
+      
+   4. 导入系统支持库：  
       Accelerate.framework  
       AdSupport.framework  
       AVFoundation.framework  
@@ -136,6 +112,229 @@
       libsqlite3.tbd  
       libxml2.tbd  
       libz.tbd  
+      
+   5. info.pist 配置：
+   
+       <details>
+       <summary>配置列表</summary>
+
+       ```
+       支持http网络配置:
+       <key>NSAppTransportSecurity</key>
+       <dict>
+       <key>NSAllowsArbitraryLoads</key>
+       <true/>
+       </dict>
+
+       Google相关参数配置:
+       <key>GADApplicationIdentifier</key>
+       <string>ca-app-pub-9488501426181082/7319780494</string>
+       <key>GADIsAdManagerApp</key>
+       <true/>
+       
+       获取地理位置权限配置:
+       <key>NSLocationWhenInUseUsageDescription</key>
+       <string>The app needs to get your location</string>
+       
+       获取IDFA权限，iOS14支持:
+       <key>NSUserTrackingUsageDescription</key> 
+       <string>This identifier will be used to deliver personalized ads to you.</string>
+       
+       <key>SKAdNetworkItems</key>
+       <array>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>cstr6suwn9.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>238da6jt44.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>22mmun2rn5.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>SU67R6K2V3.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>4DZT52R2T5.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>bvpn9ufa9b.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>4PFYVQ9L8R.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>YCLNXRL5PM.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>V72QYCH5UU.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>TL55SBB4FM.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>T38B2KH725.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>PRCB7NJMU6.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>PPXM28T8AP.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>MLMMFZH3R3.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>KLF5C3L5U5.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>HS6BDUKANM.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>C6K4G5QG8M.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>9T245VHMPL.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>9RD848Q2BZ.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>8S468MFL3Y.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>7UG5ZH24HU.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>4FZDC2EVR5.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>4468KM3ULZ.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>3RD42EKR43.skadnetwork</string>
+        </dict>
+        <dict>
+            <key>SKAdNetworkIdentifier</key>
+            <string>2U9PT9HC89.skadnetwork</string>
+        </dict>
+        <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>KBD757YWX3.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>wg4vff78zm.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>737z793b9f.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>ydx93a7ass.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>prcb7njmu6.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>7UG5ZH24HU.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>44jx6755aq.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>2U9PT9HC89.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>W9Q455WK68.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>YCLNXRL5PM.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>TL55SBB4FM.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>8s468mfl3y.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>GLQZH8VGBY.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>c6k4g5qg8m.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>mlmmfzh3r3.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>4PFYVQ9L8R.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>av6w8kgt66.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>6xzpu9s2p8.skadnetwork</string>
+            </dict>
+            <dict>
+                <key>SKAdNetworkIdentifier</key>
+                <string>hs6bdukanm.skadnetwork</string>
+            </dict>
+            <dict>
+                    <key>SKAdNetworkIdentifier</key>
+                    <string>58922NB4GD.skadnetwork</string>
+                </dict>
+            <dict>
+                    <key>SKAdNetworkIdentifier</key>
+                    <string>V4NXQHLYQP.skadnetwork</string>
+                </dict>
+            <dict>
+                    <key>SKAdNetworkIdentifier</key>
+                    <string>GTA9LK7P23.skadnetwork</string>
+                </dict>
+       </array>
+       ```
+       </details>
+       
+   
    
    6. JCiOSConfig.plist 参数说明：  
       V1.0.0 提供  
