@@ -35,7 +35,7 @@ AppTrackingTransparency.framework
 <key>NSUserTrackingUsageDescription</key> 
 <string>This identifier will be used to deliver personalized ads to you.</string>
 ```
-![image1](https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios14_image1.png)  
+![image1](https://github.com/Romambo/JCSDK_DocumentFile/raw/main/imageFile/ios14_image1.png)  
 > 获取App Tracking Transparency权限：  
 想要获取授权，需要使[requestTrackingAuthorizationWithCompletionHandler:],我们建议您在初始化JCSDK之前获取授权，以便如果用户授予允许跟踪权限，JCSDK则可以在广告请求中使用IDFA.  
 ```
@@ -416,7 +416,7 @@ AppTrackingTransparency.framework
 <key>NSUserTrackingUsageDescription</key> 
 <string>This identifier will be used to deliver personalized ads to you.</string>
 ```
-![image1](https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios14_image1.png)  
+![image1](https://github.com/Romambo/JCSDK_DocumentFile/raw/main/imageFile/ios14_image1.png)  
 > Obtain App Tracking Transparency permissions：  
 To obtain authorization, you need to use [requestTrackingAuthorizationWithCompletionHandler:]. We recommend that you obtain authorization before initializing JCSDK, so that if the user grants permission to track, JCSDK can use IDFA in ad requests.  
 ```
