@@ -332,7 +332,8 @@
             iOS14 support configuration details see [iOS14 support] document.  
        
 
-        6. JCiOSConfig.plist Parameter Description：  Look at the downloaded "SDKFile" - "MS_SDK" file
+        6. JCiOSConfig.plist Parameter Description：  Look at the downloaded "SDKFile" - "MS_SDK" file  
+        
              V1.0.0 add  
 
              | Item      | Value |
