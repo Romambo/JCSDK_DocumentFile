@@ -77,10 +77,10 @@
    
       iOS_UnityBridge : unity api
       
-      SDKFile:
-        DataCollection_SDK ：  Some libraries about the data statistics platform
-        ADThirdParty_SDK ：    Some libraries about advertising platforms
-        MS_SDK ： 		           About our own JCSDK library
+      SDKFile:  
+        DataCollection_SDK ：  Some libraries about the data statistics platform  
+        ADThirdParty_SDK ：    Some libraries about advertising platforms  
+        MS_SDK ： 		           About our own JCSDK library  
         
    2. 接入相关Api，详情见iOS_UnityBridge
    
@@ -407,10 +407,9 @@
         打开 Run script  
         添加以下脚本：  
         ```
+        
           APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
-
-          # This script loops through the frameworks embedded in the application and
-          # removes unused architectures.
+          
           find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
           do
               FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
