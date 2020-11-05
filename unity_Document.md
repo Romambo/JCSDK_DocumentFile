@@ -72,7 +72,8 @@
        <details>
         <summary>content</summary>
 
-       1. Download SDK library and required support library: [download link]    
+       1. Download SDK library and required support library: [download link]   
+       
            iOS_UnityBridge : unity api
       
            SDKFile:  
@@ -83,6 +84,7 @@
        2. Access related APIs, see iOS_UnityBridge for details
    
        3. xcode - build setting configuration：  
+       
           bitcode set "NO"  
           other Linker Flags set "-ObjC"
       
@@ -368,7 +370,8 @@
              Replace startUnity: -> initSDKWithApplication:  
              [self performSelector: @selector(initSDKWithApplication:) withObject: application afterDelay: 0];  
           
-             Add the following code
+             Add the following code  
+             
                     ```
                     
                    -(void)initSDKWithApplication:(UIApplication*)application{
