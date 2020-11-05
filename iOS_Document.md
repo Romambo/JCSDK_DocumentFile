@@ -3,8 +3,8 @@
 [JCSDK]: https://github.com/Romambo/JCSDK  
 [DataCollenction_SDK]: https://github.com/Romambo/DataCollection_SDK  
 [ADThirdParty_SDK]: https://github.com/Romambo/ADThirdParty_SDK  
-[图片1]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image1.png
-[图片2]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image2.png
+[图片1]: https://github.com/Romambo/JCSDK_DocumentFile/raw/main/imageFile/ios_image1.png
+[图片2]:https://github.com/Romambo/JCSDK_DocumentFile/raw/main/imageFile/ios_image2.png
 
 # JCSDK ios support document
 
