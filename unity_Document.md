@@ -9,15 +9,13 @@
 # JCSDK unity support document
  
  ### English version
- 
-     <details>
-     <summary>Detailed documentation</summary>
 
-     - **SDK Introduction：**  
-       JCSDK is a set of advertising SDK provided by MS. It integrates the advertising SDKs of major advertisers and related data statistics SDKs to facilitate the joint operation and data analysis of in-app advertising between platforms.  
-        1. support ads：  
-           splash ads、banner ads、rewardVideo ads、inter ads、native ads   
-        2. Version record：  
+   <details>
+   <summary>Detailed documentation</summary>
+
+   - **SDK Introduction：**  
+          
+        1. Version record：  
 
            <details>
              <summary>1.0.0</summary>
@@ -68,20 +66,17 @@
                 > TenjinSDK.h 
              </details> 
 
-     - **SDK Access configuration（Provide untiy bridge and configuration files）**  
+     - **SDK access process and configuration**  
 
        <details>
         <summary>content</summary>
 
-         The following are the configurations required to export Xcode, but we provide bridge files and configuration files to automatically integrate some configurations:[ios_unity_bridge], please check the reference usage:  
-         ![图片1]
-
-        1. SDK library and required support library：  
+       1. SDK library and required support library：  
            [JCSDK]  
            [DataCollenction_SDK]  
            [ADThirdParty_SDK]  
 
-        2. info.pist configuration：
+       2. info.pist configuration：
             ```
             Support http network configuration:
             <key>NSAppTransportSecurity</key>
@@ -385,12 +380,13 @@
 
          ```
 
-       </details>
-     </details>
+   </details>
+   </details>
 
 -------------------------
 
 ### 中文版本
+
 
 <details>
 <summary>详细文档</summary>
