@@ -392,7 +392,7 @@
                      }
                    }
                  ``` 
-       9. Import the downloaded library file  
+       9. Import the downloaded library file. Look at the downloaded "SDKFile" file  
        
            Some of these libraries are dynamic libraries，xcode - target - General - Framework,Librares,and Embedded Content  
            Find the following library settings :(Embed & Sign):  
