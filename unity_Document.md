@@ -357,7 +357,6 @@
       | TenJinAppID  | tenjin初始化所需的appid |
       | ShowSplashFirst  | 首次打开应用是否展示开屏广告，bool类型 YES/NO |
       | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
-   </details>
    
     7. 导出xcode工程  
     8. 找到UnityAppController.mm进行初始化接入  
@@ -394,7 +393,7 @@
           }
         ``` 
           
-          
+     </details>  
 - **unity接入Api说明：**  
 
   <details>
