@@ -82,257 +82,270 @@
              MS_SDK ： 		           About our own JCSDK library  
 
        2. Access related APIs, see iOS_UnityBridge for details
-   
-       3. xcode - build setting configuration：  
        
-          bitcode set "NO"  
-          other Linker Flags set "-ObjC"
-      
-       4. Import system support library：  
-          Accelerate.framework  
-          AdSupport.framework  
-          AVFoundation.framework  
-          CoreGraphics.framework  
-          CoreLocation.framework  
-          CoreMedia.framework  
-          CoreMotion.framework  
-          CoreTelephony.framework  
-          iAd.framework  
-          MessageUI.framework  
-          SafariServices.framework  
-          Security.framework  
-          SystemConfiguration.framework  
-          UIKit.framework  
-          VideoToolbox.framework  
-          WebKit.framework  
-          AppTrackingTransparency.framework  
-          libbz2.tbd  
-          libc++.tbd  
-          libresolv.9.tbd  
-          libsqlite3.tbd  
-          libxml2.tbd  
-          libz.tbd  
-      
-       5. info.pist configuration：
-          
+       3. Xcode configuration  
+           
+           You can refer to the following list to configure manually. We also provide the "cs" file for reference. For details, see: "JCiOSSDKPostprocess.cs" in the "iOS_UnityBridge" file
+           
+           <details>
+           <summary>configuration List</summary>
+
+             1. xcode - build setting configuration：  
+       
+                bitcode set "NO"  
+                other Linker Flags set "-ObjC"  
+             
+             2. Add wifi permission  
+       
+                xcode - target - Signing&Capabilities . Upper left corner "+" Access WiFi Information  
+             
+             3. Import system support library：  
+                Accelerate.framework  
+                AdSupport.framework  
+                AVFoundation.framework  
+                CoreGraphics.framework  
+                CoreLocation.framework  
+                CoreMedia.framework  
+                CoreMotion.framework  
+                CoreTelephony.framework  
+                iAd.framework  
+                MessageUI.framework  
+                SafariServices.framework  
+                Security.framework  
+                SystemConfiguration.framework  
+                UIKit.framework  
+                VideoToolbox.framework  
+                WebKit.framework  
+                AppTrackingTransparency.framework  
+                libbz2.tbd  
+                libc++.tbd  
+                libresolv.9.tbd  
+                libsqlite3.tbd  
+                libxml2.tbd  
+                libz.tbd  
+                
+             4. info.pist configuration：  
+                
+                ```
+                 Support http network configuration:
+                 <key>NSAppTransportSecurity</key>
+                 <dict>
+                 <key>NSAllowsArbitraryLoads</key>
+                 <true/>
+                 </dict>
+
+                 Google configuration:
+                 <key>GADApplicationIdentifier</key>
+                 <string>ca-app-pub-9488501426181082/7319780494</string>
+                 <key>GADIsAdManagerApp</key>
+                 <true/>
+
+                 Get location permission configuration:
+                 <key>NSLocationWhenInUseUsageDescription</key>
+                 <string>The app needs to get your location</string>
+
+                 Get IDFA permissions ，iOS14support:
+                 <key>NSUserTrackingUsageDescription</key> 
+                 <string>This identifier will be used to deliver personalized ads to you.</string>
+
+                 <key>SKAdNetworkItems</key>
+                 <array>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>cstr6suwn9.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>238da6jt44.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>22mmun2rn5.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>SU67R6K2V3.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>4DZT52R2T5.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>bvpn9ufa9b.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>4PFYVQ9L8R.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>YCLNXRL5PM.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>V72QYCH5UU.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>TL55SBB4FM.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>T38B2KH725.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>PRCB7NJMU6.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>PPXM28T8AP.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>MLMMFZH3R3.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>KLF5C3L5U5.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>HS6BDUKANM.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>C6K4G5QG8M.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>9T245VHMPL.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>9RD848Q2BZ.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>8S468MFL3Y.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>7UG5ZH24HU.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>4FZDC2EVR5.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>4468KM3ULZ.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>3RD42EKR43.skadnetwork</string>
+                  </dict>
+                  <dict>
+                      <key>SKAdNetworkIdentifier</key>
+                      <string>2U9PT9HC89.skadnetwork</string>
+                  </dict>
+                  <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>KBD757YWX3.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>wg4vff78zm.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>737z793b9f.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>ydx93a7ass.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>prcb7njmu6.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>7UG5ZH24HU.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>44jx6755aq.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>2U9PT9HC89.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>W9Q455WK68.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>YCLNXRL5PM.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>TL55SBB4FM.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>8s468mfl3y.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>GLQZH8VGBY.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>c6k4g5qg8m.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>mlmmfzh3r3.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>4PFYVQ9L8R.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>av6w8kgt66.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>6xzpu9s2p8.skadnetwork</string>
+                 </dict>
+                 <dict>
+                     <key>SKAdNetworkIdentifier</key>
+                     <string>hs6bdukanm.skadnetwork</string>
+                 </dict>
+                 <dict>
+                         <key>SKAdNetworkIdentifier</key>
+                         <string>58922NB4GD.skadnetwork</string>
+                     </dict>
+                 <dict>
+                         <key>SKAdNetworkIdentifier</key>
+                         <string>V4NXQHLYQP.skadnetwork</string>
+                     </dict>
+                 <dict>
+                         <key>SKAdNetworkIdentifier</key>
+                         <string>GTA9LK7P23.skadnetwork</string>
+                     </dict>
+                </array>
             ```
-            Support http network configuration:
-            <key>NSAppTransportSecurity</key>
-            <dict>
-            <key>NSAllowsArbitraryLoads</key>
-            <true/>
-            </dict>
-
-            Google configuration:
-            <key>GADApplicationIdentifier</key>
-            <string>ca-app-pub-9488501426181082/7319780494</string>
-            <key>GADIsAdManagerApp</key>
-            <true/>
-
-            Get location permission configuration:
-            <key>NSLocationWhenInUseUsageDescription</key>
-            <string>The app needs to get your location</string>
-
-            Get IDFA permissions ，iOS14support:
-            <key>NSUserTrackingUsageDescription</key> 
-            <string>This identifier will be used to deliver personalized ads to you.</string>
             
-            <key>SKAdNetworkItems</key>
-            <array>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>cstr6suwn9.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>238da6jt44.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>22mmun2rn5.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>SU67R6K2V3.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>4DZT52R2T5.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>bvpn9ufa9b.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>4PFYVQ9L8R.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>YCLNXRL5PM.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>V72QYCH5UU.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>TL55SBB4FM.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>T38B2KH725.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>PRCB7NJMU6.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>PPXM28T8AP.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>MLMMFZH3R3.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>KLF5C3L5U5.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>HS6BDUKANM.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>C6K4G5QG8M.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>9T245VHMPL.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>9RD848Q2BZ.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>8S468MFL3Y.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>7UG5ZH24HU.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>4FZDC2EVR5.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>4468KM3ULZ.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>3RD42EKR43.skadnetwork</string>
-             </dict>
-             <dict>
-                 <key>SKAdNetworkIdentifier</key>
-                 <string>2U9PT9HC89.skadnetwork</string>
-             </dict>
-             <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>KBD757YWX3.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>wg4vff78zm.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>737z793b9f.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>ydx93a7ass.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>prcb7njmu6.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>7UG5ZH24HU.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>44jx6755aq.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>2U9PT9HC89.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>W9Q455WK68.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>YCLNXRL5PM.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>TL55SBB4FM.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>8s468mfl3y.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>GLQZH8VGBY.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>c6k4g5qg8m.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>mlmmfzh3r3.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>4PFYVQ9L8R.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>av6w8kgt66.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>6xzpu9s2p8.skadnetwork</string>
-            </dict>
-            <dict>
-                <key>SKAdNetworkIdentifier</key>
-                <string>hs6bdukanm.skadnetwork</string>
-            </dict>
-            <dict>
-                    <key>SKAdNetworkIdentifier</key>
-                    <string>58922NB4GD.skadnetwork</string>
-                </dict>
-            <dict>
-                    <key>SKAdNetworkIdentifier</key>
-                    <string>V4NXQHLYQP.skadnetwork</string>
-                </dict>
-            <dict>
-                    <key>SKAdNetworkIdentifier</key>
-                    <string>GTA9LK7P23.skadnetwork</string>
-                </dict>
-          </array>
-            ```
-            iOS14 support configuration details see [iOS14 support] document.  
-       
+                iOS14 support configuration details see [iOS14 support] document.  
+           </details>
+   
 
-        6. JCiOSConfig.plist Parameter Description：  Look at the downloaded "SDKFile" - "MS_SDK" file  
+        4. JCiOSConfig.plist Parameter Description：  Look at the downloaded "SDKFile" - "MS_SDK" file  
         
              V1.0.0 add  
 
@@ -355,9 +368,9 @@
              | ShowSplashFirst  | Whether to display an open-screen ad when opening the app for the first time，bool type: YES/NO |
              | LogLevel  | Log level: string type. 1. Close. 2. Open JC log. 3. Open JC+ad log. 4. Open JC+ad+data log |
              
-        7. Export xcode project  
+        5. Export xcode project  
         
-        8. Find UnityAppController.mm for initial access  
+        6. Find UnityAppController.mm for initial access  
       
            1. Import header file
                ```
@@ -393,7 +406,7 @@
                      }
                    }
                  ``` 
-       9. Import the downloaded library file. Look at the downloaded "SDKFile" file  
+       7. Import the downloaded library file. Look at the downloaded "SDKFile" file  
        
            Some of these libraries are dynamic libraries，xcode - target - General - Framework,Librares,and Embedded Content  
            Find the following library settings :(Embed & Sign):  
@@ -402,11 +415,8 @@
            > KochavaTracker.framework            (Embed & Sign)  
            > KochavaAdNetwork.framework          (Embed & Sign)
          
-       10. Add wifi permission  
-       
-           xcode - target - Signing&Capabilities . Upper left corner "+" Access WiFi Information  
       
-       11. Add a script to process the emulator binary file in “KSAdSDK”, otherwise the package will report an error  
+       8. Add a script to process the emulator binary file in “KSAdSDK”, otherwise the package will report an error  
        
            xcode - target - Build Phases . Upper left corner “+” New Run script Phases  
            open "Run script"  
