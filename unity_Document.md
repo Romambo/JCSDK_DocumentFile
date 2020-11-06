@@ -81,7 +81,9 @@
              ADThirdParty_SDK ：    Some libraries about advertising platforms  
              MS_SDK ： 		           About our own JCSDK library  
 
-       2. Access related APIs, see iOS_UnityBridge for details
+       2. Access related ads APIs and callback Apis  
+          
+          You can see the following "SDK access process and configuration" and "Advertising interface callback API and use" to implement it yourself.We also provide cs files, you can refer to "iOS_UnityBridge"
        
        3. Xcode configuration  
            
