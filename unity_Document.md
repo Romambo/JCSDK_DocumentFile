@@ -705,7 +705,7 @@
    
       请往下看"unity接入Api说明" 和 “广告接口回调Api和使用”。也可以使用我们提供的cs文件，详情见iOS_UnityBridge文件。    
       
-   3  Xcod相关配置  
+   3. Xcod相关配置  
       我们提供了配置cs文件，可以参考使用 ，也可以打成xcode工程后，自己手动配置。  
      <details>
      <summary>Xcod相关配置</summary>
