@@ -74,7 +74,12 @@
 
        1. Download SDK library and required support library: [download link]   
        
-           iOS_UnityBridge : unity api
+           File content description:  
+           iOS_UnityBridge : unity api  
+             "IOSBridge.cs"、"IOSBridgeExtern.cs": Advertising api  
+             "IOSListener.cs"、"IOSListenerExtern.cs": Advertising callback api  
+             "JCiOSSDKSynchronizationContext.cs"、"OneThreadSynchronizationContext.cs": Multi-threaded optimization file  
+             "JCiOSSDKPostprocess.cs": Access profile  
       
            SDKFile:  
              DataCollection_SDK ：  Some libraries about the data statistics platform  
@@ -706,12 +711,17 @@
   
    1. 下载SDK库和所需支持库：[下载链接]  
    
-      iOS_UnityBridge : unity api
+      文件内容说明:  
+         iOS_UnityBridge : unity api  
+             "IOSBridge.cs"、"IOSBridgeExtern.cs": 广告API  
+             "IOSListener.cs"、"IOSListenerExtern.cs": 广告回调API  
+             "JCiOSSDKSynchronizationContext.cs"、"OneThreadSynchronizationContext.cs": 多线程优化文件  
+             "JCiOSSDKPostprocess.cs": 配置文件  
       
-      SDKFile:  
-        DataCollection_SDK ：  Some libraries about the data statistics platform  
-        ADThirdParty_SDK ：    Some libraries about advertising platforms  
-        MS_SDK ： 		           About our own JCSDK library  
+         SDKFile:  
+             DataCollection_SDK ：  数据统计三方支持库  
+             ADThirdParty_SDK ：    广告三方支持库  
+             MS_SDK ： 		           JCSDK和参数配置plist文件  
         
    2. 接入相关广告Api和回调Api：  
    
