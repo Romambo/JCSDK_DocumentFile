@@ -348,7 +348,7 @@
                 </array>
             ```  
             
-        5. iOS14 support configuration details see [iOS14 support] document.  
+        iOS14 support configuration details see [iOS14 support] document.  
           
         </details>
    
@@ -639,7 +639,7 @@
 
          ```
 
-   </details>
+     </details>
    </details>
 
 -------------------------
