@@ -346,10 +346,11 @@
                          <string>GTA9LK7P23.skadnetwork</string>
                      </dict>
                 </array>
-            ```
+            ```  
             
-                iOS14 support configuration details see [iOS14 support] document.  
-           </details>
+        5. iOS14 support configuration details see [iOS14 support] document.  
+          
+        </details>
    
 
         4. JCiOSConfig.plist Parameter Description：  Look at the downloaded "SDKFile" - "MS_SDK" file  
