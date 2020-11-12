@@ -92,8 +92,9 @@
        
        3. Xcode configuration  
            
-           You can refer to the following list to configure manually. We also provide the "cs" file for reference. For details, see: "JCiOSSDKPostprocess.cs" in the "iOS_UnityBridge" file
+           You can refer to the following list to configure manually. We also provide the "cs" file for reference. For details, see: "JCiOSSDKPostprocess.cs" in the "iOS_UnityBridge" file.(Please put JCiOSSDKPostprocess.cs in the Editor directory of Unity3D IDE. If there is an error in JCiOSSDKPostprocess.cs, please modify it yourself to adapt to the version.)  
            
+           iOS14 support configuration details see [iOS14 support] document.  
            <details>
            <summary>configuration List</summary>
 
@@ -347,10 +348,9 @@
                      </dict>
                 </array>
             ```  
-            
-        iOS14 support configuration details see [iOS14 support] document.  
+          ```
           
-        </details>
+           </details>
    
 
         4. JCiOSConfig.plist Parameter Description：  Look at the downloaded "SDKFile" - "MS_SDK" file  
@@ -729,7 +729,7 @@
       请往下看"unity接入Api说明" 和 “广告接口回调Api和使用”。也可以使用我们提供的cs文件，详情见iOS_UnityBridge文件。    
       
    3. Xcod相关配置  
-      可以打成xcode工程后，自己手动配置。  我们也提供了配置cs文件，可以参考使用 ，详情见iOS_UnityBridge文件中JCiOSSDKPostprocess.cs
+      可以打成xcode工程后，自己手动配置。  我们也提供了配置cs文件，可以参考使用 ，详情见iOS_UnityBridge文件中JCiOSSDKPostprocess.cs(如果JCiOSSDKPostprocess.cs中存在错误，请自行进行修改以适应该版本。 请将JCiOSSDKPostprocess.cs放入Unity3D IDE的Editor目录中)  
       
        <details>
        <summary>Xcod相关配置</summary>
