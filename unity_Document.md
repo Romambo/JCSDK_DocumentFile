@@ -389,6 +389,8 @@
            > KochavaTracker.framework            (Embed & Sign)  
            > KochavaAdNetwork.framework          (Embed & Sign)  
            
+           Then build your project, make sure there are no errors  
+           
         7. Find UnityAppController.mm for initial access  
       
            1. Import header file
@@ -1023,6 +1025,8 @@
          > KochavaCore.framework               (Embed & Sign)  
          > KochavaTracker.framework            (Embed & Sign)  
          > KochavaAdNetwork.framework          (Embed & Sign)  
+         
+         然后build你的项目，确保没有报错  
          
     7. 找到UnityAppController.mm进行初始化接入  
       
