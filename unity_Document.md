@@ -378,7 +378,18 @@
              
         5. Export xcode project  
         
-        6. Find UnityAppController.mm for initial access  
+        6. Import the downloaded library file. Look at the downloaded "SDKFile" file  
+        
+           Right-click in the project and select "Add File to "you project"" to add the locally downloaded library file
+       
+           Some of these libraries are dynamic libraries，xcode - target - General - Framework,Librares,and Embedded Content  
+           Find the following library settings :(Embed & Sign):  
+           > KSAdSDK.framework                   (Embed & Sign)    
+           > KochavaCore.framework               (Embed & Sign)  
+           > KochavaTracker.framework            (Embed & Sign)  
+           > KochavaAdNetwork.framework          (Embed & Sign)  
+           
+        7. Find UnityAppController.mm for initial access  
       
            1. Import header file
                ```
@@ -414,14 +425,6 @@
                      }
                    }
                  ``` 
-       7. Import the downloaded library file. Look at the downloaded "SDKFile" file  
-       
-           Some of these libraries are dynamic libraries，xcode - target - General - Framework,Librares,and Embedded Content  
-           Find the following library settings :(Embed & Sign):  
-           > KSAdSDK.framework                   (Embed & Sign)    
-           > KochavaCore.framework               (Embed & Sign)  
-           > KochavaTracker.framework            (Embed & Sign)  
-           > KochavaAdNetwork.framework          (Embed & Sign)
          
       
        8. Add a script to process the emulator binary file in “KSAdSDK”, otherwise the package will report an error  
@@ -1012,7 +1015,16 @@
       | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
    
     5. 导出xcode工程  
-    6. 找到UnityAppController.mm进行初始化接入  
+    
+    6. 导入下载好的库文件  
+         工程内右键，选择“Add File to "you project"”来添加本地下载好的库文件  
+         其中某些库是动态库，xcode - target - General - Framework,Librares,and Embedded Content 找到以下库设置(Embed & Sign):  
+         > KSAdSDK.framework                   (Embed & Sign)    
+         > KochavaCore.framework               (Embed & Sign)  
+         > KochavaTracker.framework            (Embed & Sign)  
+         > KochavaAdNetwork.framework          (Embed & Sign)  
+         
+    7. 找到UnityAppController.mm进行初始化接入  
       
       1. 导入头文件
          ```
@@ -1045,12 +1057,6 @@
             }
           }
         ``` 
-     7. 导入下载好的库文件  
-         其中某些库是动态库，xcode - target - General - Framework,Librares,and Embedded Content 找到以下库设置(Embed & Sign):  
-         > KSAdSDK.framework                   (Embed & Sign)    
-         > KochavaCore.framework               (Embed & Sign)  
-         > KochavaTracker.framework            (Embed & Sign)  
-         > KochavaAdNetwork.framework          (Embed & Sign)
           
       
      8. 添加脚本处理KSAdSDK中的模拟器二进制，否则打包会报错  
