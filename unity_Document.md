@@ -98,14 +98,14 @@
            <details>
            <summary>configuration List</summary>
 
-             1. xcode - build setting configuration：  
+             1. xcode -> build setting configuration：  
        
                 bitcode set "NO"  
                 other Linker Flags set "-ObjC"  
              
              2. Add wifi permission  
        
-                xcode - target - Signing&Capabilities . Upper left corner "+" Access WiFi Information  
+                xcode -> target -> Signing&Capabilities . Upper left corner "+" Access WiFi Information  
              
              3. Import system support library：  
                 Accelerate.framework  
@@ -353,7 +353,7 @@
            </details>
    
 
-        4. JCiOSConfig.plist Parameter Description：  Look at the downloaded "SDKFile" - "MS_SDK" file  
+        4. JCiOSConfig.plist Parameter Description：  Look at the downloaded "SDKFile" -> "MS_SDK" file  
         
              V1.0.0 add  
 
@@ -382,7 +382,7 @@
         
            Right-click in the project and select "Add File to "you project"" to add the locally downloaded library file
        
-           Some of these libraries are dynamic libraries，xcode - target - General - Framework,Librares,and Embedded Content  
+           Some of these libraries are dynamic libraries，xcode -> target -> General -> Framework,Librares,and Embedded Content  
            Find the following library settings :(Embed & Sign):  
            > KSAdSDK.framework                   (Embed & Sign)    
            > KochavaCore.framework               (Embed & Sign)  
@@ -737,12 +737,12 @@
        <details>
        <summary>Xcod相关配置</summary>
 
-       1. xcode - build setting 配置：  
+       1. xcode -> build setting 配置：  
         bitcode 设置为NO  
         other Linker Flags 设置 -ObjC  
 
        2. 添加wifi权限  
-          xcode - target - Signing&Capabilities 左上角 "+" Access WiFi Information  
+          xcode -> target -> Signing&Capabilities 左上角 "+" Access WiFi Information  
 
        3. 导入系统支持库：  
           Accelerate.framework  
@@ -1018,7 +1018,7 @@
     
     6. 导入下载好的库文件  
          工程内右键，选择“Add File to "you project"”来添加本地下载好的库文件  
-         其中某些库是动态库，xcode - target - General - Framework,Librares,and Embedded Content 找到以下库设置(Embed & Sign):  
+         其中某些库是动态库，xcode -> target -> General -> Framework,Librares,and Embedded Content 找到以下库设置(Embed & Sign):  
          > KSAdSDK.framework                   (Embed & Sign)    
          > KochavaCore.framework               (Embed & Sign)  
          > KochavaTracker.framework            (Embed & Sign)  
