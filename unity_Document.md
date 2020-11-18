@@ -85,8 +85,7 @@
            SDKFile:(Put into xcode project)  
              DataCollection_SDK ：  Some libraries about the data statistics platform  
              ADThirdParty_SDK ：    Some libraries about advertising platforms  
-             MS_SDK ： 		           About our own JCSDK library  
-          *note:If there are zip files in it, please unzip them manually, because Google’s network disk may change the content, so we use compressed storage*  
+             MS_SDK ： 		           About our own JCSDK library   
           
        2. Access related ads APIs and callback Apis  
           
