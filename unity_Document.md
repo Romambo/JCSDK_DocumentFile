@@ -74,6 +74,7 @@
 
        1. Download SDK library and required support library: [download link]   
        
+           *note:If there are zip files in it, please unzip them manually, because Google’s network disk may change the content, so we use compressed storage*  
            File content description:  
            iOS_UnityBridge : unity api  
              "IOSBridge.cs"、"IOSBridgeExtern.cs": Advertising api  
