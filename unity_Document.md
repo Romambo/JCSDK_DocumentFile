@@ -74,19 +74,20 @@
 
        1. Download SDK library and required support library: [download link]   
        
-           *note:If there are zip files in it, please unzip them manually, because Google’s network disk may change the content, so we use compressed storage*  
-           File content description:  
+            
+           File content description:(Put into unity-Editor)  
            iOS_UnityBridge : unity api  
              "IOSBridge.cs"、"IOSBridgeExtern.cs": Advertising api  
              "IOSListener.cs"、"IOSListenerExtern.cs": Advertising callback api  
              "JCiOSSDKSynchronizationContext.cs"、"OneThreadSynchronizationContext.cs": Multi-threaded optimization file  
              "JCiOSSDKPostprocess.cs": Access profile  
       
-           SDKFile:  
+           SDKFile:(Put into xcode project)  
              DataCollection_SDK ：  Some libraries about the data statistics platform  
              ADThirdParty_SDK ：    Some libraries about advertising platforms  
              MS_SDK ： 		           About our own JCSDK library  
-
+          *note:If there are zip files in it, please unzip them manually, because Google’s network disk may change the content, so we use compressed storage*  
+          
        2. Access related ads APIs and callback Apis  
           
           You can see the following "SDK access process and configuration" and "Advertising interface callback API and use" to implement it yourself.We also provide cs files, you can refer to "iOS_UnityBridge"
