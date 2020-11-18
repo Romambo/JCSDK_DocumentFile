@@ -75,12 +75,12 @@
        1. Download SDK library and required support library: [download link]   
        
             
-           File content description:(Put into unity-Editor)  
+           File content description:(Put into unity)  
            iOS_UnityBridge : unity api  
              "IOSBridge.cs"、"IOSBridgeExtern.cs": Advertising api  
              "IOSListener.cs"、"IOSListenerExtern.cs": Advertising callback api  
              "JCiOSSDKSynchronizationContext.cs"、"OneThreadSynchronizationContext.cs": Multi-threaded optimization file  
-             "JCiOSSDKPostprocess.cs": Access profile  
+             "JCiOSSDKPostprocess.cs": Access profile(Put into unity-Editor)  
       
            SDKFile:(Put into xcode project)  
              DataCollection_SDK ：  Some libraries about the data statistics platform  
