@@ -6,7 +6,7 @@
 [图片1]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unity_image1.png
 [图片2]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image2.png
 [下载链接]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
-[download link]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
+[google download link]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
 [github download link]: https://github.com/Romambo/JCSDK_overseas  
 [github 下载链接]: https://github.com/Romambo/JCSDK_overseas  
 
@@ -75,7 +75,7 @@
        <details>
         <summary>content</summary>
 
-       1. Download SDK library and required support library: [download link] or [github download link]   
+       1. Download SDK library and required support library: [google download link] or [github download link]   
        
             
            File content description:(Put into unity)  
