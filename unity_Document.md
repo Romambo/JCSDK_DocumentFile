@@ -7,6 +7,9 @@
 [图片2]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image2.png
 [下载链接]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
 [download link]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
+[github download link]: https://github.com/Romambo/JCSDK_overseas  
+[github 下载链接]: https://github.com/Romambo/JCSDK_overseas  
+
 # JCSDK unity support document
  
  ### English version
@@ -72,7 +75,7 @@
        <details>
         <summary>content</summary>
 
-       1. Download SDK library and required support library: [download link]   
+       1. Download SDK library and required support library: [download link] or [github download link]   
        
             
            File content description:(Put into unity)  
@@ -716,7 +719,7 @@
    <summary>content</summary>
   
   
-   1. 下载SDK库和所需支持库：[下载链接]  
+   1. 下载SDK库和所需支持库：[下载链接] 或者 [github 下载链接]  
    
       文件内容说明:  
          iOS_UnityBridge : unity api  
