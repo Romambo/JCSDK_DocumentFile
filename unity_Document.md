@@ -17,61 +17,10 @@
    <details>
    <summary>Detailed documentation</summary>
 
-   - **SDK Introduction：**  
-          
-        1. Version record：  
-
-           <details>
-             <summary>1.0.0</summary>
-
-             support development tools: Xcode 11  
-             system version:iOS 9.0
-             </details>
-
-             <details>
-             <summary>2.0.0</summary>
-
-             support development tools: Xcode 12  
-             system version:iOS 9.0
-
-             **update content**  
-             >1.Added internal logic waterfall and continuous display  
-             >2.Added "kochava" and "tenjin" statistics  
-             >3.Change the SDK initialization interface used by Unity. see: JC_unityAdApi.h
-             ```
-             old code
-             //-(void)initJCSDKWithLog:(BOOL)isOpenLog isFirstShowSplash:(BOOL)isShow splashClose:(unityBlock)block;
-             new code
-             -(void)initJCSDKWithUnityShow:(unityBlock)block;
-             ```
-
-             >4.Change the log log interface, increase the log level.  see: JCAdCallBackHeader.h  
-             ```
-             old code
-             //+(void)setOpenPlatformLog:(BOOL)openPlatformLog;
-             new code
-             +(void)setTheLogLevel:(MSLogLevelStatus)logLevel;
-             ```
-
-             >5.Change JCiOSConfig.plist, add:   
-                "KochavaAppID":    kochava initialization parameters   
-                "TenJinAppID":     TenJin initialization parameters   
-                "ShowSplashFirst": Whether to display splash when the app is first opened. 
-                "LogLevel":loglevel 1、closeAll. 2、open JC_log. 3、open JC+AD log. 4、open JC+AD+Data log. Defaults:1  
-
-             **Project configuration：**  
-             * add System library:  
-                > AppTrackingTransparency.framework  
-             * add Third party library and file:
-                > KochavaCore.framework               (Embed & Sign)  
-                > KochavaTracker.framework            (Embed & Sign)  
-                > KochavaAdNetwork.framework          (Embed & Sign)  
-                > libTenjinSDK.a  
-                > TenjinSDK.h 
-             </details> 
 
    - **SDK access process and configuration**  
-
+   
+       Tools and version support required for development：xcode12 、iOS9.0  
        <details>
         <summary>content</summary>
 
@@ -92,13 +41,14 @@
           
        2. Access related ads APIs and callback Apis  
           
-          You can see the following "SDK access process and configuration" and "Advertising interface callback API and use" to implement it yourself.We also provide cs files, you can refer to "iOS_UnityBridge"
-       
+          You can use "IOSBridge.cs" and "IOSListener.cs" in the downloaded "iOS_UnityBridge" file，If you want to access Api in your own way, please refer to the "SDK access process and configuration" and "Ad interface callback API" content in the document  
+         
        3. Xcode configuration  
            
-           You can refer to the following list to configure manually. We also provide the "cs" file for reference. For details, see: "JCiOSSDKPostprocess.cs" in the "iOS_UnityBridge" file.(Please put JCiOSSDKPostprocess.cs in the Editor directory of Unity3D IDE. If there is an error in JCiOSSDKPostprocess.cs, please modify it yourself to adapt to the version.)  
+           We provide the "cs" file for reference. For details, see: "JCiOSSDKPostprocess.cs" in the "iOS_UnityBridge" file. (Please put JCiOSSDKPostprocess.cs into the Editor directory of Unity3D IDE. If there is an error in JCiOSSDKPostprocess.cs, please modify it yourself to adapt to the version)  
+           If you want to add configuration in your own way, please open the following foldable content for manual configuration  
            
-           iOS14 support configuration details see [iOS14 support] document.  
+           If you want to learn more about the configuration details supported by iOS14, please refer to the [iOS14 Support] document.  
            <details>
            <summary>configuration List</summary>
 
@@ -357,7 +307,7 @@
            </details>
    
 
-        4. JCiOSConfig.plist Parameter Description：  Look at the downloaded "SDKFile" -> "MS_SDK" file  
+        4. JCiOSConfig.plist Parameter Description：  Look at the downloaded "SDKFile" -> "MS_SDK" file.Developers are required to fill in, please ask for relevant id from our relevant staff  
         
              V1.0.0 add  
 
@@ -382,12 +332,12 @@
              
         5. Export xcode project  
         
-        6. Import the downloaded library file. Look at the downloaded "SDKFile" file  
+        6. Import all library files. Look at the downloaded "SDKFile" file  
         
-           Right-click in the project and select "Add File to "you project"" to add the locally downloaded library file
+           In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add  
        
-           Some of these libraries are dynamic libraries，xcode -> target -> General -> Framework,Librares,and Embedded Content  
-           Find the following library settings :(Embed & Sign):  
+           Some of these libraries are dynamic libraries，you need find Unity-iPhone target -> General -> Framework,Librares,and Embedded Content  
+           Find the following library and change "Do Not Embed"->"Embed & Sign" after them ,as follows:  
            > KSAdSDK.framework                   (Embed & Sign)    
            > KochavaCore.framework               (Embed & Sign)  
            > KochavaTracker.framework            (Embed & Sign)  
@@ -399,7 +349,7 @@
       
            1. Import header file
                ```
-               #import <JCSDK/JCSDK>
+               #import <JCSDK/JCSDK.h>
                #import <AppTrackingTransparency/AppTrackingTransparency.h>
                ```
          
