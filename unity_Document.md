@@ -659,65 +659,12 @@
 <details>
 <summary>详细文档</summary>
  
-- **SDK简介：**  
-
-   1. 版本记录：  
-   
-      <details>
-      <summary>1.0.0</summary>
-
-      支持开发者工具: Xcode 11  
-      系统版本:iOS 9.0
-      </details>
-
-      <details>
-      <summary>2.0.0</summary>
-
-      支持开发者工具: Xcode 12  
-      系统版本:iOS 9.0
-
-      **更新内容**  
-      >1.新增了流量组和连续展示功能逻辑、升级内部广告接口 V4 -> V5  
-      >2.新增 "kochava" and "tenjin" 数据统计平台  
-      >3.修改了unity使用者需要接入的OC初始化接口. 详情见: JC_unityAdApi.h
-      ```
-      旧代码
-      //-(void)initJCSDKWithLog:(BOOL)isOpenLog isFirstShowSplash:(BOOL)isShow splashClose:(unityBlock)block;
-      新代码
-      -(void)initJCSDKWithUnityShow:(unityBlock)block;
-      ```
-
-      >4.修改了iOS日志打印接口。新增日志等级功能，详情见: JCAdCallBackHeader.h  
-      ```
-      旧代码
-      //+(void)setOpenPlatformLog:(BOOL)openPlatformLog;
-      新代码
-      +(void)setTheLogLevel:(MSLogLevelStatus)logLevel;
-
-      ```
-
-      >5.修改了JCiOSConfig.plist文件, 新增字段:   
-         "KochavaAppID":    kochava 初始化参数   
-         "TenJinAppID":     TenJin 初始化参数   
-         "ShowSplashFirst": 应用首次打开是否展示开屏广告. 
-         "LogLevel":日志等级 1、关闭. 2、打开JC日志. 3、打开JC+广告日志. 4、打开JC+广告+数据日志. 默认值:1  
-
-      **项目配置：**  
-      * 添加系统库:  
-         > AppTrackingTransparency.framework  
-      * 添加第三方库和文件:
-         > KochavaCore.framework               (Embed & Sign)  
-         > KochavaTracker.framework            (Embed & Sign)  
-         > KochavaAdNetwork.framework          (Embed & Sign)  
-         > libTenjinSDK.a  
-         > TenjinSDK.h 
-      </details> 
-      
 - **SDK接入配置和操作**  
   
   <details>
    <summary>content</summary>
   
+   说明：接入所需支持： Xcode12 、iOS9.0
   
    1. 下载SDK库和所需支持库：[下载链接] 或者 [github 下载链接]  
    
@@ -735,7 +682,9 @@
         
    2. 接入相关广告Api和回调Api：  
    
-      请往下看"unity接入Api说明" 和 “广告接口回调Api和使用”。也可以使用我们提供的cs文件，详情见iOS_UnityBridge文件。    
+      
+      详情请看下载的iOS_UnityBridge文件中的"IOSBridge.cs"和"IOSListener.cs"。如果想按照自己的方式接入的话，请往下看大目录"unity接入Api说明" 和 “广告接口回调Api和使用”。
+      
       
    3. Xcod相关配置  
       可以打成xcode工程后，自己手动配置。  我们也提供了配置cs文件，可以参考使用 ，详情见iOS_UnityBridge文件中JCiOSSDKPostprocess.cs(如果JCiOSSDKPostprocess.cs中存在错误，请自行进行修改以适应该版本。 请将JCiOSSDKPostprocess.cs放入Unity3D IDE的Editor目录中)  
@@ -1024,7 +973,7 @@
     
     6. 导入下载好的库文件  
          工程内右键，选择“Add File to "you project"”来添加本地下载好的库文件  
-         其中某些库是动态库，xcode -> target -> General -> Framework,Librares,and Embedded Content 找到以下库设置(Embed & Sign):  
+         其中某些库是动态库，xcode -> target -> General -> Framework,Librares,and Embedded Content 找到以下库单独设置(Embed & Sign):  
          > KSAdSDK.framework                   (Embed & Sign)    
          > KochavaCore.framework               (Embed & Sign)  
          > KochavaTracker.framework            (Embed & Sign)  
