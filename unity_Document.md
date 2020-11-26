@@ -381,7 +381,7 @@
                      }
                    }
                  ``` 
-         
+          Run your project, then check the log: JC_Log:-->
       
        8. Add a script to process the emulator binary file in “KSAdSDK”, otherwise the package will report an error  
        
