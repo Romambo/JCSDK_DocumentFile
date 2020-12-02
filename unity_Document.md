@@ -337,30 +337,46 @@
         5. Export xcode project  
         
         6. Add all resource libraries and files to xcode projcet. Look at the downloaded "SDKFile" file  
-        
+            Since unity2019.3 and later versions, Unity-Framework becomes a Target independently, and the original Unity-Iphone Target relies on Unity-Framework to add configuration and related static libraries, and dynamic libraries still need to be added to Unity-Iphone Target  
             <details>
             <summary>Unity2019.2 and lower</summary>
 
               1、In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add    
-              ![图片1]
-              Opt-in target  
-              ![图片2]
-              2、Find the following library files in the Unity-iPhone target and modify their Embed  
-              Some of these libraries are dynamic libraries，you need find Unity-iPhone target -> General -> Framework,Librares,and Embedded Content  
-              Find the following library and change "Do Not Embed"->"Embed & Sign" after them ,as follows:  
+              ![图片1]  
+              Opt-in Unity-iPhone target    
+              ![图片2]  
+              2、Find the following dynamic library files in the Unity-iPhone target and modify their Embed  
+              find Unity-iPhone target -> General -> Framework,Librares,and Embedded Content  
+              change "Do Not Embed"->"Embed & Sign" after them ,as follows:  
               > KSAdSDK.framework                   (Embed & Sign)    
               > KochavaCore.framework               (Embed & Sign)  
               > KochavaTracker.framework            (Embed & Sign)  
               > KochavaAdNetwork.framework          (Embed & Sign)  
-              ![图片5]
+              
+             ![图片5]  
            
            Then build your project, make sure there are no errors 
             </details>
                
             <details>
             <summary>Unity2019.3 and later</summary>
-
-               
+              
+              
+              1、In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add    
+              ![图片1]  
+              Opt-in Unity-Framework target    
+              ![图片3]  
+              
+              2、Add the following dynamic library to Unity-iPhone Target，change "Do Not Embed"->"Embed & Sign" after them ,as follows:   
+              > KSAdSDK.framework                   (Embed & Sign)    
+              > KochavaCore.framework               (Embed & Sign)  
+              > KochavaTracker.framework            (Embed & Sign)  
+              > KochavaAdNetwork.framework          (Embed & Sign)  
+              How to add: Find Unity-iPhone target -> General -> Framework,Librares, and Embedded Content, then click "+", add other -> add files in the lower left corner (they are respectively in SDKFile->DataCollection_SDK->KochavaSDK, SDKFile-> ADThirdParty_SDK->KSAdSDK)  
+              ![图片4]  
+              
+              ![图片6]  
+              
             </details>
         
         6. Import all library files. Look at the downloaded "SDKFile" file  
