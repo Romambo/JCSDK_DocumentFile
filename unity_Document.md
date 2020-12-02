@@ -13,7 +13,7 @@
 [google download link]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
 [github download link]: https://github.com/Romambo/JCSDK_overseas  
 [github 下载链接]: https://github.com/Romambo/JCSDK_overseas  
-[look GitHub images]: 
+[look GitHub images]: https://github.com/Romambo/JCSDK_overseas/blob/main/How%20to%20display%20pictures%20on%20GitHub.md  
 # JCSDK unity support document
  
  ### English version
