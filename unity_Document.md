@@ -343,8 +343,11 @@
 
               1、In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add    
               ![图片1]  
-              Opt-in Unity-iPhone target    
+              
+              Opt-in Unity-iPhone target   
+              
               ![图片2]  
+              
               2、Find the following dynamic library files in the Unity-iPhone target and modify their Embed  
               find Unity-iPhone target -> General -> Framework,Librares,and Embedded Content  
               change "Do Not Embed"->"Embed & Sign" after them ,as follows:  
@@ -364,6 +367,7 @@
               
               1、In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add    
               ![图片1]  
+              
               Opt-in Unity-Framework target    
               ![图片3]  
               
@@ -374,6 +378,7 @@
               > KochavaAdNetwork.framework          (Embed & Sign)  
               
               How to add: Find Unity-iPhone target -> General -> Framework,Librares, and Embedded Content, then click "+", add other -> add files in the lower left corner (they are respectively in SDKFile->DataCollection_SDK->KochavaSDK, SDKFile-> ADThirdParty_SDK->KSAdSDK)  
+              
               ![图片4]  
               
               ![图片6]  
