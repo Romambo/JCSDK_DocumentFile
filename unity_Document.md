@@ -336,19 +336,19 @@
         
         6. Add all resource libraries and files to xcode projcet. Look at the downloaded "SDKFile" file  
         
-               <details>
-               <summary>Unity2018 and lower</summary>
+              <details>
+              <summary>Unity2018 and lower</summary>
 
-               1、In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add  
-               ![图片1]
-               2、
-               </details>
+                1、In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add  
+                ![图片1]
+                2、
+              </details>
                
-               <details>
-               <summary>Unity2018 and later</summary>
+              <details>
+              <summary>Unity2018 and later</summary>
 
                
-               </details>
+              </details>
         
         6. Import all library files. Look at the downloaded "SDKFile" file  
         
