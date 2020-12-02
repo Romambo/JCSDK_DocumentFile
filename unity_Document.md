@@ -372,25 +372,15 @@
               > KochavaCore.framework               (Embed & Sign)  
               > KochavaTracker.framework            (Embed & Sign)  
               > KochavaAdNetwork.framework          (Embed & Sign)  
+              
               How to add: Find Unity-iPhone target -> General -> Framework,Librares, and Embedded Content, then click "+", add other -> add files in the lower left corner (they are respectively in SDKFile->DataCollection_SDK->KochavaSDK, SDKFile-> ADThirdParty_SDK->KSAdSDK)  
               ![图片4]  
               
               ![图片6]  
               
+              Then build your project, make sure there are no errors  
             </details>
-        
-        6. Import all library files. Look at the downloaded "SDKFile" file  
-        
-           In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add  
-       
-           Some of these libraries are dynamic libraries，you need find Unity-iPhone target -> General -> Framework,Librares,and Embedded Content  
-           Find the following library and change "Do Not Embed"->"Embed & Sign" after them ,as follows:  
-           > KSAdSDK.framework                   (Embed & Sign)    
-           > KochavaCore.framework               (Embed & Sign)  
-           > KochavaTracker.framework            (Embed & Sign)  
-           > KochavaAdNetwork.framework          (Embed & Sign)  
            
-           Then build your project, make sure there are no errors  
            
         7. Find UnityAppController.mm for initial access  
       
