@@ -13,7 +13,7 @@
 [google download link]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
 [github download link]: https://github.com/Romambo/JCSDK_overseas  
 [github 下载链接]: https://github.com/Romambo/JCSDK_overseas  
-
+[look GitHub images]: 
 # JCSDK unity support document
  
  ### English version
@@ -338,6 +338,9 @@
         
         6. Add all resource libraries and files to xcode projcet. Look at the downloaded "SDKFile" file  
             Since unity2019.3 and later versions, Unity-Framework becomes a Target independently, and the original Unity-Iphone Target relies on Unity-Framework to add configuration and related static libraries, and dynamic libraries still need to be added to Unity-Iphone Target  
+            
+            If you cannot view the content of the image, please click [look GitHub images]  
+            
             <details>
             <summary>Unity2019.2 and lower</summary>
 
