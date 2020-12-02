@@ -7,6 +7,8 @@
 [图片2]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityOldVersion.png
 [图片3]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion.png
 [图片4]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/addEmbedFW.png
+[图片5]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityOldVersion_sign.png
+[图片6]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion_sign.png
 [下载链接]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
 [google download link]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
 [github download link]: https://github.com/Romambo/JCSDK_overseas  
@@ -339,9 +341,20 @@
             <details>
             <summary>Unity2019.2 and lower</summary>
 
-              1、In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add  
+              1、In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add    
               ![图片1]
+              Opt-in target  
               ![图片2]
+              2、Find the following library files in the Unity-iPhone target and modify their Embed  
+              Some of these libraries are dynamic libraries，you need find Unity-iPhone target -> General -> Framework,Librares,and Embedded Content  
+              Find the following library and change "Do Not Embed"->"Embed & Sign" after them ,as follows:  
+              > KSAdSDK.framework                   (Embed & Sign)    
+              > KochavaCore.framework               (Embed & Sign)  
+              > KochavaTracker.framework            (Embed & Sign)  
+              > KochavaAdNetwork.framework          (Embed & Sign)  
+              ![图片5]
+           
+           Then build your project, make sure there are no errors 
             </details>
                
             <details>
