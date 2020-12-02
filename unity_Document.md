@@ -3,8 +3,10 @@
 [JCSDK]: https://github.com/Romambo/JCSDK  
 [DataCollenction_SDK]: https://github.com/Romambo/DataCollection_SDK  
 [ADThirdParty_SDK]: https://github.com/Romambo/ADThirdParty_SDK  
-[图片1]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unity_image1.png
-[图片2]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/ios_image2.png
+[图片1]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/addFile.png
+[图片2]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityOldVersion.png
+[图片3]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion.png
+[图片4]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/addEmbedFW.png
 [下载链接]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
 [google download link]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
 [github download link]: https://github.com/Romambo/JCSDK_overseas  
@@ -331,6 +333,22 @@
              | LogLevel  | Log level: string type. 1. Close. 2. Open JC log. 3. Open JC+ad log. 4. Open JC+ad+data log |
              
         5. Export xcode project  
+        
+        6. Add all resource libraries and files to xcode projcet. Look at the downloaded "SDKFile" file  
+        
+               <details>
+               <summary>Unity2018 and lower</summary>
+
+               1、In the "class" directory, right-click to find "Add Files to "Unity-iPhone"" and click it, then a selection box will appear, find SDKFile, select it and add  
+               ![图片1]
+               2、
+               </details>
+               
+               <details>
+               <summary>Unity2018 and later</summary>
+
+               
+               </details>
         
         6. Import all library files. Look at the downloaded "SDKFile" file  
         
