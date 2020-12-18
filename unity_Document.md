@@ -9,8 +9,8 @@
 [图片4]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/addEmbedFW.png
 [图片5]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityOldVersion_sign.png
 [图片6]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion_sign.png
-[下载链接]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
-[google download link]: https://drive.google.com/drive/folders/11N8YLnhyPVxv4HmdGZYni8o59S9aHp7M
+[下载链接]: https://drive.google.com/drive/folders/1s87-1oURJZWzF834iGM-rYbmqnL1UdrL?usp=sharing
+[google download link]: https://drive.google.com/drive/folders/1s87-1oURJZWzF834iGM-rYbmqnL1UdrL?usp=sharing
 [github download link]: https://github.com/Romambo/JCSDK_overseas  
 [github 下载链接]: https://github.com/Romambo/JCSDK_overseas  
 [look GitHub images]: https://github.com/Romambo/JCSDK_overseas/blob/main/How%20to%20display%20pictures%20on%20GitHub.md  
