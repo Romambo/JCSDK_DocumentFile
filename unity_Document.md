@@ -387,7 +387,7 @@
               
               ![图片6]  
               
-              Find "plist" in the SDK file, "bundle" is a resource file with a suffix, click these files, and find the corresponding "Target Membership" in the right column of xcode, make sure they have also been added to the Unity-iPhone target, as follows Shown:   
+              Find "plist" in the SDK file, "bundle" is a resource file with a suffix, click these files, and find the corresponding "Target Membership" in the right column of xcode, make sure they have also been added to the Unity-iPhone target,especially make sure that JCiOSConfig.plist, otherwise the configuration inside may not be read, as follows Shown:   
               
               ![图片7]  
               
