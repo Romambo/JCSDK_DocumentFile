@@ -9,6 +9,7 @@
 [图片4]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/addEmbedFW.png
 [图片5]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityOldVersion_sign.png
 [图片6]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion_sign.png
+[图片7]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion_bundle.png
 [下载链接]: https://drive.google.com/drive/folders/1s87-1oURJZWzF834iGM-rYbmqnL1UdrL?usp=sharing
 [google download link]: https://drive.google.com/drive/folders/1s87-1oURJZWzF834iGM-rYbmqnL1UdrL?usp=sharing
 [github download link]: https://github.com/Romambo/JCSDK_overseas  
@@ -385,6 +386,10 @@
               ![图片4]  
               
               ![图片6]  
+              
+              Find "plist" in the SDK file, "bundle" is a resource file with a suffix, click these files, and find the corresponding "Target Membership" in the right column of xcode, make sure they have also been added to the Unity-iPhone target, as follows Shown:   
+              
+              ![图片7]  
               
               Then build your project, make sure there are no errors  
             </details>
