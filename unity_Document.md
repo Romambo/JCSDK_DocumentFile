@@ -435,8 +435,8 @@
       
        8. Add a script to process the emulator binary file in “KSAdSDK”, otherwise the package will report an error  
        
-           xcode - target - Build Phases . Upper left corner “+” New Run script Phases  
-           open "Run script"  
+           open xcode - find unity-iPhone target - find "Build Phases" . Upper left corner click “+” choose New Run script Phases  
+           Then a "Run script" will be generated, click it to open  
            Add the following script:  
         
            `APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"`  
