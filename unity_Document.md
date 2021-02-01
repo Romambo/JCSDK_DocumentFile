@@ -336,6 +336,14 @@
              | LogLevel  | Log level: string type. 1. Close. 2. Open JC log. 3. Open JC+ad log. 4. Open JC+ad+data log |
              
         5. Export xcode project  
+            After exporting the xcode project, please check the project’s info.plist for the permission configuration for http permission request. If not, please configure it manually (usually, the unity project will configure it by default).If it is not added, it may affect some advertising channel materials not being displayed.  
+            ```
+            <key>NSAppTransportSecurity</key>
+            <dict>
+             <key>NSAllowsArbitraryLoads</key>
+             <true/>
+            </dict>
+            ```
         
         6. Add all resource libraries and files to xcode projcet. Look at the downloaded "SDKFile" file  
             Since unity2019.3 and later versions, Unity-Framework becomes a Target independently, and the original Unity-Iphone Target relies on Unity-Framework to add configuration and related static libraries, and dynamic libraries still need to be added to Unity-Iphone Target  
@@ -970,16 +978,71 @@
       | LogLevel  | 日志等级：字符串1、关闭。2、开JC日志。3、开JC+ad日志。4、开JC+ad+data 日志 |
    
     5. 导出xcode工程  
-    
-    6. 导入下载好的库文件  
-         工程内右键，选择“Add File to "you project"”来添加本地下载好的库文件  
-         其中某些库是动态库，xcode -> target -> General -> Framework,Librares,and Embedded Content 找到以下库单独设置(Embed & Sign):  
-         > KSAdSDK.framework                   (Embed & Sign)    
-         > KochavaCore.framework               (Embed & Sign)  
-         > KochavaTracker.framework            (Embed & Sign)  
-         > KochavaAdNetwork.framework          (Embed & Sign)  
-         
-         然后build你的项目，确保没有报错  
+       请自行检查导出的xcode工程中info.plist文件内是否配置了关于http允许请求的配置，如果没有配置，将会影响某些广告渠道的广告素材无法显示。
+       ```
+       <key>NSAppTransportSecurity</key>
+       <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+       </dict>
+       ```
+        
+        6. 将所有的文件和相关库添加到xcode工程中. 详情请查看下载的“SDKFile”文件  
+            从unity2019.3和更高版本开始，Unity-Framework独立成为Target，原始的Unity-Iphone Target依靠Unity-Framework添加配置和相关的静态库，而动态库仍需要添加到Unity-Iphone Target  
+            
+            如果您无法查看图像的内容，请点击[look GitHub images]  
+            
+            <details>
+            <summary>Unity2019.2 and lower</summary>
+
+              1、在xcode工程的“class”类目中, 右键单击以找到“Add Files to“Unity-iPhone””，然后单击它，然后将出现一个选择框，找到下载的SDKFile，将其选中并添加    
+              ![图片1]  
+              
+              选择加入到 Unity-iPhone target中   
+              
+              ![图片2]  
+              
+              2、在Unity-iPhone target中General找到"Framework,Librares,and Embedded Content"，修改以下四个库的的链接状态"Do Not Embed"->"Embed & Sign"：  
+              > KSAdSDK.framework                   (Embed & Sign)    
+              > KochavaCore.framework               (Embed & Sign)  
+              > KochavaTracker.framework            (Embed & Sign)  
+              > KochavaAdNetwork.framework          (Embed & Sign)  
+              
+             ![图片5]  
+           
+           然后编译工程，查看是否有错误  
+            </details>
+               
+            <details>
+            <summary>Unity2019.3 and later</summary>
+              
+              
+              1、在xcode工程的“class”类目中, 右键单击以找到“Add Files to“Unity-iPhone””，然后单击它，然后将出现一个选择框，找到下载的SDKFile，将其选中并添加    
+              ![图片1]  
+              
+              选择加入到 Unity-Framework target中    
+              ![图片3]  
+              
+              2、将以下动态库添加到 Unity-iPhone Target中，并修改它们的链接状态 "Do Not Embed"->"Embed & Sign",如下:   
+              > KSAdSDK.framework                   (Embed & Sign)    
+              > KochavaCore.framework               (Embed & Sign)  
+              > KochavaTracker.framework            (Embed & Sign)  
+              > KochavaAdNetwork.framework          (Embed & Sign)  
+              
+               
+              如何添加：找到Unity-iPhone目标->General->Framework,Librares, and Embedded Content，然后单击“ +”，add other->在左下角选择“add files”（它们分别在SDKFile-> DataCollection_SDK->中 KochavaSDK，SDKFile-> ADThirdParty_SDK-> KSAdSDK）
+              ![图片4]  
+              
+              ![图片6]  
+              
+              在SDK文件中找到“ plist”，“ bundle”是带有后缀的资源文件，单击这些文件，然后在xcode的右列中找到相应的“ Target Membership”，确保它们也已添加到Unity- iPhone目标，尤其要确保JCiOSConfig.plist，否则可能无法读取其中的配置，如下所示：   
+              
+              ![图片7]  
+              
+              然后编译项目，确保没有报错  
+            </details>
+           
+            
          
     7. 找到UnityAppController.mm进行初始化接入  
       
