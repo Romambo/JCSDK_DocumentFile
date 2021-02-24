@@ -53,6 +53,17 @@
    > TenjinSDK.h 
 </details>
 
+<details>
+<summary>3.0.0</summary>
+
+支持开发者工具: Xcode 12  
+系统版本:iOS 9.0  
+
+**更新内容**  
+>1.更新SDK版本3.0.0，支持topon5.7.13 以及对应的第三方广告库  
+>2.优化内部开屏相关逻辑和启动广告请求延时加载功能  
+
+</details>
 
 ## Version of the record
 
@@ -105,3 +116,14 @@ new code
    > TenjinSDK.h 
 </details>
 
+<details>
+<summary>3.0.0</summary>
+
+support development tools: Xcode 12  
+system version:iOS 9.0  
+
+**update content**   
+>1.Update SDK version 3.0.0, support topo 5.7.13 and corresponding third-party advertising library  
+>2.Optimize internal screen-opening related logic and start the delayed loading function of ad request  
+
+</details>
