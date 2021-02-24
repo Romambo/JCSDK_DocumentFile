@@ -11,7 +11,7 @@
 [图片6]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion_sign.png
 [图片7]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion_bundle.png
 [下载链接]: https://drive.google.com/drive/folders/1s87-1oURJZWzF834iGM-rYbmqnL1UdrL?usp=sharing
-[google download link]: https://drive.google.com/drive/folders/1s87-1oURJZWzF834iGM-rYbmqnL1UdrL?usp=sharing
+[google download link]: https://drive.google.com/drive/folders/1TkAf79-1z1hQfY_2tZa-GOcdmOfU_7R6?usp=sharing
 [github download link]: https://github.com/Romambo/JCSDK_overseas  
 [github 下载链接]: https://github.com/Romambo/JCSDK_overseas  
 [look GitHub images]: https://github.com/Romambo/JCSDK_overseas/blob/main/How%20to%20display%20pictures%20on%20GitHub.md  
