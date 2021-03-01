@@ -987,15 +987,15 @@
        </dict>
        ```
         
-        6. 将所有的文件和相关库添加到xcode工程中. 详情请查看下载的“SDKFile”文件  
-            从unity2019.3和更高版本开始，Unity-Framework独立成为Target，原始的Unity-Iphone Target依靠Unity-Framework添加配置和相关的静态库，而动态库仍需要添加到Unity-Iphone Target  
+     6. 将所有的文件和相关库添加到xcode工程中. 详情请查看下载的“SDKFile”文件  
+           从unity2019.3和更高版本开始，Unity-Framework独立成为Target，原始的Unity-Iphone Target依靠Unity-Framework添加配置和相关的静态库，而动态库仍需要添加到Unity-Iphone Target  
             
-            如果您无法查看图像的内容，请点击[look GitHub images]  
+           如果您无法查看图像的内容，请点击[look GitHub images]  
             
-            <details>
-            <summary>Unity2019.2 and lower</summary>
+           <details>
+           <summary>Unity2019.2 and lower</summary>
 
-              1、在xcode工程的“class”类目中, 右键单击以找到“Add Files to“Unity-iPhone””，然后单击它，然后将出现一个选择框，找到下载的SDKFile，将其选中并添加    
+             1、在xcode工程的“class”类目中, 右键单击以找到“Add Files to“Unity-iPhone””，然后单击它，然后将出现一个选择框，找到下载的SDKFile，将其选中并添加    
               ![图片1]  
               
               选择加入到 Unity-iPhone target中   
@@ -1010,11 +1010,11 @@
               
              ![图片5]  
            
-           然后编译工程，查看是否有错误  
-            </details>
+            然后编译工程，查看是否有错误  
+           </details>
                
-            <details>
-            <summary>Unity2019.3 and later</summary>
+           <details>
+           <summary>Unity2019.3 and later</summary>
               
               
               1、在xcode工程的“class”类目中, 右键单击以找到“Add Files to“Unity-iPhone””，然后单击它，然后将出现一个选择框，找到下载的SDKFile，将其选中并添加    
@@ -1040,7 +1040,7 @@
               ![图片7]  
               
               然后编译项目，确保没有报错  
-            </details>
+           </details>
            
             
          
