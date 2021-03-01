@@ -10,9 +10,9 @@
 [图片5]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityOldVersion_sign.png
 [图片6]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion_sign.png
 [图片7]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion_bundle.png
-[下载链接]: https://drive.google.com/drive/folders/1s87-1oURJZWzF834iGM-rYbmqnL1UdrL?usp=sharing
 [google download link]: https://drive.google.com/drive/folders/1TkAf79-1z1hQfY_2tZa-GOcdmOfU_7R6?usp=sharing
 [github download link]: https://github.com/Romambo/JCSDK_overseas  
+[Google 下载链接]: https://drive.google.com/drive/folders/1s87-1oURJZWzF834iGM-rYbmqnL1UdrL?usp=sharing
 [github 下载链接]: https://github.com/Romambo/JCSDK_overseas  
 [look GitHub images]: https://github.com/Romambo/JCSDK_overseas/blob/main/How%20to%20display%20pictures%20on%20GitHub.md  
 # JCSDK unity support document
@@ -674,7 +674,7 @@
   
    说明：接入所需支持： Xcode12 、iOS9.0
   
-   1. 下载SDK库和所需支持库：[下载链接] 或者 [github 下载链接]  
+   1. 下载SDK库和所需支持库：[Google 下载链接] 或者 [github 下载链接]  
    
       文件内容说明:  
          iOS_UnityBridge : unity api  
@@ -1046,10 +1046,10 @@
     7. 找到UnityAppController.mm进行初始化接入  
       
        1. 导入头文件
-         ```
-         #import <JCSDK/JCSDK>
-         #import <AppTrackingTransparency/AppTrackingTransparency.h>
-         ```
+          ```
+          #import <JCSDK/JCSDK>
+          #import <AppTrackingTransparency/AppTrackingTransparency.h>
+          ```
          
        2. 接入初始化
           找到[self performSelector: @selector(startUnity:) withObject: application afterDelay: 0];  
@@ -1075,8 +1075,7 @@
                 }];
             }
           }
-        ``` 
-          
+          ``` 
       
      8. 添加脚本处理KSAdSDK中的模拟器二进制，否则打包会报错  
         xcode - target - Build Phases 左上角 “+” New Run script Phases  
