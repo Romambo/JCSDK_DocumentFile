@@ -1045,7 +1045,7 @@
          
     7. 找到UnityAppController.mm进行初始化接入  
       
-      1. 导入头文件
+       1. 导入头文件
          ```
          #import <JCSDK/JCSDK>
          #import <AppTrackingTransparency/AppTrackingTransparency.h>
