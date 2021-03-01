@@ -988,59 +988,58 @@
        ```
         
      6. 将所有的文件和相关库添加到xcode工程中. 详情请查看下载的“SDKFile”文件  
-           从unity2019.3和更高版本开始，Unity-Framework独立成为Target，原始的Unity-Iphone Target依靠Unity-Framework添加配置和相关的静态库，而动态库仍需要添加到Unity-Iphone Target  
+         从unity2019.3和更高版本开始，Unity-Framework独立成为Target，原始的Unity-Iphone Target依靠Unity-Framework添加配置和相关的静态库，而动态库仍需要添加到Unity-Iphone Target  
             
-           如果您无法查看图像的内容，请点击[look GitHub images]  
+         如果您无法查看图像的内容，请点击[look GitHub images]  
             
-           <details>
-           <summary>Unity2019.2 and lower</summary>
+         <details>
+         <summary>Unity2019.2 and lower</summary>
 
-             1、在xcode工程的“class”类目中, 右键单击以找到“Add Files to“Unity-iPhone””，然后单击它，然后将出现一个选择框，找到下载的SDKFile，将其选中并添加    
-              ![图片1]  
+         1、在xcode工程的“class”类目中, 右键单击以找到“Add Files to“Unity-iPhone””，然后单击它，然后将出现一个选择框，找到下载的SDKFile，将其选中并添加    
+           ![图片1]  
               
-              选择加入到 Unity-iPhone target中   
+           选择加入到 Unity-iPhone target中   
               
-              ![图片2]  
+           ![图片2]  
               
-              2、在Unity-iPhone target中General找到"Framework,Librares,and Embedded Content"，修改以下四个库的的链接状态"Do Not Embed"->"Embed & Sign"：  
-              > KSAdSDK.framework                   (Embed & Sign)    
-              > KochavaCore.framework               (Embed & Sign)  
-              > KochavaTracker.framework            (Embed & Sign)  
-              > KochavaAdNetwork.framework          (Embed & Sign)  
+         2、在Unity-iPhone target中General找到"Framework,Librares,and Embedded Content"，修改以下四个库的的链接状态"Do Not Embed"->"Embed & Sign"：  
+            > KSAdSDK.framework                   (Embed & Sign)    
+            > KochavaCore.framework               (Embed & Sign)  
+            > KochavaTracker.framework            (Embed & Sign)  
+            > KochavaAdNetwork.framework          (Embed & Sign)  
               
-             ![图片5]  
+           ![图片5]  
            
-            然后编译工程，查看是否有错误  
-           </details>
+           然后编译工程，查看是否有错误  
+         </details>
                
-           <details>
-           <summary>Unity2019.3 and later</summary>
+         <details>
+         <summary>Unity2019.3 and later</summary>
               
               
-              1、在xcode工程的“class”类目中, 右键单击以找到“Add Files to“Unity-iPhone””，然后单击它，然后将出现一个选择框，找到下载的SDKFile，将其选中并添加    
+          1、在xcode工程的“class”类目中, 右键单击以找到“Add Files to“Unity-iPhone””，然后单击它，然后将出现一个选择框，找到下载的SDKFile，将其选中并添加    
               ![图片1]  
               
-              选择加入到 Unity-Framework target中    
+           选择加入到 Unity-Framework target中    
               ![图片3]  
               
-              2、将以下动态库添加到 Unity-iPhone Target中，并修改它们的链接状态 "Do Not Embed"->"Embed & Sign",如下:   
+          2、将以下动态库添加到 Unity-iPhone Target中，并修改它们的链接状态 "Do Not Embed"->"Embed & Sign",如下:   
               > KSAdSDK.framework                   (Embed & Sign)    
               > KochavaCore.framework               (Embed & Sign)  
               > KochavaTracker.framework            (Embed & Sign)  
               > KochavaAdNetwork.framework          (Embed & Sign)  
               
                
-              如何添加：找到Unity-iPhone目标->General->Framework,Librares, and Embedded Content，然后单击“ +”，add other->在左下角选择“add files”（它们分别在SDKFile-> DataCollection_SDK->中 KochavaSDK，SDKFile-> ADThirdParty_SDK-> KSAdSDK）
+           如何添加：找到Unity-iPhone目标->General->Framework,Librares, and Embedded Content，然后单击“ +”，add other->在左下角选择“add files”（它们分别在SDKFile-> DataCollection_SDK->中 KochavaSDK，SDKFile-> ADThirdParty_SDK-> KSAdSDK）
               ![图片4]  
-              
+           如下
               ![图片6]  
               
-              在SDK文件中找到“ plist”，“ bundle”是带有后缀的资源文件，单击这些文件，然后在xcode的右列中找到相应的“ Target Membership”，确保它们也已添加到Unity- iPhone目标，尤其要确保JCiOSConfig.plist，否则可能无法读取其中的配置，如下所示：   
-              
+           在SDK文件中找到“ plist”，“ bundle”是带有后缀的资源文件，单击这些文件，然后在xcode的右列中找到相应的“ Target Membership”，确保它们也已添加到Unity- iPhone目标，尤其要确保JCiOSConfig.plist，否则可能无法读取其中的配置，如下所示：   
               ![图片7]  
               
-              然后编译项目，确保没有报错  
-           </details>
+           然后编译项目，确保没有报错  
+         </details>
            
             
          
