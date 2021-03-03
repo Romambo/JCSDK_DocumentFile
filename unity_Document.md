@@ -15,6 +15,8 @@
 [Google 下载链接]: https://drive.google.com/drive/folders/1TkAf79-1z1hQfY_2tZa-GOcdmOfU_7R6?usp=sharing
 [github 下载链接]: https://github.com/Romambo/JCSDK_overseas  
 [look GitHub images]: https://github.com/Romambo/JCSDK_overseas/blob/main/How%20to%20display%20pictures%20on%20GitHub.md  
+[Version of the record]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/README.md
+[版本记录]: https://github.com/Romambo/JCSDK_DocumentFile/blob/main/README.md
 # JCSDK unity support document
  
  ### English version
@@ -22,7 +24,8 @@
    <details>
    <summary>Detailed documentation</summary>
 
-
+   [Version of the record]
+   
    - **SDK access process and configuration**  
    
        Tools and version support required for development：xcode12 、iOS9.0  
@@ -666,6 +669,8 @@
 
 <details>
 <summary>详细文档</summary>
+ 
+ [版本记录]
  
 - **SDK接入配置和操作**  
   
