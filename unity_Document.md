@@ -22,10 +22,9 @@
  ### English version
 
    <details>
-   <summary>Detailed documentation</summary>
+   <summary>Detailed documentation</summary>  
 
-
-   ---[Version of the record]
+   [Version of the record]
    
    - **SDK access process and configuration**  
    
@@ -669,10 +668,9 @@
 
 
 <details>
-<summary>详细文档</summary>
+<summary>详细文档</summary>  
  
- 
- ---[版本记录]
+ [版本记录]
  
 - **SDK接入配置和操作**  
   
