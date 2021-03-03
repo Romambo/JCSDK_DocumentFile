@@ -123,7 +123,7 @@ support development tools: Xcode 12
 system version:iOS 9.0  
 
 **update content**   
->1.Update SDK version 3.0.0, support topo 5.7.13 and corresponding third-party advertising library  
+>1.Update SDK version 3.0.0, support topon 5.7.13 and corresponding third-party advertising library  
 >2.Optimize internal screen-opening related logic and start the delayed loading function of ad request  
 
 </details>
