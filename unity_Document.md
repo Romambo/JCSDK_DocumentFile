@@ -416,6 +416,13 @@
               
               Then build your project, make sure there are no errors  
               
+              If you encounter an error similar to the following,this is caused by the compilation mode of the new version of xcode  
+              ![图片8]  
+             1、Try to change to the old compilation mode:  
+              ![图片9]  
+              ![图片10]  
+             2、Or modify xcode to automatically manage the workspace:  
+              ![图片11]  
               
             </details>
            
@@ -1030,6 +1037,18 @@
            ![图片5]  
            
            然后编译工程，查看是否有错误  
+           
+           如果你遇到类似下面的错误，那么是新版xcode的编译模式导致的：    
+               ![图片8]  
+               
+           1、尝试修改xcode的编译模式:  
+           
+           ![图片9]  
+              
+           ![图片10]  
+           2、或者开启Xcode的自动管理工作空间:  
+           
+           ![图片11]  
          </details>
                
          <details>
