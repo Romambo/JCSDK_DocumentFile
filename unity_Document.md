@@ -10,6 +10,10 @@
 [图片5]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityOldVersion_sign.png
 [图片6]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion_sign.png
 [图片7]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/unityNewVersion_bundle.png
+[图片8]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/build_error0.png
+[图片9]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/build_error1.png
+[图片10]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/build_error2.png
+[图片11]:https://github.com/Romambo/JCSDK_DocumentFile/blob/main/imageFile/build_error3.png
 [google download link]: https://drive.google.com/drive/folders/1TkAf79-1z1hQfY_2tZa-GOcdmOfU_7R6?usp=sharing
 [github download link]: https://github.com/Romambo/JCSDK_overseas  
 [Google 下载链接]: https://drive.google.com/drive/folders/1TkAf79-1z1hQfY_2tZa-GOcdmOfU_7R6?usp=sharing
@@ -373,7 +377,15 @@
               
              ![图片5]  
            
-           Then build your project, make sure there are no errors 
+           Then build your project, make sure there are no errors  
+           
+           If you encounter an error similar to the following,this is caused by the compilation mode of the new version of xcode  
+              ![图片8]  
+             1、Try to change to the old compilation mode:  
+              ![图片9]  
+              ![图片10]  
+             2、Or modify xcode to automatically manage the workspace:  
+              ![图片11]  
             </details>
                
             <details>
@@ -403,6 +415,8 @@
               ![图片7]  
               
               Then build your project, make sure there are no errors  
+              
+              
             </details>
            
            
