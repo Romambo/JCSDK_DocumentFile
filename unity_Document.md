@@ -448,7 +448,7 @@
           
                Add the following code  
              
-                    ```
+                 ```
                     
                    -(void)initSDKWithApplication:(UIApplication*)application{
                      if (@available(iOS 14, *)) {
