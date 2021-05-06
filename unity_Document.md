@@ -27,8 +27,13 @@
 
    <details>
    <summary>Detailed documentation</summary>  
-
-   [Version of the record]
+ 
+   - **SDK Introduction：**  
+      JCSDK is a set of advertising SDK provided by MS. It integrates the advertising SDKs of major advertisers and related data statistics SDKs to facilitate the joint operation and data analysis of in-app advertising between platforms.  
+   1. Support ad types：  
+        splash ads、banner ads、rewardVideo ads、inter ads、native ads  
+   2. Version record：  
+        [Version of the record]
    
    - **SDK access process and configuration**  
    
