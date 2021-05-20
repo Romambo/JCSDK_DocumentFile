@@ -501,11 +501,11 @@
             done
 
             ```
-        9. About IDFA user tracking permission description: If you publish an application in a certain country, please use the country’s text to describe (the configuration file defaults to English), the following is the Chinese description:  
+        9. About IDFA user tracking permission description: If you publish an application in a certain country, please use the country’s text to describe (the configuration file defaults to Chinese), the following is the English description:  
 
            ```
             <key>NSUserTrackingUsageDescription</key>
-            <string>应用程序需要访问您的IDFA来追踪广告来源，便于向您提供更精准的广告服务</string>
+            <string>We need to access your IDFA to track the source of advertising and provide you with accurate advertising services</string>
            ```
         </details>
        
@@ -1173,11 +1173,11 @@
         ` done`  
            
            
-        9. 关于IDFA用户跟踪权限说明：如果您在某个国家/地区发布应用程序，请使用该国家/地区的文字进行描述（配置文件默认为英语），以下为中文描述：  
+        9. 关于IDFA用户跟踪权限说明：如果您在某个国家/地区发布应用程序，请使用该国家/地区的文字进行描述（配置文件默认为中文），以下为英文描述：  
 
            ```
             <key>NSUserTrackingUsageDescription</key>
-            <string>应用程序需要访问您的IDFA来追踪广告来源，便于向您提供更精准的广告服务</string>
+            <string>We need to access your IDFA to track the source of advertising and provide you with accurate advertising services</string>
            ```       
      </details>  
 - **unity接入Api说明：**  
